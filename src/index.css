@@ -1,0 +1,61 @@
+:root {
+	/* --color-primary: #f8fafd; */
+	--color-primary: rgba(229, 236, 247, 0.349);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-size: 1.6rem;
+	background-color: var(--color-primary);
+	height: 100vh;
+	overflow: hidden;
+}
+
+img {
+	display: block;
+	object-fit: cover;
+}
+
+input,
+input:focus {
+	border: 0;
+	outline: 0;
+	background-color: transparent;
+}
+
+@media screen and (max-width: 992px) {
+	html {
+		font-size: 55%;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	html {
+		font-size: 50%;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	html {
+		font-size: 40%;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	html {
+		font-size: 30%;
+	}
+}
+
+@media screen and (max-width: 350px) {
+	html {
+		font-size: 25%;
+	}
+}
