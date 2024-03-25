@@ -9,7 +9,7 @@ import { useFormState } from "../../state-management";
 
 const NavBar = () => {
 	const iconStyle = {
-		iconSize: 25,
+		iconSize: 23,
 		iconColor: "rgb(95, 99, 104)",
 	};
 
@@ -22,18 +22,18 @@ const NavBar = () => {
 
 	return (
 		<Nav>
-			<ContainerLeft className="col-8">
+			<ContainerLeft>
 				<IconWrapper>
 					<Icon>
 						<IoMdMenu size={iconStyle.iconSize} color={iconStyle.iconColor} />
 					</Icon>
 					<Logo />
 				</IconWrapper>
-				<Search className="col-9" style={formStyle} onClick={setFormStateOn}>
+				<Search className="col-9" style={formStyle}>
 					<Icon>
 						<IoSearchSharp size={iconStyle.iconSize} color={iconStyle.iconColor} />
 					</Icon>
-					<FormContainer>
+					<FormContainer onClick={setFormStateOn}>
 						<Form />
 					</FormContainer>
 					<Icon>

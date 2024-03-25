@@ -7,7 +7,6 @@ const MainContainer = styled.main`
 
 const LeftAsideContainer = styled.aside`
 	min-width: 25rem;
-	padding-right: 2rem;
 `;
 
 const RightAsideContainer = styled.aside`

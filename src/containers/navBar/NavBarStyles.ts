@@ -10,8 +10,9 @@ const Nav = styled.nav`
 
 const ContainerLeft = styled.div`
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
+
+	width: 65%;
 `;
 
 const ContainerRight = styled.div`
@@ -32,6 +33,8 @@ const Search = styled.div`
 	padding: 0.5rem 0.7rem;
 	border-radius: 5rem;
 	transition: all 0.3s;
+
+	margin: 0 0 0 7.8rem;
 `;
 
 const FormContainer = styled.div`

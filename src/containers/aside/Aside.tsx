@@ -1,15 +1,16 @@
-import { Link } from "react-router-dom";
+import { BtnCompose, ListItems } from "../../components";
+import { BtnComposeWrapper } from "./AsideStyles";
 
 const Aside = () => {
 	return (
 		<>
-			<li className="bg-info">
-				<Link to="/inbox">inbox</Link>
-			</li>
+			<BtnComposeWrapper>
+				<BtnCompose />
+			</BtnComposeWrapper>
 
-			<li>
-				<Link to="/promotion">primary</Link>
-			</li>
+			<div className="pe-4 asideWrapper" style={{ overflowY: "auto", height: "76vh" }}>
+				<ListItems />
+			</div>
 		</>
 	);
 };

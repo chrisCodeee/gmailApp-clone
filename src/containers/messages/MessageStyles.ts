@@ -8,6 +8,18 @@ const MessageWrapper = styled.div`
 	@media screen and (max-width: 992px) {
 		height: 90vh;
 	}
+
+	&::-webkit-scrollbar {
+		width: 12px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: #888;
+	}
+
+	&::-webkit-scrollbar-track-piece {
+		background-color: #cccccc54;
+	}
 `;
 
 export { MessageWrapper };

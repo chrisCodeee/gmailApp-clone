@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { ErrorPage, Home, Inbox, Promotion } from "./pages";
+import { ErrorPage, Home, Inbox, Promotion, Starred } from "./pages";
 import { App } from "./app";
 
 const route = createBrowserRouter([
@@ -14,6 +14,7 @@ const route = createBrowserRouter([
 				children: [
 					{ path: "/inbox", element: <Inbox /> },
 					{ path: "/promotion", element: <Promotion /> },
+					{ path: "/starred", element: <Starred /> },
 				],
 			},
 		],
