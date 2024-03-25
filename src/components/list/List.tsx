@@ -5,7 +5,7 @@ type ListProps = {
 	icon: ReactNode;
 	name: string;
 	count?: string; //Change Later to number
-	link?: any;
+	link?: any; //Change to string
 	bg?: string;
 };
 

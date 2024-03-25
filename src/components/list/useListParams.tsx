@@ -16,7 +16,7 @@ const useListParams = () => {
 		{ icon: <RiStarSLine size={iconSize} />, name: "Starred", count: "", link: "/starred" },
 		{ icon: <TbClockHour5 size={iconSize} />, name: "Snoozed", count: "", link: "/snoozed" },
 		{ icon: <MdSend size={iconSize} />, name: "Sent", count: "", link: "/sent" },
-		{ icon: <AiOutlineFile size={iconSize} />, name: "Drafts", count: "", link: "/drafts" },
+		{ icon: <AiOutlineFile size={iconSize} />, name: "Drafts", count: "", link: "/draft" },
 	];
 
 	const list_2 = [
@@ -29,7 +29,7 @@ const useListParams = () => {
 	];
 
 	const list_3 = [
-		{ icon: <AiOutlineSetting size={iconSize} />, name: "Manage labels", link: "/settings" },
+		{ icon: <AiOutlineSetting size={iconSize} />, name: "Manage labels", link: "/settings/labels" },
 		{ icon: <HiPlus size={iconSize} />, name: "Create new labels", link: "" },
 	];
 
