@@ -5,14 +5,14 @@
 	--color-text: rgb(32, 33, 36);
 }
 
-div.asideWrapper::-webkit-scrollbar {
+/* div.asideWrapper::-webkit-scrollbar {
 	width: 8px;
 }
 
 div.asideWrapper::-webkit-scrollbar-thumb {
 	background-color: #888;
 	border-radius: 10px;
-}
+} */
 /* div.messageContainer::-webkit-scrollbar {
 	width: 12px;
 }

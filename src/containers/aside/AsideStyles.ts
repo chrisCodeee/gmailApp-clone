@@ -5,4 +5,19 @@ const BtnComposeWrapper = styled.div`
 	margin: 0 0 1.4rem 0;
 `;
 
-export { BtnComposeWrapper };
+const ListWrapper = styled.div`
+	overflow-y: auto;
+	height: 76vh;
+	padding: 0 1.5rem 0 0;
+
+	&::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: #888;
+		border-radius: 10px;
+	}
+`;
+
+export { BtnComposeWrapper, ListWrapper };

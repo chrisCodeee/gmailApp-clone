@@ -7,8 +7,10 @@ import { RiStarSLine, RiSpam2Line } from "react-icons/ri";
 import { TbClockHour5, TbMail } from "react-icons/tb";
 import { HiPlus } from "react-icons/hi";
 import useAsideState from "../../state-management/useAsideState";
+import { IoMdArrowDropdown, IoMdArrowDropright } from "react-icons/io";
 
 const useListParams = () => {
+	const { categoryState } = useAsideState();
 	const iconSize = 18;
 
 	const list_1 = [
@@ -44,9 +46,11 @@ const useListParams = () => {
 	const moreIconState = moreState ? <MdOutlineKeyboardArrowUp size={20} /> : <MdOutlineKeyboardArrowDown size={20} />;
 	const more = { icon: moreIconState, name: `${moreState ? "Less" : "More"}`, link: "" };
 
-	const category = { icon: <PiTagSimple size={20} />, name: "Categories" };
+	const category = { icon: <PiTagSimple size={17} />, name: "Categories" };
 
-	return { list_1, list_2, list_3, list_4, more, category, iconSize };
+	const categoryArrowIcon = categoryState ? <IoMdArrowDropdown size={15} /> : <IoMdArrowDropright size={15} />;
+
+	return { list_1, list_2, list_3, list_4, more, category, iconSize, categoryArrowIcon };
 };
 
 export default useListParams;

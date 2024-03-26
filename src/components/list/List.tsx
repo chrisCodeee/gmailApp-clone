@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
+import { AsideCount, AsideIcon, AsideIconWrapper, AsideList, AsideListText, flex } from "./ListStyles";
 
 type ListProps = {
 	icon: ReactNode;
@@ -17,17 +18,15 @@ interface List {
 const List = ({ items, text_bold }: List) => {
 	return (
 		<>
-			<li className="ps-5 pe-3 py-2" style={{ backgroundColor: items.bg, borderTopRightRadius: "50px", borderBottomRightRadius: "50px" }}>
-				<Link to={items.link} className="d-flex justify-content-between align-items-center">
-					<div>
-						<span style={{ transform: "translateY(-.2rem)", display: "inline-block" }}>{items.icon}</span>
-						<span className="ms-4" style={{ fontWeight: text_bold }}>
-							{items.name}
-						</span>
-					</div>
-					<span style={{ fontSize: "1.2rem" }}>{items.count}</span>
+			<AsideList style={{ backgroundColor: items.bg }}>
+				<Link to={items.link} className={flex}>
+					<AsideIconWrapper>
+						<AsideIcon>{items.icon}</AsideIcon>
+						<AsideListText style={{ fontWeight: text_bold }}>{items.name}</AsideListText>
+					</AsideIconWrapper>
+					<AsideCount>{items.count}</AsideCount>
 				</Link>
-			</li>
+			</AsideList>
 		</>
 	);
 };

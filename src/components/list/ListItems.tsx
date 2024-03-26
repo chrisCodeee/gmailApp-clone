@@ -1,22 +1,25 @@
 import List from "./List";
-import { IoMdArrowDropright, IoMdArrowDropdown } from "react-icons/io";
 import useListParams from "./useListParams";
 import { useAsideState } from "../../state-management";
 import { HiPlus } from "react-icons/hi";
+import { AsideCategoryArrowIcon, AsideCategoryDropdown, AsideIcon, AsideIconWrapper, AsideLabelText, AsideLabelWrapper, AsideList, AsideListText, ListItemsWrapper } from "./ListStyles";
 
 const ListItems = () => {
 	const { moreState, categoryState, setCategoryStateOn, setMoreStateOn } = useAsideState();
-	const { list_1, list_2, list_3, list_4, more, category, iconSize } = useListParams();
+	const { list_1, list_2, list_3, list_4, more, category, iconSize, categoryArrowIcon } = useListParams();
 	return (
 		<>
-			<ul>
+			<ListItemsWrapper>
 				{list_1.map((items) => (
 					<List items={items} key={items.name} />
 				))}
 
-				<div onClick={setMoreStateOn}>
-					<List items={more} />
-				</div>
+				<AsideList onClick={setMoreStateOn}>
+					<AsideIconWrapper>
+						<AsideIcon>{more.icon}</AsideIcon>
+						<AsideListText>{more.name}</AsideListText>
+					</AsideIconWrapper>
+				</AsideList>
 
 				{moreState && (
 					<>
@@ -24,17 +27,20 @@ const ListItems = () => {
 							<List items={items} key={items.name} />
 						))}
 
-						<div style={{ position: "relative" }} onClick={setCategoryStateOn}>
-							{categoryState ? <IoMdArrowDropdown size={15} style={{ position: "absolute", left: "15px", top: "7px" }} /> : <IoMdArrowDropright size={15} style={{ position: "absolute", left: "15px", top: "7px" }} />}
-							<List items={category} />
-						</div>
+						<AsideList style={{ position: "relative" }} onClick={setCategoryStateOn}>
+							<AsideCategoryArrowIcon>{categoryArrowIcon}</AsideCategoryArrowIcon>
+							<AsideIconWrapper>
+								<AsideIcon>{category.icon}</AsideIcon>
+								<AsideListText>{category.name}</AsideListText>
+							</AsideIconWrapper>
+						</AsideList>
 
 						{categoryState && (
-							<div style={{ paddingLeft: "15px" }}>
+							<AsideCategoryDropdown>
 								{list_4.map((items) => (
 									<List items={items} key={items.name} text_bold="500" />
 								))}
-							</div>
+							</AsideCategoryDropdown>
 						)}
 
 						{list_3.map((items) => (
@@ -42,12 +48,12 @@ const ListItems = () => {
 						))}
 					</>
 				)}
-			</ul>
+			</ListItemsWrapper>
 
-			<div className="d-flex justify-content-between ps-5 mt-5">
-				<h3>Labels</h3>
+			<AsideLabelWrapper>
+				<AsideLabelText>Labels</AsideLabelText>
 				<HiPlus size={iconSize} />
-			</div>
+			</AsideLabelWrapper>
 		</>
 	);
 };
