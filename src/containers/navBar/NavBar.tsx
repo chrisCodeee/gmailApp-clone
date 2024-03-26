@@ -27,15 +27,19 @@ const NavBar = () => {
 					<Icon>
 						<IoMdMenu size={iconStyle.iconSize} color={iconStyle.iconColor} />
 					</Icon>
+
 					<Logo />
 				</IconWrapper>
+
 				<Search className="col-9" style={formStyle}>
 					<Icon>
 						<IoSearchSharp size={iconStyle.iconSize} color={iconStyle.iconColor} />
 					</Icon>
+
 					<FormContainer onClick={setFormStateOn}>
 						<Form />
 					</FormContainer>
+
 					<Icon>
 						<RiListCheck3 size={iconStyle.iconSize} color={iconStyle.iconColor} />
 					</Icon>
@@ -46,12 +50,15 @@ const NavBar = () => {
 				<Icon>
 					<IoMdHelpCircleOutline size={iconStyle.iconSize} color={iconStyle.iconColor} />
 				</Icon>
+
 				<Icon>
 					<IoSettingsOutline size={iconStyle.iconSize} color={iconStyle.iconColor} />
 				</Icon>
+
 				<Icon>
 					<CgMenuGridO size={iconStyle.iconSize} color={iconStyle.iconColor} />
 				</Icon>
+
 				<Icon>
 					<img src={AccountPhoto} alt="Profile picture" style={{ height: "3rem", borderRadius: "100%" }} />
 				</Icon>

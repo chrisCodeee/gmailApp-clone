@@ -17,7 +17,7 @@ const MessageContainer = styled.div`
 	flex-grow: 1;
 	background-color: #fff;
 	border-radius: 20px;
-	padding: 1rem 0 1rem 2rem;
+	padding: 0.3rem 0 1rem 1.2rem;
 `;
 
 export { MainContainer, MessageContainer, LeftAsideContainer, RightAsideContainer };

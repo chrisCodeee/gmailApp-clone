@@ -5,7 +5,11 @@ interface IconProps {
 	children: ReactNode;
 }
 const Icon = ({ children }: IconProps) => {
-	return <IconContainer>{children}</IconContainer>;
+	return (
+		<IconContainer>
+			<span>{children}</span>
+		</IconContainer>
+	);
 };
 
 export default Icon;

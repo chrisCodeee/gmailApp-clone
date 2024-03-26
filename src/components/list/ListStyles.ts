@@ -5,6 +5,14 @@ const AsideList = styled.li`
 	border-bottom-right-radius: 50px;
 	padding: 0.5rem 1rem 0.5rem 3rem;
 	cursor: pointer;
+
+	& *:focus {
+		font-weight: 700;
+	}
+
+	&:hover {
+		background-color: #e9eef6;
+	}
 `;
 
 const AsideIconWrapper = styled.div`

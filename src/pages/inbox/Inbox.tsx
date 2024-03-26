@@ -1,7 +1,7 @@
 const Inbox = () => {
 	return (
 		<div>
-			<p>inbox1</p>
+			{/* <p>inbox1</p>
 			<p>inbox2</p>
 			<p>inbox3</p>
 			<p>inbox4</p>
@@ -100,7 +100,7 @@ const Inbox = () => {
 			<p>inbox97</p>
 			<p>inbox98</p>
 			<p>inbox99</p>
-			<p>inbox100</p>
+			<p>inbox100</p> */}
 		</div>
 	);
 };

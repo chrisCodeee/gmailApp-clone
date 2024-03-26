@@ -14,7 +14,7 @@ const useListParams = () => {
 	const iconSize = 18;
 
 	const list_1 = [
-		{ icon: <MdInbox size={iconSize} />, name: "Inbox", count: "7,177", link: "/inbox", bg: "blue" },
+		{ icon: <MdInbox size={iconSize} />, name: "Inbox", count: "7,177", link: "/inbox", bg: "rgb(211, 227, 253)" },
 		{ icon: <RiStarSLine size={iconSize} />, name: "Starred", count: "", link: "/starred" },
 		{ icon: <TbClockHour5 size={iconSize} />, name: "Snoozed", count: "", link: "/snoozed" },
 		{ icon: <MdSend size={iconSize} />, name: "Sent", count: "", link: "/sent" },
