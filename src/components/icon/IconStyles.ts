@@ -11,6 +11,12 @@ const IconContainer = styled.div`
 	align-items: center;
 	justify-content: center;
 
+	& span {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
 	&:hover {
 		background-color: rgba(180, 182, 187, 0.2);
 	}

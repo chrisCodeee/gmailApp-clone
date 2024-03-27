@@ -48,6 +48,7 @@ const AsideLabelWrapper = styled.div`
 	padding: 0 0 0 3rem;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 `;
 
 const AsideLabelText = styled.h3``;

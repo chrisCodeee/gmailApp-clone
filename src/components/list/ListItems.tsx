@@ -3,6 +3,7 @@ import useListParams from "./useListParams";
 import { useAsideState } from "../../state-management";
 import { HiPlus } from "react-icons/hi";
 import { AsideCategoryArrowIcon, AsideCategoryDropdown, AsideIcon, AsideIconWrapper, AsideLabelText, AsideLabelWrapper, AsideList, AsideListText, ListItemsWrapper } from "./ListStyles";
+import { Icon } from "..";
 
 const ListItems = () => {
 	const { moreState, categoryState, setCategoryStateOn, setMoreStateOn } = useAsideState();
@@ -52,7 +53,9 @@ const ListItems = () => {
 
 			<AsideLabelWrapper>
 				<AsideLabelText>Labels</AsideLabelText>
-				<HiPlus size={iconSize} />
+				<Icon>
+					<HiPlus size={iconSize} />
+				</Icon>
 			</AsideLabelWrapper>
 		</>
 	);
