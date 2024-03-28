@@ -7,7 +7,7 @@ const BtnComposeWrapper = styled.div`
 
 const ListWrapper = styled.div`
 	overflow-y: auto;
-	height: 76vh;
+	height: 78vh;
 	padding: 0 1.5rem 0 0;
 
 	&::-webkit-scrollbar {

@@ -1,6 +1,37 @@
+import { MdInbox, MdOutlinePeopleOutline } from "react-icons/md";
+import useListParams from "../../components/list/useListParams";
+import { PiTag } from "react-icons/pi";
+
 const Inbox = () => {
+	const { iconSize } = useListParams();
 	return (
 		<div>
+			<div style={{ borderBottom: "1px solid rgba(180, 182, 187, 0.3)" }}>
+				<div className="col-7 d-flex align-items-center">
+					<div className="align-self-stretch align-items-center d-flex col ps-3 pe-0 py-3 x primary" style={{ color: "#0b57d0", position: "relative" }}>
+						<div className="d-flex ps-3">
+							<MdInbox size={iconSize} />
+							<h4 className="ms-4">Primary</h4>
+						</div>
+					</div>
+					<div className="promotion d-flex align-self-stretch align-items-center col ps-4 pt-3 pb-2 x">
+						<PiTag size={iconSize} />
+						<div className="ms-4 pe-3">
+							<div className="primary_heading d-flex " style={{ marginBottom: "-5px" }}>
+								<h4 className="me-3">Promotions</h4>
+								<span>badge</span>
+							</div>
+							<span style={{ fontSize: "1.2rem", color: "grey" }}>Adobe Acrobat, Course Hero, S..</span>
+						</div>
+					</div>
+					<div className="social align-self-stretch d-flex align-items-center col ps-4 pe-0 x">
+						<MdOutlinePeopleOutline size={iconSize} />
+						<h4 className="ms-4">Social</h4>
+					</div>
+				</div>
+			</div>
+
+			<div className="messages">Message here</div>
 			{/* <p>inbox1</p>
 			<p>inbox2</p>
 			<p>inbox3</p>

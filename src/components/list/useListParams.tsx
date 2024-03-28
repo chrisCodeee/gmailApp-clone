@@ -1,8 +1,8 @@
 import { HiOutlineTrash } from "react-icons/hi2";
 import { MdInbox, MdSend, MdLabelImportantOutline, MdOutlineChat, MdOutlineScheduleSend, MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp, MdOutlinePeopleOutline, MdOutlineForum } from "react-icons/md";
 import { AiOutlineFile, AiOutlineSetting } from "react-icons/ai";
-import { BiInfoCircle, BiPurchaseTag } from "react-icons/bi";
-import { PiTagSimple } from "react-icons/pi";
+import { BiInfoCircle } from "react-icons/bi";
+import { PiTagSimple, PiTag } from "react-icons/pi";
 import { RiStarSLine, RiSpam2Line } from "react-icons/ri";
 import { TbClockHour5, TbMail } from "react-icons/tb";
 import { HiPlus } from "react-icons/hi";
@@ -11,7 +11,7 @@ import { IoMdArrowDropdown, IoMdArrowDropright } from "react-icons/io";
 
 const useListParams = () => {
 	const { categoryState } = useAsideState();
-	const iconSize = 18;
+	const iconSize = 19;
 
 	const list_1 = [
 		{ icon: <MdInbox size={iconSize} />, name: "Inbox", count: "7,177", link: "/inbox", bg: "rgb(211, 227, 253)" },
@@ -39,7 +39,7 @@ const useListParams = () => {
 		{ icon: <MdOutlinePeopleOutline size={iconSize} />, name: "Social", count: "3,463", link: "/social" },
 		{ icon: <BiInfoCircle size={iconSize} />, name: "Updates", count: "6,987", link: "/updates" },
 		{ icon: <MdOutlineForum size={iconSize} />, name: "Forums", count: "114", link: "/forums" },
-		{ icon: <BiPurchaseTag size={iconSize} />, name: "Promotions", count: "3,435", link: "/promotion" },
+		{ icon: <PiTag size={iconSize} />, name: "Promotions", count: "3,435", link: "/promotion" },
 	];
 
 	const { moreState } = useAsideState();
