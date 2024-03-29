@@ -12,7 +12,7 @@ const ListItems = () => {
 		<>
 			<ListItemsWrapper>
 				{list_1.map((items) => (
-					<List items={items} key={items.name} />
+					<List icon={items.icon} name={items.name} count={items.count} link={items.link} key={items.name} bg={items.bg} />
 				))}
 
 				<AsideList onClick={setMoreStateOn}>
@@ -25,7 +25,7 @@ const ListItems = () => {
 				{moreState && (
 					<>
 						{list_2.map((items) => (
-							<List items={items} key={items.name} />
+							<List icon={items.icon} name={items.name} count={items.count} link={items.link} key={items.name} />
 						))}
 
 						<AsideList style={{ position: "relative" }} onClick={setCategoryStateOn}>
@@ -37,15 +37,17 @@ const ListItems = () => {
 						</AsideList>
 
 						{categoryState && (
-							<AsideCategoryDropdown>
+							<>
 								{list_4.map((items) => (
-									<List items={items} key={items.name} text_bold="500" />
+									<AsideCategoryDropdown onMouseEnter={items.onMouseHover} onMouseLeave={items.onMouseLeave}>
+										<List icon={items.icon} name={items.name} count={items.count} link={items.link} key={items.name} text_bold="500" paddingRight="0" paddingLeft="1rem" />
+									</AsideCategoryDropdown>
 								))}
-							</AsideCategoryDropdown>
+							</>
 						)}
 
 						{list_3.map((items) => (
-							<List items={items} key={items.name} />
+							<List icon={items.icon} name={items.name} link={items.link} key={items.name} />
 						))}
 					</>
 				)}

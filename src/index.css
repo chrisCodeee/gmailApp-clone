@@ -51,6 +51,10 @@ body {
 	color: var(--color-text);
 }
 
+h4 {
+	font-size: inherit;
+}
+
 img {
 	display: block;
 	object-fit: cover;

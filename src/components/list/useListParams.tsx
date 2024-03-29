@@ -7,10 +7,13 @@ import { RiStarSLine, RiSpam2Line } from "react-icons/ri";
 import { TbClockHour5, TbMail } from "react-icons/tb";
 import { HiPlus } from "react-icons/hi";
 import useAsideState from "../../state-management/useAsideState";
-import { IoMdArrowDropdown, IoMdArrowDropright } from "react-icons/io";
+import { IoMdArrowDropdown, IoMdArrowDropright, IoMdMore } from "react-icons/io";
+import { upperIconSize } from "../../containers/messages/UpperMessage";
+import { CategoryIcon } from "./ListStyles";
 
 const useListParams = () => {
-	const { categoryState } = useAsideState();
+	const { categoryState, socialCategoryState, promotionCategoryState, forumCategoryState, updateCategoryState, setSocialCategoryStateOn, setPromotionCategoryStateOn, setForumCategoryStateOn, setUpdateCategoryStateOn, setSocialCategoryStateOff, setPromotionCategoryStateOff, setForumCategoryStateOff, setUpdateCategoryStateOff } = useAsideState();
+
 	const iconSize = 19;
 
 	const list_1 = [
@@ -35,11 +38,40 @@ const useListParams = () => {
 		{ icon: <HiPlus size={iconSize} />, name: "Create new labels", link: "" },
 	];
 
+	const socialCategoryIconState = socialCategoryState ? (
+		<CategoryIcon>
+			<IoMdMore size={upperIconSize} />
+		</CategoryIcon>
+	) : (
+		"3,463"
+	);
+	const promotionCategoryIconState = promotionCategoryState ? (
+		<CategoryIcon>
+			<IoMdMore size={upperIconSize} />
+		</CategoryIcon>
+	) : (
+		"114"
+	);
+	const updateCategoryIconState = updateCategoryState ? (
+		<CategoryIcon>
+			<IoMdMore size={upperIconSize} />
+		</CategoryIcon>
+	) : (
+		"6,875"
+	);
+	const forumCategoryIconState = forumCategoryState ? (
+		<CategoryIcon>
+			<IoMdMore size={upperIconSize} />
+		</CategoryIcon>
+	) : (
+		"367"
+	);
+
 	const list_4 = [
-		{ icon: <MdOutlinePeopleOutline size={iconSize} />, name: "Social", count: "3,463", link: "/social" },
-		{ icon: <BiInfoCircle size={iconSize} />, name: "Updates", count: "6,987", link: "/updates" },
-		{ icon: <MdOutlineForum size={iconSize} />, name: "Forums", count: "114", link: "/forums" },
-		{ icon: <PiTag size={iconSize} />, name: "Promotions", count: "3,435", link: "/promotion" },
+		{ icon: <MdOutlinePeopleOutline size={iconSize} />, name: "Social", count: socialCategoryIconState, link: "", onMouseHover: setSocialCategoryStateOn, onMouseLeave: setSocialCategoryStateOff },
+		{ icon: <BiInfoCircle size={iconSize} />, name: "Updates", count: updateCategoryIconState, link: "", onMouseHover: setUpdateCategoryStateOn, onMouseLeave: setUpdateCategoryStateOff },
+		{ icon: <MdOutlineForum size={iconSize} />, name: "Forums", count: forumCategoryIconState, link: "", onMouseHover: setForumCategoryStateOn, onMouseLeave: setForumCategoryStateOff },
+		{ icon: <PiTag size={iconSize} />, name: "Promotions", count: promotionCategoryIconState, link: "/promotion", onMouseHover: setPromotionCategoryStateOn, onMouseLeave: setPromotionCategoryStateOff },
 	];
 
 	const { moreState } = useAsideState();

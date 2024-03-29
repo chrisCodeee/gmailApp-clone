@@ -4,8 +4,9 @@ import { BiSolidKeyboard } from "react-icons/bi";
 import { Icon } from "../../components";
 import { FlexWrapper, FlexWrapperArrow, FlexWrapperCheckbox, MessageCount, UpperMessageWrapper } from "./MessageStyles";
 
+export const upperIconSize = 19;
+
 const UpperMessage = () => {
-	const upperIconSize = 18;
 	return (
 		<>
 			<UpperMessageWrapper>

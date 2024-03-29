@@ -1,35 +1,43 @@
 import { MdInbox, MdOutlinePeopleOutline } from "react-icons/md";
 import useListParams from "../../components/list/useListParams";
 import { PiTag } from "react-icons/pi";
+import { Badge } from "../../components";
+import { CategoryContainer, Container, InboxContainer } from "./InboxStyles";
 
 const Inbox = () => {
 	const { iconSize } = useListParams();
 	return (
-		<div>
-			<div style={{ borderBottom: "1px solid rgba(180, 182, 187, 0.3)" }}>
-				<div className="col-7 d-flex align-items-center">
+		<InboxContainer>
+			<CategoryContainer>
+				<Container>
 					<div className="align-self-stretch align-items-center d-flex col ps-3 pe-0 py-3 x primary" style={{ color: "#0b57d0", position: "relative" }}>
 						<div className="d-flex ps-3">
 							<MdInbox size={iconSize} />
 							<h4 className="ms-4">Primary</h4>
 						</div>
 					</div>
-					<div className="promotion d-flex align-self-stretch align-items-center col ps-4 pt-3 pb-2 x">
+					<div className="promotion d-flex align-self-stretch align-items-center col ps-4 pt-4 pb-2 x">
 						<PiTag size={iconSize} />
-						<div className="ms-4 pe-3">
-							<div className="primary_heading d-flex " style={{ marginBottom: "-5px" }}>
-								<h4 className="me-3">Promotions</h4>
-								<span>badge</span>
+						<div className="ms-4">
+							<div className="primary_heading d-flex align-items-center">
+								<h4 className="me-3 mb-0">Promotions</h4>
+								<Badge count="3" bgColor="#188038" />
 							</div>
 							<span style={{ fontSize: "1.2rem", color: "grey" }}>Adobe Acrobat, Course Hero, S..</span>
 						</div>
 					</div>
 					<div className="social align-self-stretch d-flex align-items-center col ps-4 pe-0 x">
 						<MdOutlinePeopleOutline size={iconSize} />
-						<h4 className="ms-4">Social</h4>
+						<div className="ms-4">
+							<div className="primary_heading d-flex align-items-center">
+								<h4 className="me-3 mb-0">Social</h4>
+								<Badge count="1" bgColor="#0b57d0" />
+							</div>
+							<span style={{ fontSize: "1.2rem", color: "grey" }}>Linkedln</span>
+						</div>
 					</div>
-				</div>
-			</div>
+				</Container>
+			</CategoryContainer>
 
 			<div className="messages">Message here</div>
 			{/* <p>inbox1</p>
@@ -132,7 +140,7 @@ const Inbox = () => {
 			<p>inbox98</p>
 			<p>inbox99</p>
 			<p>inbox100</p> */}
-		</div>
+		</InboxContainer>
 	);
 };
 

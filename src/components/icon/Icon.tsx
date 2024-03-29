@@ -7,7 +7,7 @@ interface IconProps {
 const Icon = ({ children }: IconProps) => {
 	return (
 		<IconContainer>
-			<span>{children}</span>
+			<span style={{ color: "rgba(32, 33, 36, .7)" }}>{children}</span>
 		</IconContainer>
 	);
 };

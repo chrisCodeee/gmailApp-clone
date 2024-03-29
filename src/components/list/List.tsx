@@ -2,29 +2,35 @@ import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { AsideCount, AsideIcon, AsideIconWrapper, AsideList, AsideListText, flex } from "./ListStyles";
 
-type ListProps = {
-	icon: ReactNode;
-	name: string;
-	count?: string; //Change Later to number
-	link?: any; //Change to string
-	bg?: string;
-};
+// type ListProps = {
+// 	icon: ReactNode;
+// 	name: string;
+// 	count?: string | ReactNode; //Change Later to number
+// 	link?: any; //Change to string
+// 	bg?: string;
+// };
 
 interface List {
-	items: ListProps;
+	icon: ReactNode;
+	name: string;
+	count?: string | ReactNode; //Change Later to number
+	link?: any; //Change to string
+	bg?: string;
 	text_bold?: string;
+	paddingRight?: string;
+	paddingLeft?: string;
 }
 
-const List = ({ items, text_bold }: List) => {
+const List = ({ icon, name, count, link, bg, text_bold, paddingRight, paddingLeft }: List) => {
 	return (
 		<>
-			<AsideList style={{ backgroundColor: items.bg }}>
-				<Link to={items.link} className={flex}>
-					<AsideIconWrapper>
-						<AsideIcon>{items.icon}</AsideIcon>
-						<AsideListText style={{ fontWeight: text_bold }}>{items.name}</AsideListText>
+			<AsideList style={{ backgroundColor: bg, paddingRight: paddingRight }}>
+				<Link to={link} className={flex}>
+					<AsideIconWrapper style={{ paddingLeft: paddingLeft }}>
+						<AsideIcon>{icon}</AsideIcon>
+						<AsideListText style={{ fontWeight: text_bold }}>{name}</AsideListText>
 					</AsideIconWrapper>
-					<AsideCount>{items.count}</AsideCount>
+					<AsideCount>{count}</AsideCount>
 				</Link>
 			</AsideList>
 		</>
