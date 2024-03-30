@@ -11,10 +11,10 @@ import { IoMdArrowDropdown, IoMdArrowDropright, IoMdMore } from "react-icons/io"
 import { upperIconSize } from "../../containers/messages/UpperMessage";
 import { CategoryIcon } from "./ListStyles";
 
+export const iconSize = 19;
+
 const useListParams = () => {
 	const { categoryState, socialCategoryState, promotionCategoryState, forumCategoryState, updateCategoryState, setSocialCategoryStateOn, setPromotionCategoryStateOn, setForumCategoryStateOn, setUpdateCategoryStateOn, setSocialCategoryStateOff, setPromotionCategoryStateOff, setForumCategoryStateOff, setUpdateCategoryStateOff } = useAsideState();
-
-	const iconSize = 19;
 
 	const list_1 = [
 		{ icon: <MdInbox size={iconSize} />, name: "Inbox", count: "7,177", link: "/inbox", bg: "rgb(211, 227, 253)" },
