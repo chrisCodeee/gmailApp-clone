@@ -11,7 +11,7 @@ const InboxCategoryContainer = () => {
 		count: "3",
 		bgColor: "#188038",
 		subHeading: "Adobe Acrobat, Course Hero, S..",
-		padding: "ps-4 pt-4 pb-2",
+		padding: "ps-4 pb-2",
 	};
 
 	const social = {
@@ -19,8 +19,8 @@ const InboxCategoryContainer = () => {
 		heading: "Social",
 		count: "1",
 		bgColor: "#0b57d0",
-		subHeading: "Linkedln",
-		padding: "ps-4 pe-0",
+		subHeading: "X (Formerly Twitter), Linkedln",
+		padding: "ps-4 pe-0 ",
 	};
 
 	return (

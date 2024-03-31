@@ -17,7 +17,7 @@ interface CategoryProps {
 const CategoryLabel = ({ items }: CategoryProps) => {
 	return (
 		<>
-			<div className={`promotion d-flex align-self-stretch align-items-center col ${items.padding} x`}>
+			<div className={`d-flex align-self-stretch align-items-center col pt-3 ${items.padding} x`}>
 				{items.icon}
 				<div className="ms-4">
 					<div className="primary_heading d-flex align-items-center">

@@ -5,7 +5,7 @@ import Chats from "./pages/chats/Chats";
 
 const route = createBrowserRouter([
 	{
-		path: "/",
+		path: "",
 		element: <App />,
 		errorElement: <ErrorPage />,
 		children: [
@@ -13,7 +13,7 @@ const route = createBrowserRouter([
 				path: "",
 				element: <Home />,
 				children: [
-					{ path: "/inbox", element: <Inbox /> },
+					{ path: "", element: <Inbox /> },
 					{ path: "/promotion", element: <Promotion /> },
 					{ path: "/starred", element: <Starred /> },
 					{ path: "/sent", element: <Sent /> },

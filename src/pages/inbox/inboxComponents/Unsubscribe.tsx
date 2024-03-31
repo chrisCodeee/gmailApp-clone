@@ -9,7 +9,7 @@ const Unsubscribe = () => {
 	return (
 		<>
 			<div className="d-flex align-items-center" style={{ marginRight: "-10px" }}>
-				<div className="me-3" style={{ fontSize: "1.3rem", fontWeight: "500", border: "1px solid rgba(180, 182, 187, 0.6)", borderRadius: "4px", padding: "0 .8rem .2rem .8rem" }}>
+				<div className="me-3" style={{ fontSize: "1.2rem", fontWeight: "500", border: "1px solid rgba(180, 182, 187, 0.6)", borderRadius: "4px", padding: "0 .7rem .3rem .7rem" }}>
 					Unsubscribe
 				</div>
 				<Icon>

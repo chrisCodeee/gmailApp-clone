@@ -10,7 +10,7 @@ const Container = styled.div`
 	display: flex;
 	align-items: center;
 
-	max-width: 65%;
+	max-width: 63%;
 `;
 
 const PrimaryWrapper = styled.div`

@@ -38,11 +38,29 @@ const FlexWrapperArrow = styled.div`
 	display: flex;
 	align-items: center;
 	align-self: stretch;
-	border-radius: 3px;
+	position: relative;
 	cursor: pointer;
 
-	&:hover {
-		background-color: rgba(180, 182, 187, 0.2);
+	&::after {
+		content: "";
+		display: block;
+		height: 100%;
+		width: 100%;
+		border-radius: 3px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		transition: all 0.15s;
+		transform: scale(0);
+		opacity: 0;
+		border-radius: 3px;
+	}
+
+	&:hover::after {
+		background-color: rgba(180, 182, 187, 0.3);
+		transform: scale(1);
+		opacity: 1;
+		transform-origin: center;
 	}
 `;
 
@@ -51,22 +69,57 @@ const FlexWrapperCheckbox = styled.div`
 	align-items: center;
 	align-self: stretch;
 	padding: 1rem 0.5rem;
-	border-radius: 3px;
 	cursor: pointer;
+	position: relative;
 
-	&:hover {
-		background-color: rgba(180, 182, 187, 0.2);
+	&::after {
+		content: "";
+		display: block;
+		height: 100%;
+		width: 100%;
+		border-radius: 3px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		transition: all 0.15s;
+		transform: scale(0);
+		opacity: 0;
+		border-radius: 3px;
+	}
+
+	&:hover::after {
+		background-color: rgba(180, 182, 187, 0.3);
+		transform: scale(1);
+		opacity: 1;
+		transform-origin: center;
 	}
 `;
 
 const MessageCount = styled.div`
 	padding: 0.8rem 0.5rem;
 	font-size: 1.3rem;
-	border-radius: 3px;
 	cursor: pointer;
+	position: relative;
 
-	&:hover {
+	&::after {
+		content: "";
+		display: block;
+		height: 100%;
+		width: 100%;
+		border-radius: 3px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		transition: all 0.15s;
+		transform: scale(0);
+		opacity: 0;
+	}
+
+	&:hover::after {
 		background-color: rgba(180, 182, 187, 0.3);
+		transform: scale(1);
+		opacity: 1;
+		transform-origin: center;
 	}
 `;
 export { MessageWrapper, UpperMessageWrapper, FlexWrapper, FlexWrapperCheckbox, FlexWrapperArrow, MessageCount };

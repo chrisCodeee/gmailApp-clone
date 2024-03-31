@@ -2,7 +2,7 @@ import { Form, Icon, Logo } from "../../components";
 import { ContainerLeft, ContainerRight, FormContainer, IconWrapper, Nav, Search } from "./NavBarStyles";
 import { IoMdMenu, IoMdHelpCircleOutline } from "react-icons/io";
 import { IoSearchSharp, IoSettingsOutline } from "react-icons/io5";
-import { RiListCheck3 } from "react-icons/ri";
+import { LuSlidersHorizontal } from "react-icons/lu";
 import { CgMenuGridO } from "react-icons/cg";
 import { AccountPhoto } from "../../assets";
 import { useFormState } from "../../state-management";
@@ -41,7 +41,7 @@ const NavBar = () => {
 					</FormContainer>
 
 					<Icon>
-						<RiListCheck3 size={iconStyle.iconSize} color={iconStyle.iconColor} />
+						<LuSlidersHorizontal size={iconStyle.iconSize} color={iconStyle.iconColor} />
 					</Icon>
 				</Search>
 			</ContainerLeft>
