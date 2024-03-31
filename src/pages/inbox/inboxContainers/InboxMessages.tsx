@@ -7,14 +7,14 @@ import { InboxMessageBodyProps } from "../inboxComponents/InboxMessageBody";
 export type InboxMessagePropsCombine = InboxMessageBodyProps & InboxSubjectProps;
 
 interface InboxMessageProps {
-	items: InboxMessageBodyProps & InboxSubjectProps;
+	items: InboxMessagePropsCombine;
 }
 
 const InboxMessages = ({ items }: InboxMessageProps) => {
 	return (
 		<InboxMessageContainer>
 			<InboxMessageWrapper className="row">
-				<InboxSubject subject={items.subject} />
+				<InboxSubject subject={items.subject} inboxState={items.inboxState} />
 
 				<InboxMessageBody items={items} />
 			</InboxMessageWrapper>

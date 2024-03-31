@@ -3,17 +3,13 @@ import { SelectItemsHover } from ".";
 import { Icon } from "../../../components";
 import { iconSize } from "../../../components/list/useListParams";
 import { InboxSubjectWrapper } from "../InboxStyles";
-import { useInboxState } from "../../../state-management";
 
-export type InboxSubjectProps = {
+export interface InboxSubjectProps {
 	subject: string;
-};
-// interface InboxSubjectProps {
-// 	subject: InboxSubject;
-// }
+	inboxState?: boolean;
+}
 
-const InboxSubject = ({ subject }: InboxSubjectProps) => {
-	const { inboxState } = useInboxState();
+const InboxSubject = ({ subject, inboxState }: InboxSubjectProps) => {
 	return (
 		<>
 			<InboxSubjectWrapper>

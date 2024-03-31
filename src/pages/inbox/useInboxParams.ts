@@ -39,6 +39,16 @@ const inboxMessageDetails = [
 	{ id: 38, subject: "Linkedln Job Alerts", heading: `"electrical engineer": GE - Renewables - Power Electronics Engineer and more - `, message: "GE - Renewables Power Electronics Engineering", time: "12:15 AM" },
 	{ id: 39, subject: "ScholarshipCafe", heading: "Position Matches - ", message: "Logo here Hi Christian Your position alert matched the following position(s) at scholarshipscafe.com. Positions", time: "5:15 PM" },
 	{ id: 40, subject: "Amex Offers from Am.", heading: "Christian, don't miss out! Redeem your offers - ", message: "We have your back with savings and rewards. Manage Email Preferences No Images Engineering", time: "7:15 PM" },
+	{ id: 41, subject: "Linkedln Job Alerts", heading: `"electrical engineer": GE - Renewables - Power Electronics Engineer and more - `, message: "GE - Renewables Power Electronics Engineering", time: "12:15 AM" },
+	{ id: 42, subject: "ScholarshipCafe", heading: "Position Matches - ", message: "Logo here Hi Christian Your position alert matched the following position(s) at scholarshipscafe.com. Positions", time: "5:15 PM" },
+	{ id: 43, subject: "Amex Offers from Am.", heading: "Christian, don't miss out! Redeem your offers - ", message: "We have your back with savings and rewards. Manage Email Preferences No Images Engineering", time: "7:15 PM" },
+	{ id: 44, subject: "Linkedln Job Alerts", heading: `"electrical engineer": GE - Renewables - Power Electronics Engineer and more - `, message: "GE - Renewables Power Electronics Engineering", time: "12:15 AM" },
+	{ id: 45, subject: "ScholarshipCafe", heading: "Position Matches - ", message: "Logo here Hi Christian Your position alert matched the following position(s) at scholarshipscafe.com. Positions", time: "5:15 PM" },
+	{ id: 46, subject: "Amex Offers from Am.", heading: "Christian, don't miss out! Redeem your offers - ", message: "We have your back with savings and rewards. Manage Email Preferences No Images Engineering", time: "7:15 PM" },
+	{ id: 47, subject: "Linkedln Job Alerts", heading: `"electrical engineer": GE - Renewables - Power Electronics Engineer and more - `, message: "GE - Renewables Power Electronics Engineering", time: "12:15 AM" },
+	{ id: 48, subject: "ScholarshipCafe", heading: "Position Matches - ", message: "Logo here Hi Christian Your position alert matched the following position(s) at scholarshipscafe.com. Positions", time: "5:15 PM" },
+	{ id: 49, subject: "Amex Offers from Am.", heading: "Christian, don't miss out! Redeem your offers - ", message: "We have your back with savings and rewards. Manage Email Preferences No Images Engineering", time: "7:15 PM" },
+	{ id: 50, subject: "ScholarshipCafe", heading: "Position Matches - ", message: "Logo here Hi Christian Your position alert matched the following position(s) at scholarshipscafe.com. Positions", time: "5:15 PM" },
 ];
 
 export { inboxMessageDetails };
