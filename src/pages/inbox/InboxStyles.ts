@@ -85,8 +85,6 @@ const InboxSubjectWrapper = styled.div`
 	align-items: center;
 	width: 23%;
 	cursor: pointer;
-
-	position: relative;
 `;
 
 const InboxMessageBodyWrapper = styled.div`
@@ -106,4 +104,23 @@ const InboxMessageTime = styled.h4`
 	font-size: 1.2rem;
 `;
 
-export { InboxContainer, CategoryContainer, Container, PrimaryWrapper, PrimaryIconWrapper, PrimaryHeading, InboxMessageContainer, InboxMessageWrapper, InboxSubjectWrapper, InboxMessageBodyWrapper, InboxMessageBodyWrapperSubject, InboxMessageTime };
+const UnsubscribeWrapper = styled.div`
+	display: flex;
+	align-items: center;
+	margin-right: -10px;
+`;
+
+const UnsubscribeText = styled.div`
+	font-size: 1.2rem;
+	font-weight: 500;
+	border: 1px solid rgba(180, 182, 187, 0.6);
+	border-radius: 4px;
+	padding: 0 0.7rem 0.3rem 0.7rem;
+	margin: 0 1rem 0 0;
+
+	&:hover {
+		background-color: rgba(180, 182, 187, 0.2);
+	}
+`;
+
+export { InboxContainer, CategoryContainer, Container, PrimaryWrapper, PrimaryIconWrapper, PrimaryHeading, InboxMessageContainer, InboxMessageWrapper, InboxSubjectWrapper, InboxMessageBodyWrapper, InboxMessageBodyWrapperSubject, InboxMessageTime, UnsubscribeWrapper, UnsubscribeText };

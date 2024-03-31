@@ -17,12 +17,12 @@ const InboxSubject = ({ subject }: InboxSubjectProps) => {
 	return (
 		<>
 			<InboxSubjectWrapper>
-				<div>
-					<Icon>
-						{inboxState && <SelectItemsHover />}
-						<input type="checkbox" />
-					</Icon>
-				</div>
+				{/* <div> */}
+				<Icon>
+					{inboxState && <SelectItemsHover />}
+					<input type="checkbox" />
+				</Icon>
+				{/* </div> */}
 
 				<div className="iconStar" style={{ marginLeft: "-13px" }}>
 					<Icon>

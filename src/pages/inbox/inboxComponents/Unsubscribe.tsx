@@ -4,14 +4,13 @@ import { MdOutlineArchive } from "react-icons/md";
 import { TbClockHour5 } from "react-icons/tb";
 import { Icon } from "../../../components";
 import { iconSize } from "../../../components/list/useListParams";
+import { UnsubscribeText, UnsubscribeWrapper } from "../InboxStyles";
 
 const Unsubscribe = () => {
 	return (
 		<>
-			<div className="d-flex align-items-center" style={{ marginRight: "-10px" }}>
-				<div className="me-3" style={{ fontSize: "1.2rem", fontWeight: "500", border: "1px solid rgba(180, 182, 187, 0.6)", borderRadius: "4px", padding: "0 .7rem .3rem .7rem" }}>
-					Unsubscribe
-				</div>
+			<UnsubscribeWrapper>
+				<UnsubscribeText>Unsubscribe</UnsubscribeText>
 				<Icon>
 					<MdOutlineArchive size={iconSize} />
 				</Icon>
@@ -27,7 +26,7 @@ const Unsubscribe = () => {
 				<Icon>
 					<TbClockHour5 size={iconSize} />
 				</Icon>
-			</div>
+			</UnsubscribeWrapper>
 		</>
 	);
 };

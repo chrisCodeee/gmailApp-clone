@@ -1,12 +1,14 @@
 import { Unsubscribe } from ".";
-import { useInboxState } from "../../../state-management";
 import { InboxMessageBodyWrapper, InboxMessageBodyWrapperSubject, InboxMessageTime } from "../InboxStyles";
 
 export type InboxMessageBodyProps = {
 	heading: string;
+	id?: number;
 	message: string;
 	time: string;
 	inboxState?: boolean;
+	on?: () => void;
+	off?: () => void;
 };
 
 interface InboxMessageBodyParams {
@@ -19,13 +21,13 @@ const InboxMessageBody = ({ items }: InboxMessageBodyParams) => {
 		<>
 			<InboxMessageBodyWrapper>
 				<InboxMessageBodyWrapperSubject>
-					<h4>{items.heading} &nbsp;</h4>
-					{!items.inboxState && <h4 style={{ fontWeight: "400" }}>&ndash; &nbsp;{items.message}</h4>}
-					{items.inboxState && <h4 style={{ fontWeight: "400" }}>&ndash; &nbsp;We have your back with savings and rewards...</h4>}
+					{!items.inboxState && <h4>{items.heading} &nbsp;</h4>}
+					{!items.inboxState && <h4 style={{ fontWeight: "400" }}>{items.message.length > 75 ? items.message.slice(0, 80) : items.message}...</h4>}
+					{items.inboxState && <h4 style={{ fontWeight: "400" }}>{items.heading.concat(...items.message).slice(0, 97)}...</h4>}
 				</InboxMessageBodyWrapperSubject>
 
 				{items.inboxState && <Unsubscribe />}
-				{!items.inboxState && <InboxMessageTime>7:15pm</InboxMessageTime>}
+				{!items.inboxState && <InboxMessageTime>{items.time}</InboxMessageTime>}
 			</InboxMessageBodyWrapper>
 		</>
 	);
