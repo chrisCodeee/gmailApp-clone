@@ -3,6 +3,8 @@ import styled from "styled-components";
 const MainContainer = styled.main`
 	display: flex;
 	margin: 1rem 0 0 0;
+
+	position: relative;
 `;
 
 const LeftAsideContainer = styled.aside`
@@ -10,7 +12,7 @@ const LeftAsideContainer = styled.aside`
 `;
 
 const RightAsideContainer = styled.aside`
-	padding: 2rem 1rem;
+	padding: 0.6rem 1rem;
 `;
 
 const MessageContainer = styled.div`

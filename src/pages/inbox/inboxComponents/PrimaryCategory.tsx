@@ -1,16 +1,20 @@
 import { MdInbox } from "react-icons/md";
-import { PrimaryWrapper, PrimaryIconWrapper, PrimaryHeading } from "../InboxStyles";
+import { PrimaryIconWrapper, PrimaryHeading, CategoryLabelWrapper } from "../InboxStyles";
 import { iconSize } from "../../../components/list/useListParams";
+import { useInboxState } from "../../../state-management";
 
 const PrimaryCategory = () => {
+	const { primaryActive } = useInboxState();
 	return (
 		<>
-			<PrimaryWrapper className="col">
+			<CategoryLabelWrapper className={`col ${primaryActive ? "active" : ""}`}>
 				<PrimaryIconWrapper>
-					<MdInbox size={iconSize} />
+					<div className="ps-3">
+						<MdInbox size={iconSize} />
+					</div>
 					<PrimaryHeading>Primary</PrimaryHeading>
 				</PrimaryIconWrapper>
-			</PrimaryWrapper>
+			</CategoryLabelWrapper>
 		</>
 	);
 };

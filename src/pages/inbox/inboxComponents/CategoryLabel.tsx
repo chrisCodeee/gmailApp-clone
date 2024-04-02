@@ -1,5 +1,7 @@
 import { Badge } from "../../../components";
 import { ReactNode } from "react";
+import { CategoryLabelWrapper, PrimaryIconWrapper } from "../InboxStyles";
+import { useInboxState } from "../../../state-management";
 
 type CategoryItems = {
 	icon: ReactNode;
@@ -15,18 +17,23 @@ interface CategoryProps {
 }
 
 const CategoryLabel = ({ items }: CategoryProps) => {
+	const { setPrimaryActiveOff } = useInboxState();
 	return (
 		<>
-			<div className={`d-flex align-self-stretch align-items-center col pt-3 ${items.padding} x`}>
-				{items.icon}
-				<div className="ms-4">
-					<div className="primary_heading d-flex align-items-center">
-						<h4 className="me-3 mb-0">{items.heading}</h4>
-						<Badge count={items.count} bgColor={items.bgColor} />
+			<CategoryLabelWrapper className={`col pt-3 ${items.padding} `} onClick={setPrimaryActiveOff}>
+				<PrimaryIconWrapper>
+					<span className="ps-3">{items.icon}</span>
+					<div className="ms-4">
+						<div className="d-flex align-items-center">
+							<h4 className="me-3 mb-0">{items.heading}</h4>
+							<Badge count={items.count} bgColor={items.bgColor} />
+						</div>
+						<span className="span" style={{ fontSize: "1.2rem", color: "grey" }}>
+							{items.subHeading}
+						</span>
 					</div>
-					<span style={{ fontSize: "1.2rem", color: "grey" }}>{items.subHeading}</span>
-				</div>
-			</div>
+				</PrimaryIconWrapper>
+			</CategoryLabelWrapper>
 		</>
 	);
 };

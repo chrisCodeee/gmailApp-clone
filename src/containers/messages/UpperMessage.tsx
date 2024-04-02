@@ -3,7 +3,7 @@ import { MdArrowDropDown, MdOutlineRefresh, MdKeyboardArrowRight, MdKeyboardArro
 import { BiSolidKeyboard } from "react-icons/bi";
 import { Icon } from "../../components";
 import { FlexWrapper, FlexWrapperArrow, FlexWrapperCheckbox, MessageCount, UpperMessageWrapper } from "./MessageStyles";
-import { inboxMessageDetails } from "../../pages/inbox/useInboxParams";
+import { inboxMessageDetails, inboxMessageDetailsPage2 } from "../../pages/inbox/useInboxParams";
 
 export const upperIconSize = 19;
 
@@ -33,7 +33,9 @@ const UpperMessage = () => {
 				</FlexWrapper>
 
 				<FlexWrapper>
-					<MessageCount>1-50 of {inboxMessageDetails.length}</MessageCount>
+					<MessageCount>
+						{inboxMessageDetails.length - (inboxMessageDetails.length - 1)}-{inboxMessageDetails.length} of {inboxMessageDetails.length + inboxMessageDetailsPage2.length}
+					</MessageCount>
 					<Icon>
 						{/* <button> */}
 						<MdKeyboardArrowLeft size={upperIconSize} />

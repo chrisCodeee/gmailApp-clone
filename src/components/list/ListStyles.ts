@@ -1,18 +1,32 @@
 import styled from "styled-components";
 
 const AsideList = styled.li`
+	cursor: pointer;
+
+	& .active {
+		background-color: rgb(194, 231, 255);
+	}
+
+	& a {
+		border-top-right-radius: 50px;
+		border-bottom-right-radius: 50px;
+		padding: 0 1rem 0 3rem;
+
+		&:hover:not(.active) {
+			background-color: #e9eef6;
+		}
+	}
+
+	& *:focus {
+		font-weight: 600;
+	}
+`;
+
+const AsideIconContainer = styled.div`
 	border-top-right-radius: 50px;
 	border-bottom-right-radius: 50px;
 	cursor: pointer;
 	padding: 0 1rem 0 3rem;
-
-	& *:focus {
-		font-weight: 700;
-	}
-
-	&:hover {
-		background-color: #e9eef6;
-	}
 `;
 
 const AsideIconWrapper = styled.div`
@@ -75,4 +89,4 @@ const CategoryIcon = styled.div`
 
 const flex = "d-flex justify-content-between align-items-center";
 
-export { AsideList, AsideIconWrapper, AsideIcon, AsideListText, AsideCount, flex, ListItemsWrapper, AsideCategoryArrowIcon, AsideCategoryDropdown, AsideLabelWrapper, AsideLabelText, CategoryIcon };
+export { AsideList, AsideIconWrapper, AsideIconContainer, AsideIcon, AsideListText, AsideCount, flex, ListItemsWrapper, AsideCategoryArrowIcon, AsideCategoryDropdown, AsideLabelWrapper, AsideLabelText, CategoryIcon };

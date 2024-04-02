@@ -13,35 +13,35 @@ const Container = styled.div`
 	max-width: 63%;
 `;
 
-const PrimaryWrapper = styled.div`
-	align-self: stretch;
-	align-items: center;
-	display: flex;
-	padding: 0 0 0 1rem;
-	color: #0b57d0;
-	position: relative;
+// const PrimaryWrapper = styled.div`
+// 	align-self: stretch;
+// 	align-items: center;
+// 	display: flex;
+// 	padding: 0 0 0 1rem;
+// 	color: #0b57d0;
+// 	position: relative;
 
-	&::after {
-		border-bottom: 3.5px solid #0b57d0;
-		border-top-right-radius: 20px;
-		border-top-left-radius: 20px;
-		content: "";
-		display: block;
-		width: 90%;
-		height: 3px;
-		position: absolute;
-		bottom: 0;
-	}
+// 	&::after {
+// 		border-bottom: 3.5px solid #0b57d0;
+// 		border-top-right-radius: 20px;
+// 		border-top-left-radius: 20px;
+// 		content: "";
+// 		display: block;
+// 		width: 90%;
+// 		height: 3px;
+// 		position: absolute;
+// 		bottom: 0;
+// 	}
 
-	&:hover {
-		cursor: pointer;
-		background-color: rgba(180, 182, 187, 0.2);
-	}
-`;
+// 	&:hover {
+// 		cursor: pointer;
+// 		background-color: rgba(180, 182, 187, 0.2);
+// 	}
+// `;
 
 const PrimaryIconWrapper = styled.div`
 	display: flex;
-	padding: 0 0 0 1rem;
+	align-items: center;
 `;
 
 const PrimaryHeading = styled.h4`
@@ -55,6 +55,11 @@ const InboxMessageContainer = styled.div`
 	border-top: 1px solid transparent;
 	cursor: pointer;
 	transition: all 0.1s;
+
+	& a:focus {
+		background-color: rgba(229, 236, 247, 0.6);
+		display: block;
+	}
 
 	& input,
 	& .iconStar {
@@ -123,4 +128,53 @@ const UnsubscribeText = styled.div`
 	}
 `;
 
-export { InboxContainer, CategoryContainer, Container, PrimaryWrapper, PrimaryIconWrapper, PrimaryHeading, InboxMessageContainer, InboxMessageWrapper, InboxSubjectWrapper, InboxMessageBodyWrapper, InboxMessageBodyWrapperSubject, InboxMessageTime, UnsubscribeWrapper, UnsubscribeText };
+const CategoryLabelWrapper = styled.button`
+	position: relative;
+	display: flex;
+	align-self: stretch;
+	align-items: center;
+	border: 0;
+	outline: 0;
+	font-size: inherit;
+
+	&.active {
+		color: #0b57d0;
+
+		&::after {
+			border-bottom: 3.5px solid #0b57d0;
+			border-top-right-radius: 20px;
+			border-top-left-radius: 20px;
+			content: "";
+			display: block;
+			width: 94%;
+			height: 3px;
+			position: absolute;
+			bottom: 0;
+		}
+	}
+
+	&:hover {
+		cursor: pointer;
+		background-color: rgba(180, 182, 187, 0.2);
+	}
+
+	&:focus {
+		outline: 0;
+		border: 0;
+		color: #0b57d0;
+
+		&::after {
+			border-bottom: 3.5px solid #0b57d0;
+			border-top-right-radius: 20px;
+			border-top-left-radius: 20px;
+			content: "";
+			display: block;
+			width: 90%;
+			height: 3px;
+			position: absolute;
+			bottom: 0;
+		}
+	}
+`;
+
+export { InboxContainer, CategoryContainer, Container, PrimaryIconWrapper, PrimaryHeading, InboxMessageContainer, InboxMessageWrapper, InboxSubjectWrapper, InboxMessageBodyWrapper, InboxMessageBodyWrapperSubject, InboxMessageTime, UnsubscribeWrapper, UnsubscribeText, CategoryLabelWrapper };

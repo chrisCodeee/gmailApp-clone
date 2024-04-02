@@ -112,8 +112,3 @@ ul {
 		font-size: 25%;
 	}
 }
-
-.x:hover {
-	cursor: pointer;
-	background-color: rgba(180, 182, 187, 0.2);
-}

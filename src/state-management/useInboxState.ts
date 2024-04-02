@@ -7,7 +7,9 @@ interface InboxProps {
 
 	checkedState: boolean;
 	setCheckedStateOn: () => void;
-	// setCheckedStateOff: () => void;
+
+	primaryActive: boolean;
+	setPrimaryActiveOff: () => void;
 }
 
 const useInboxState = create<InboxProps>((set) => ({
@@ -17,7 +19,9 @@ const useInboxState = create<InboxProps>((set) => ({
 
 	checkedState: false,
 	setCheckedStateOn: () => set((state) => ({ checkedState: !state.checkedState })),
-	// setCheckedStateOff: () => set(() => ({ checkedState: false })),
+
+	primaryActive: true,
+	setPrimaryActiveOff: () => set(() => ({ primaryActive: false })),
 }));
 
 export default useInboxState;

@@ -22,6 +22,10 @@ interface AsideProps {
 	updateCategoryState: boolean;
 	setUpdateCategoryStateOn: () => void;
 	setUpdateCategoryStateOff: () => void;
+
+	showRightSideState: boolean;
+	setShowRightSideStateOn: () => void;
+	setShowRIghtSideStateOff: () => void;
 }
 
 const useAsideState = create<AsideProps>((set) => ({
@@ -46,6 +50,10 @@ const useAsideState = create<AsideProps>((set) => ({
 	updateCategoryState: false,
 	setUpdateCategoryStateOn: () => set(() => ({ updateCategoryState: true })),
 	setUpdateCategoryStateOff: () => set(() => ({ updateCategoryState: false })),
+
+	showRightSideState: true,
+	setShowRightSideStateOn: () => set(() => ({ showRightSideState: true })),
+	setShowRIghtSideStateOff: () => set(() => ({ showRightSideState: false })),
 }));
 
 export default useAsideState;

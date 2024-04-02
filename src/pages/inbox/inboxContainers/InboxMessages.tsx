@@ -1,5 +1,4 @@
 import { InboxMessageContainer, InboxMessageWrapper } from "../InboxStyles";
-
 import { InboxMessageBody, InboxSubject } from "../inboxComponents";
 import { InboxSubjectProps } from "../inboxComponents/InboxSubject";
 import { InboxMessageBodyProps } from "../inboxComponents/InboxMessageBody";
@@ -12,10 +11,9 @@ interface InboxMessageProps {
 
 const InboxMessages = ({ items }: InboxMessageProps) => {
 	return (
-		<InboxMessageContainer>
+		<InboxMessageContainer style={{ backgroundColor: items.bgColor }}>
 			<InboxMessageWrapper className="row">
 				<InboxSubject subject={items.subject} inboxState={items.inboxState} />
-
 				<InboxMessageBody items={items} />
 			</InboxMessageWrapper>
 		</InboxMessageContainer>

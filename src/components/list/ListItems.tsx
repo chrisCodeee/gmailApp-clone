@@ -2,7 +2,7 @@ import List from "./List";
 import useListParams from "./useListParams";
 import { useAsideState } from "../../state-management";
 import { HiPlus } from "react-icons/hi";
-import { AsideCategoryArrowIcon, AsideCategoryDropdown, AsideIcon, AsideIconWrapper, AsideLabelText, AsideLabelWrapper, AsideList, AsideListText, ListItemsWrapper } from "./ListStyles";
+import { AsideCategoryArrowIcon, AsideCategoryDropdown, AsideIcon, AsideIconWrapper, AsideLabelText, AsideLabelWrapper, AsideIconContainer, AsideListText, ListItemsWrapper } from "./ListStyles";
 import { Icon } from "..";
 
 const ListItems = () => {
@@ -12,15 +12,15 @@ const ListItems = () => {
 		<>
 			<ListItemsWrapper>
 				{list_1.map((items) => (
-					<List icon={items.icon} name={items.name} count={items.count} link={items.link} key={items.name} bg={items.bg} />
+					<List icon={items.icon} name={items.name} count={items.count} link={items.link} key={items.name} />
 				))}
 
-				<AsideList onClick={setMoreStateOn}>
+				<AsideIconContainer onClick={setMoreStateOn}>
 					<AsideIconWrapper>
 						<AsideIcon>{more.icon}</AsideIcon>
 						<AsideListText>{more.name}</AsideListText>
 					</AsideIconWrapper>
-				</AsideList>
+				</AsideIconContainer>
 
 				{moreState && (
 					<>
@@ -28,13 +28,13 @@ const ListItems = () => {
 							<List icon={items.icon} name={items.name} count={items.count} link={items.link} key={items.name} />
 						))}
 
-						<AsideList style={{ position: "relative" }} onClick={setCategoryStateOn}>
+						<AsideIconContainer style={{ position: "relative" }} onClick={setCategoryStateOn}>
 							<AsideCategoryArrowIcon>{categoryArrowIcon}</AsideCategoryArrowIcon>
 							<AsideIconWrapper>
 								<AsideIcon>{category.icon}</AsideIcon>
 								<AsideListText>{category.name}</AsideListText>
 							</AsideIconWrapper>
-						</AsideList>
+						</AsideIconContainer>
 
 						{categoryState && (
 							<>

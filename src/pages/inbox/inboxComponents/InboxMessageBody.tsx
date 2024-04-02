@@ -9,6 +9,7 @@ export type InboxMessageBodyProps = {
 	inboxState?: boolean;
 	on?: () => void;
 	off?: () => void;
+	bgColor?: string;
 };
 
 interface InboxMessageBodyParams {

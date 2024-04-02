@@ -1,7 +1,7 @@
 import { HiOutlineTrash } from "react-icons/hi2";
-import { MdInbox, MdSend, MdLabelImportantOutline, MdOutlineChat, MdOutlineScheduleSend, MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp, MdOutlinePeopleOutline, MdOutlineForum } from "react-icons/md";
+import { MdInbox, MdLabelImportantOutline, MdOutlineChat, MdOutlineScheduleSend, MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp, MdOutlinePeopleOutline, MdOutlineForum } from "react-icons/md";
 import { AiOutlineFile, AiOutlineSetting } from "react-icons/ai";
-import { BiInfoCircle } from "react-icons/bi";
+import { BiInfoCircle, BiSend } from "react-icons/bi";
 import { PiTagSimple, PiTag } from "react-icons/pi";
 import { RiStarSLine, RiSpam2Line } from "react-icons/ri";
 import { TbClockHour5, TbMail } from "react-icons/tb";
@@ -17,10 +17,10 @@ const useListParams = () => {
 	const { categoryState, socialCategoryState, promotionCategoryState, forumCategoryState, updateCategoryState, setSocialCategoryStateOn, setPromotionCategoryStateOn, setForumCategoryStateOn, setUpdateCategoryStateOn, setSocialCategoryStateOff, setPromotionCategoryStateOff, setForumCategoryStateOff, setUpdateCategoryStateOff } = useAsideState();
 
 	const list_1 = [
-		{ icon: <MdInbox size={iconSize} />, name: "Inbox", count: "7,177", link: "", bg: "rgb(211, 227, 253)" },
+		{ icon: <MdInbox size={iconSize} />, name: "Inbox", count: "7,177", link: "" },
 		{ icon: <RiStarSLine size={iconSize} />, name: "Starred", count: "", link: "/starred" },
 		{ icon: <TbClockHour5 size={iconSize} />, name: "Snoozed", count: "", link: "/snoozed" },
-		{ icon: <MdSend size={iconSize} />, name: "Sent", count: "", link: "/sent" },
+		{ icon: <BiSend size={iconSize} />, name: "Sent", count: "", link: "/sent" },
 		{ icon: <AiOutlineFile size={iconSize} />, name: "Drafts", count: "", link: "/draft" },
 	];
 
@@ -35,7 +35,7 @@ const useListParams = () => {
 
 	const list_3 = [
 		{ icon: <AiOutlineSetting size={iconSize} />, name: "Manage labels", link: "/settings/labels" },
-		{ icon: <HiPlus size={iconSize} />, name: "Create new labels", link: "" },
+		{ icon: <HiPlus size={iconSize} />, name: "Create new labels", link: "/create" },
 	];
 
 	const socialCategoryIconState = socialCategoryState ? (
@@ -68,9 +68,9 @@ const useListParams = () => {
 	);
 
 	const list_4 = [
-		{ icon: <MdOutlinePeopleOutline size={iconSize} />, name: "Social", count: socialCategoryIconState, link: "", onMouseHover: setSocialCategoryStateOn, onMouseLeave: setSocialCategoryStateOff },
-		{ icon: <BiInfoCircle size={iconSize} />, name: "Updates", count: updateCategoryIconState, link: "", onMouseHover: setUpdateCategoryStateOn, onMouseLeave: setUpdateCategoryStateOff },
-		{ icon: <MdOutlineForum size={iconSize} />, name: "Forums", count: forumCategoryIconState, link: "", onMouseHover: setForumCategoryStateOn, onMouseLeave: setForumCategoryStateOff },
+		{ icon: <MdOutlinePeopleOutline size={iconSize} />, name: "Social", count: socialCategoryIconState, link: "/social", onMouseHover: setSocialCategoryStateOn, onMouseLeave: setSocialCategoryStateOff },
+		{ icon: <BiInfoCircle size={iconSize} />, name: "Updates", count: updateCategoryIconState, link: "/updates", onMouseHover: setUpdateCategoryStateOn, onMouseLeave: setUpdateCategoryStateOff },
+		{ icon: <MdOutlineForum size={iconSize} />, name: "Forums", count: forumCategoryIconState, link: "/forums", onMouseHover: setForumCategoryStateOn, onMouseLeave: setForumCategoryStateOff },
 		{ icon: <PiTag size={iconSize} />, name: "Promotions", count: promotionCategoryIconState, link: "/promotion", onMouseHover: setPromotionCategoryStateOn, onMouseLeave: setPromotionCategoryStateOff },
 	];
 

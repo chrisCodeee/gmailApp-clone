@@ -11,7 +11,7 @@ const InboxCategoryContainer = () => {
 		count: "3",
 		bgColor: "#188038",
 		subHeading: "Adobe Acrobat, Course Hero, S..",
-		padding: "ps-4 pb-2",
+		padding: "pb-2",
 	};
 
 	const social = {
@@ -20,7 +20,7 @@ const InboxCategoryContainer = () => {
 		count: "1",
 		bgColor: "#0b57d0",
 		subHeading: "X (Formerly Twitter), Linkedln",
-		padding: "ps-4 pe-0 ",
+		padding: "pe-0 ",
 	};
 
 	return (
@@ -31,6 +31,7 @@ const InboxCategoryContainer = () => {
 					<PrimaryCategory />
 
 					{/* Promotions */}
+
 					<CategoryLabel items={promotion} />
 
 					{/* Social */}

@@ -1,9 +1,13 @@
 import { LeftAsideContainer, MainContainer, MessageContainer, RightAsideContainer } from "./HomeStyles";
 import { Aside, Messages, RightSideBar } from "../../containers";
-import { useFormState } from "../../state-management";
+import { useAsideState, useFormState } from "../../state-management";
+import { ShowRIghtSideBtn } from "../../components";
 
 const Home = () => {
 	const { setFormStateOff } = useFormState();
+
+	const { showRightSideState } = useAsideState();
+
 	return (
 		<MainContainer onClick={setFormStateOff}>
 			<LeftAsideContainer>
@@ -15,6 +19,9 @@ const Home = () => {
 			<RightAsideContainer>
 				<RightSideBar />
 			</RightAsideContainer>
+
+			{/* Icon to show the right side menu */}
+			{!showRightSideState && <ShowRIghtSideBtn />}
 		</MainContainer>
 	);
 };

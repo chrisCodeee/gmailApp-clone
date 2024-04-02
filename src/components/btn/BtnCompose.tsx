@@ -1,5 +1,5 @@
 import { BiPencil } from "react-icons/bi";
-import { Button, Text } from "./BtnComposeStyle";
+import { Button, Text } from "./BtnStyle";
 
 const BtnCompose = () => {
 	return (
