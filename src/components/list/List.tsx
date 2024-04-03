@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 import { AsideCount, AsideIcon, AsideIconWrapper, AsideList, AsideListText, flex } from "./ListStyles";
 
 interface List {
-	icon: ReactNode;
-	name: string;
+	icon?: ReactNode;
+	name?: string;
 	count?: string | ReactNode; //Change Later to number
 	link?: any; //Change to string
 	text_bold?: string;

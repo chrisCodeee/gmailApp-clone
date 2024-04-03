@@ -22,6 +22,35 @@ const AsideList = styled.li`
 	}
 `;
 
+const MenuListWrapper = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	& .active {
+		background-color: rgb(194, 231, 255);
+	}
+
+	& a {
+		display: flex;
+		margin-top: 5px;
+		border-radius: 100%;
+		height: 30px;
+		width: 30px;
+
+		align-items: center;
+		justify-content: center;
+
+		&:hover:not(.active) {
+			background-color: #e9eef6;
+		}
+	}
+
+	& *:focus {
+		font-weight: 600;
+	}
+`;
+
 const AsideIconContainer = styled.div`
 	border-top-right-radius: 50px;
 	border-bottom-right-radius: 50px;
@@ -89,4 +118,4 @@ const CategoryIcon = styled.div`
 
 const flex = "d-flex justify-content-between align-items-center";
 
-export { AsideList, AsideIconWrapper, AsideIconContainer, AsideIcon, AsideListText, AsideCount, flex, ListItemsWrapper, AsideCategoryArrowIcon, AsideCategoryDropdown, AsideLabelWrapper, AsideLabelText, CategoryIcon };
+export { AsideList, AsideIconWrapper, AsideIconContainer, AsideIcon, AsideListText, AsideCount, flex, ListItemsWrapper, AsideCategoryArrowIcon, AsideCategoryDropdown, AsideLabelWrapper, AsideLabelText, CategoryIcon, MenuListWrapper };

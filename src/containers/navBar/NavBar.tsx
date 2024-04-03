@@ -5,9 +5,10 @@ import { IoSearchSharp, IoSettingsOutline } from "react-icons/io5";
 import { LuSlidersHorizontal } from "react-icons/lu";
 import { CgMenuGridO } from "react-icons/cg";
 import { AccountPhoto } from "../../assets";
-import { useFormState } from "../../state-management";
+import { useAsideState, useFormState } from "../../state-management";
 
 const NavBar = () => {
+	const { setShowMenuOn } = useAsideState();
 	const iconStyle = {
 		iconSize: 23,
 		iconColor: "rgb(95, 99, 104)",
@@ -24,9 +25,11 @@ const NavBar = () => {
 		<Nav>
 			<ContainerLeft>
 				<IconWrapper>
-					<Icon>
-						<IoMdMenu size={iconStyle.iconSize} color={iconStyle.iconColor} />
-					</Icon>
+					<div onClick={setShowMenuOn}>
+						<Icon>
+							<IoMdMenu size={iconStyle.iconSize} color={iconStyle.iconColor} />
+						</Icon>
+					</div>
 
 					<Logo />
 				</IconWrapper>

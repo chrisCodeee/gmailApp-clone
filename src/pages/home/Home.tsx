@@ -6,13 +6,22 @@ import { ShowRIghtSideBtn } from "../../components";
 const Home = () => {
 	const { setFormStateOff } = useFormState();
 
-	const { showRightSideState } = useAsideState();
+	const { showRightSideState, showMenu, setShowMenuOnOver, setShowMenuOff } = useAsideState();
 
 	return (
 		<MainContainer onClick={setFormStateOff}>
-			<LeftAsideContainer>
-				<Aside />
-			</LeftAsideContainer>
+			{showMenu && (
+				<LeftAsideContainer onMouseLeave={setShowMenuOff}>
+					<Aside />
+				</LeftAsideContainer>
+			)}
+
+			{!showMenu && (
+				<div className="" style={{ width: "7rem" }} onMouseOver={setShowMenuOnOver}>
+					<Aside />
+				</div>
+			)}
+
 			<MessageContainer>
 				<Messages />
 			</MessageContainer>

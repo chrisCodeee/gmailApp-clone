@@ -26,6 +26,12 @@ interface AsideProps {
 	showRightSideState: boolean;
 	setShowRightSideStateOn: () => void;
 	setShowRIghtSideStateOff: () => void;
+
+	showMenu: boolean;
+	// stay: boolean;
+	setShowMenuOn: () => void;
+	setShowMenuOnOver: () => void;
+	setShowMenuOff: () => void;
 }
 
 const useAsideState = create<AsideProps>((set) => ({
@@ -54,6 +60,12 @@ const useAsideState = create<AsideProps>((set) => ({
 	showRightSideState: true,
 	setShowRightSideStateOn: () => set(() => ({ showRightSideState: true })),
 	setShowRIghtSideStateOff: () => set(() => ({ showRightSideState: false })),
+
+	showMenu: true,
+	// stay: false,
+	setShowMenuOn: () => set((store) => ({ showMenu: !store.showMenu })),
+	setShowMenuOnOver: () => set(() => ({ showMenu: true })),
+	setShowMenuOff: () => set(() => ({ showMenu: false })),
 }));
 
 export default useAsideState;
