@@ -10,7 +10,7 @@ const Container = styled.div`
 	display: flex;
 	align-items: center;
 
-	max-width: 63%;
+	width: 79rem;
 `;
 
 // const PrimaryWrapper = styled.div`
@@ -48,18 +48,18 @@ const PrimaryHeading = styled.h4`
 	margin: 0 0 0 1.5rem;
 `;
 
-const InboxMessageContainer = styled.div`
+const UnsubscribeContainer = styled.div`
+	display: none;
+`;
+
+const InboxMessageContainer = styled.button`
 	border-bottom: 1px solid rgba(180, 182, 187, 0.3);
 	border-left: 1px solid transparent;
 	border-right: 1px solid transparent;
 	border-top: 1px solid transparent;
 	cursor: pointer;
 	transition: all 0.1s;
-
-	& a:focus {
-		background-color: rgba(229, 236, 247, 0.6);
-		display: block;
-	}
+	width: 100%;
 
 	& input,
 	& .iconStar {
@@ -73,8 +73,18 @@ const InboxMessageContainer = styled.div`
 
 	&:hover {
 		border: 0.3px solid rgba(180, 182, 187, 0.3);
-		// border-right: 1px solid rgba(180, 182, 187, 0.3);
 		box-shadow: 0 1.5px 0 rgba(180, 182, 187, 0.7);
+
+		.iconHover {
+			display: flex;
+		}
+	}
+
+	&:focus {
+		background-color: rgba(229, 236, 247, 0.6);
+		border: 0.3px solid rgba(180, 182, 187, 0.3);
+		// box-shadow: 0 1.5px 0 transparent;
+		border-top-color: transparent;
 	}
 `;
 
@@ -82,13 +92,15 @@ const InboxMessageWrapper = styled.div`
 	align-items: center;
 	padding: 0 1rem 0 0.2rem;
 	margin: 0;
+	display: flex;
+	flex-wrap: no-wrap;
 `;
 
 const InboxSubjectWrapper = styled.div`
 	display: flex;
 	padding: 0 2rem 0 0;
 	align-items: center;
-	width: 23%;
+	width: 260px;
 	cursor: pointer;
 `;
 
@@ -177,4 +189,4 @@ const CategoryLabelWrapper = styled.button`
 	}
 `;
 
-export { InboxContainer, CategoryContainer, Container, PrimaryIconWrapper, PrimaryHeading, InboxMessageContainer, InboxMessageWrapper, InboxSubjectWrapper, InboxMessageBodyWrapper, InboxMessageBodyWrapperSubject, InboxMessageTime, UnsubscribeWrapper, UnsubscribeText, CategoryLabelWrapper };
+export { InboxContainer, CategoryContainer, Container, PrimaryIconWrapper, PrimaryHeading, InboxMessageContainer, InboxMessageWrapper, InboxSubjectWrapper, InboxMessageBodyWrapper, InboxMessageBodyWrapperSubject, InboxMessageTime, UnsubscribeWrapper, UnsubscribeText, CategoryLabelWrapper, UnsubscribeContainer };

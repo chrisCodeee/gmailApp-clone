@@ -20,6 +20,7 @@ const Aside = () => {
 				</>
 			)}
 
+			{/* Menu List */}
 			{!showMenu && (
 				<div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
 					<button style={{ backgroundColor: "rgb(194, 231, 255)", borderRadius: "10px", width: "55px", height: "55px" }}>

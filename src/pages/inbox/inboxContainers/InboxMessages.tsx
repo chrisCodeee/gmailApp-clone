@@ -12,8 +12,8 @@ interface InboxMessageProps {
 const InboxMessages = ({ items }: InboxMessageProps) => {
 	return (
 		<InboxMessageContainer style={{ backgroundColor: items.bgColor }}>
-			<InboxMessageWrapper className="row">
-				<InboxSubject subject={items.subject} inboxState={items.inboxState} />
+			<InboxMessageWrapper>
+				<InboxSubject subject={items.subject} />
 				<InboxMessageBody items={items} />
 			</InboxMessageWrapper>
 		</InboxMessageContainer>

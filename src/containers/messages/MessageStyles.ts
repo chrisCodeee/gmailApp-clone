@@ -93,6 +93,11 @@ const FlexWrapperCheckbox = styled.div`
 		opacity: 1;
 		transform-origin: center;
 	}
+
+	& input {
+		z-index: 2;
+		cursor: pointer;
+	}
 `;
 
 const MessageCount = styled.div`

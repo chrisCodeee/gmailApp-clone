@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const IconContainer = styled.div`
+const IconContainer = styled.button`
 	padding: 2rem;
 	cursor: pointer;
 	height: 30px;

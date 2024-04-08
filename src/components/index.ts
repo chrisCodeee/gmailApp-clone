@@ -5,3 +5,6 @@ export { default as BtnCompose } from "./btn/BtnCompose";
 export { default as ListItems } from "./list/ListItems";
 export { default as Badge } from "./badge/Badge";
 export { default as ShowRIghtSideBtn } from "./btn/ShowRightSideBtn";
+export { default as BtnPrimary } from "./btn/BtnPrimary";
+export { default as BtnSecondary } from "./btn/BtnSecondary";
+export { default as SearchMoreOptionForm } from "./form/SearchMoreOptionForm";

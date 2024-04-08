@@ -5,10 +5,12 @@ import { IoSearchSharp, IoSettingsOutline } from "react-icons/io5";
 import { LuSlidersHorizontal } from "react-icons/lu";
 import { CgMenuGridO } from "react-icons/cg";
 import { AccountPhoto } from "../../assets";
-import { useAsideState, useFormState } from "../../state-management";
+import { useAsideState, useFormState, useNavBarState } from "../../state-management";
 
 const NavBar = () => {
 	const { setShowMenuOn } = useAsideState();
+	const { showMoreState, setShowMoreStateOn, setSupportStateOff, setSupportStateOn, setShowMoreStateOff, setSettingStateOn } = useNavBarState();
+
 	const iconStyle = {
 		iconSize: 23,
 		iconColor: "rgb(95, 99, 104)",
@@ -25,45 +27,63 @@ const NavBar = () => {
 		<Nav>
 			<ContainerLeft>
 				<IconWrapper>
-					<div onClick={setShowMenuOn}>
+					<button onClick={setShowMenuOn}>
 						<Icon>
 							<IoMdMenu size={iconStyle.iconSize} color={iconStyle.iconColor} />
 						</Icon>
-					</div>
+					</button>
 
 					<Logo />
 				</IconWrapper>
 
 				<Search className="col-9" style={formStyle}>
 					<Icon>
-						<IoSearchSharp size={iconStyle.iconSize} color={iconStyle.iconColor} />
+						<IoSearchSharp size={iconStyle.iconSize} color={iconStyle.iconColor} title="Search" />
 					</Icon>
 
 					<FormContainer onClick={setFormStateOn}>
 						<Form />
 					</FormContainer>
-
-					<Icon>
-						<LuSlidersHorizontal size={iconStyle.iconSize} color={iconStyle.iconColor} />
-					</Icon>
+					{!showMoreState && (
+						<div
+							title="Show search options"
+							onClick={() => {
+								setShowMoreStateOn();
+								setSupportStateOff();
+							}}>
+							<Icon>
+								<LuSlidersHorizontal size={iconStyle.iconSize} color={iconStyle.iconColor} />
+							</Icon>
+						</div>
+					)}
 				</Search>
 			</ContainerLeft>
 
 			<ContainerRight>
 				<Icon>
-					<IoMdHelpCircleOutline size={iconStyle.iconSize} color={iconStyle.iconColor} />
+					<IoMdHelpCircleOutline
+						size={iconStyle.iconSize}
+						color={iconStyle.iconColor}
+						title="Support"
+						onClick={() => {
+							setSupportStateOn();
+							setShowMoreStateOff();
+						}}
+					/>
+				</Icon>
+
+				<div title="Settings" onClick={setSettingStateOn}>
+					<Icon>
+						<IoSettingsOutline size={iconStyle.iconSize} color={iconStyle.iconColor} />
+					</Icon>
+				</div>
+
+				<Icon>
+					<CgMenuGridO size={iconStyle.iconSize} color={iconStyle.iconColor} title="Google apps" />
 				</Icon>
 
 				<Icon>
-					<IoSettingsOutline size={iconStyle.iconSize} color={iconStyle.iconColor} />
-				</Icon>
-
-				<Icon>
-					<CgMenuGridO size={iconStyle.iconSize} color={iconStyle.iconColor} />
-				</Icon>
-
-				<Icon>
-					<img src={AccountPhoto} alt="Profile picture" style={{ height: "3rem", borderRadius: "100%" }} />
+					<img src={AccountPhoto} alt="Profile picture" style={{ height: "3rem", borderRadius: "100%" }} title="Google Account" />
 				</Icon>
 			</ContainerRight>
 		</Nav>

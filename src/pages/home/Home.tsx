@@ -1,23 +1,30 @@
 import { LeftAsideContainer, MainContainer, MessageContainer, RightAsideContainer } from "./HomeStyles";
-import { Aside, Messages, RightSideBar } from "../../containers";
+import { Aside, Messages, RightSideBar, Settings } from "../../containers";
 import { useAsideState, useFormState } from "../../state-management";
 import { ShowRIghtSideBtn } from "../../components";
+import useNavBarState from "../../state-management/useNavBarState";
 
 const Home = () => {
 	const { setFormStateOff } = useFormState();
 
-	const { showRightSideState, showMenu, setShowMenuOnOver, setShowMenuOff } = useAsideState();
+	const { showRightSideState, showMenu, setShowMenuOnOver } = useAsideState();
+	const { setShowMoreStateOff, setSupportStateOff, settingState } = useNavBarState();
 
 	return (
-		<MainContainer onClick={setFormStateOff}>
+		<MainContainer
+			onClick={() => {
+				setFormStateOff();
+				setShowMoreStateOff();
+				setSupportStateOff();
+			}}>
 			{showMenu && (
-				<LeftAsideContainer onMouseLeave={setShowMenuOff}>
+				<LeftAsideContainer>
 					<Aside />
 				</LeftAsideContainer>
 			)}
 
 			{!showMenu && (
-				<div className="" style={{ width: "7rem" }} onMouseOver={setShowMenuOnOver}>
+				<div className="menulist" style={{ width: "7rem" }} onMouseOver={setShowMenuOnOver}>
 					<Aside />
 				</div>
 			)}
@@ -25,6 +32,13 @@ const Home = () => {
 			<MessageContainer>
 				<Messages />
 			</MessageContainer>
+
+			{settingState && (
+				<div className="ms-4" style={{ width: "19%", backgroundColor: "#fff", borderRadius: "20px" }}>
+					<Settings />
+				</div>
+			)}
+
 			<RightAsideContainer>
 				<RightSideBar />
 			</RightAsideContainer>

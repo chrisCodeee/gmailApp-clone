@@ -6,19 +6,19 @@ import { InboxSubjectWrapper } from "../InboxStyles";
 
 export interface InboxSubjectProps {
 	subject: string;
-	inboxState?: boolean;
 }
 
-const InboxSubject = ({ subject, inboxState }: InboxSubjectProps) => {
+const InboxSubject = ({ subject }: InboxSubjectProps) => {
 	return (
 		<>
 			<InboxSubjectWrapper>
-				{/* <div> */}
 				<Icon>
-					{inboxState && <SelectItemsHover />}
-					<input type="checkbox" />
+					<div className="iconHover" style={{ position: "absolute", left: "-7px", opacity: ".3" }}>
+						<SelectItemsHover />
+					</div>
+
+					<input id="checkbox" type="checkbox" style={{ height: "17px", width: "17px" }} />
 				</Icon>
-				{/* </div> */}
 
 				<div className="iconStar" style={{ marginLeft: "-13px" }}>
 					<Icon>

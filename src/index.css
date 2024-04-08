@@ -60,7 +60,12 @@ img {
 	object-fit: cover;
 }
 
+.select-selected {
+	padding: 2rem;
+	color: blue;
+}
 input,
+select,
 input:focus {
 	border: 0;
 	outline: 0;
@@ -68,9 +73,15 @@ input:focus {
 }
 
 button {
-	border: 0;
 	background-color: transparent;
 	color: inherit;
+}
+
+button,
+button:hover,
+button:focus {
+	border: 0;
+	outline: none;
 }
 
 a {
@@ -78,7 +89,16 @@ a {
 	color: inherit;
 }
 
-ul {
+/* .show {
+	display: none;
+}
+
+.text {
+	display: block;
+} */
+
+ul,
+li {
 	list-style: none;
 	padding: 0;
 }
@@ -111,4 +131,9 @@ ul {
 	html {
 		font-size: 25%;
 	}
+}
+
+/* Inbox Hover Icon State */
+.iconHover {
+	display: none;
 }

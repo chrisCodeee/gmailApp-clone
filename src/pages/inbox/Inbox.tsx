@@ -4,15 +4,16 @@ import { InboxContainer } from "./InboxStyles";
 import { InboxCategoryContainer, InboxMessages } from "./inboxContainers";
 import { InboxMessagePropsCombine } from "./inboxContainers/InboxMessages";
 import { inboxMessageDetails } from "./useInboxParams";
-// import { Navigate, useNavigate } from "react-router-dom";
 
 const Inbox = () => {
-	const { setInboxStateOn, setInboxStateOff, inboxState } = useInboxState();
-
+	const { inboxState, setInboxStateOn, setInboxStateOff } = useInboxState();
 	const [num, setNum] = useState<number>();
 
-	const newInbox = inboxMessageDetails.map((items) => (items.id === num ? { ...items, on: setInboxStateOn, off: setInboxStateOff, inboxState: inboxState, bgColor: "rgba(229, 236, 247, 0.6)" } : items));
-	// const navigate = useNavigate();
+	const newInboxMessageDetails = inboxMessageDetails.map((items) => (items.id === num ? { ...items, inboxState: inboxState } : items));
+
+	const hover = (index: number) => {
+		setNum(index);
+	};
 	return (
 		<InboxContainer>
 			{/* Category Labels */}
@@ -20,14 +21,14 @@ const Inbox = () => {
 			<InboxCategoryContainer />
 
 			{/* Messages */}
-			{newInbox.map((items: InboxMessagePropsCombine, index) => (
+			{newInboxMessageDetails.map((items: InboxMessagePropsCombine, index) => (
 				<div
 					key={items.id}
-					onMouseMove={() => {
-						setNum(index + 1);
+					onMouseOver={() => {
+						hover(index + 1);
+						setInboxStateOn();
 					}}
-					onMouseOver={items.on}
-					onMouseLeave={items.off}>
+					onMouseLeave={setInboxStateOff}>
 					<InboxMessages items={items} />
 				</div>
 			))}
