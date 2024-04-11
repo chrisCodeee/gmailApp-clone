@@ -12,7 +12,7 @@ const LeftAsideContainer = styled.aside`
 `;
 
 const RightAsideContainer = styled.aside`
-	padding: 0.6rem 1rem;
+	padding: 0.6rem 1rem 0.6rem 0;
 `;
 
 const MessageContainer = styled.div`
@@ -21,4 +21,25 @@ const MessageContainer = styled.div`
 	border-radius: 20px;
 `;
 
-export { MainContainer, MessageContainer, LeftAsideContainer, RightAsideContainer };
+const SettingWrapper = styled.div`
+	height: 73vh;
+	overflow-y: auto;
+
+	@media screen and (max-width: 992px) {
+		height: 90vh;
+	}
+
+	&::-webkit-scrollbar {
+		width: 10px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: #888;
+	}
+
+	&::-webkit-scrollbar-track-piece {
+		background-color: #cccccc54;
+	}
+`;
+
+export { MainContainer, MessageContainer, LeftAsideContainer, RightAsideContainer, SettingWrapper };

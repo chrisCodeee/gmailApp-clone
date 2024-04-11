@@ -7,4 +7,6 @@ export { default as Badge } from "./badge/Badge";
 export { default as ShowRIghtSideBtn } from "./btn/ShowRightSideBtn";
 export { default as BtnPrimary } from "./btn/BtnPrimary";
 export { default as BtnSecondary } from "./btn/BtnSecondary";
+export { default as BtnTertiary } from "./btn/BtnTertiary";
+export { default as BtnBlue } from "./btn/BtnBlue";
 export { default as SearchMoreOptionForm } from "./form/SearchMoreOptionForm";

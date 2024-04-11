@@ -72,7 +72,13 @@ const NavBar = () => {
 					/>
 				</Icon>
 
-				<div title="Settings" onClick={setSettingStateOn}>
+				<div
+					title="Settings"
+					onClick={() => {
+						setSettingStateOn();
+						setShowMoreStateOff();
+						setSupportStateOff();
+					}}>
 					<Icon>
 						<IoSettingsOutline size={iconStyle.iconSize} color={iconStyle.iconColor} />
 					</Icon>

@@ -81,4 +81,16 @@ const BtnPrimaryContainer = styled.button`
 	}
 `;
 
-export { Button, Text, ShowRightSideWrapper, BtnPrimaryContainer, BtnSecondaryContainer };
+const BtnBlueWrapper = styled.button`
+	color: rgb(26, 115, 232);
+	font-weight: 500;
+	padding: 0.2rem 1.4rem;
+	border-radius: 100px;
+	margin: 0.4rem 0 0 0;
+
+	&:hover {
+		background-color: rgba(26, 115, 232, 0.039);
+	}
+`;
+
+export { Button, Text, ShowRightSideWrapper, BtnPrimaryContainer, BtnSecondaryContainer, BtnBlueWrapper };

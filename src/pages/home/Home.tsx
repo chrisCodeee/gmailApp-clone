@@ -34,7 +34,7 @@ const Home = () => {
 			</MessageContainer>
 
 			{settingState && (
-				<div className="ms-4" style={{ width: "19%", backgroundColor: "#fff", borderRadius: "20px" }}>
+				<div className="ms-4 me-2" style={{ width: "20%", backgroundColor: "#fff", borderRadius: "20px" }}>
 					<Settings />
 				</div>
 			)}

@@ -2,7 +2,7 @@ import { BtnPrimaryContainer } from "./BtnStyle";
 interface BtnPrimaryProps {
 	name: string;
 	borderRadius?: string;
-	title: string;
+	title?: string;
 	margin?: string;
 }
 
