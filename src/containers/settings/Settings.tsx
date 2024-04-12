@@ -72,11 +72,13 @@ const Settings = () => {
 				<Wrapper>
 					<Heading text="Email threading" />
 
-					<div className="d-flex align-items-center">
-						<Icon>
-							{check && <input type="checkbox" color="rgb(26, 115, 232)" name="checkbox" id="conversation_view" style={{ height: "15px", width: "15px" }} checked={!check} />}
-							{!check && <BiCheckSquare size={iconSize} color="rgb(26, 115, 232)" />}
-						</Icon>
+					<div className="d-flex align-items-center mt-2">
+						<div onClick={() => setCheck(!check)}>
+							<Icon>
+								{check && <input type="checkbox" color="rgb(26, 115, 232)" name="checkbox" id="conversation_view" style={{ height: "15px", width: "15px" }} checked={!check} />}
+								{!check && <BiCheckSquare size={iconSize} color="rgb(26, 115, 232)" />}
+							</Icon>
+						</div>
 						<label htmlFor="conversation_view" className="me-3" onClick={() => setCheck(!check)}>
 							Conversation view
 						</label>

@@ -6,6 +6,9 @@ import { FlexWrapper, FlexWrapperArrow, FlexWrapperCheckbox, MessageCount, Upper
 import { inboxMessageDetails, inboxMessageDetailsPage2 } from "../../pages/inbox/useInboxParams";
 
 export const upperIconSize = 19;
+const refreshPage = () => {
+	window.location.reload();
+};
 
 const UpperMessage = () => {
 	return (
@@ -23,9 +26,11 @@ const UpperMessage = () => {
 						</FlexWrapperArrow>
 					</FlexWrapper>
 
-					<Icon>
-						<MdOutlineRefresh size={upperIconSize} />
-					</Icon>
+					<div onClick={() => refreshPage()}>
+						<Icon>
+							<MdOutlineRefresh size={upperIconSize} />
+						</Icon>
+					</div>
 
 					<Icon>
 						<IoMdMore size={upperIconSize} />
