@@ -8,7 +8,7 @@ const Home = () => {
 	const { setFormStateOff } = useFormState();
 
 	const { showRightSideState, showMenu, setShowMenuOnOver } = useAsideState();
-	const { setShowMoreStateOff, setSupportStateOff, settingState } = useNavBarState();
+	const { setShowMoreStateOff, setSupportStateOff, setGoogleAppStateOff, settingState } = useNavBarState();
 
 	return (
 		<MainContainer
@@ -16,6 +16,7 @@ const Home = () => {
 				setFormStateOff();
 				setShowMoreStateOff();
 				setSupportStateOff();
+				setGoogleAppStateOff();
 			}}>
 			{showMenu && (
 				<LeftAsideContainer>

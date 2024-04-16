@@ -1,16 +1,17 @@
 import { Outlet } from "react-router-dom";
-import { NavBar, SearchMoreOptions, Support } from "../containers";
+import { AccountProfile, GoogleApps, NavBar, SearchMoreOptions, Support } from "../containers";
 import { AppWrapper } from "./AppStyles";
 import { useNavBarState } from "../state-management";
 
 function App() {
-	const { showMoreState, supportState } = useNavBarState();
+	const { showMoreState, supportState, googleAppState } = useNavBarState();
 	return (
 		<AppWrapper>
 			<NavBar />
 
-			<Outlet />
-
+			{/* <Outlet /> */}
+			<AccountProfile />
+			{googleAppState && <GoogleApps />}
 			{showMoreState && <SearchMoreOptions />}
 			{supportState && <Support />}
 		</AppWrapper>

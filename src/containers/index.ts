@@ -6,3 +6,5 @@ export { default as RightSideBar } from "./rightSideBar/RightSideBar";
 export { default as SearchMoreOptions } from "./searchMoreOptions/SearchMoreOptions";
 export { default as Support } from "./support/Support";
 export { default as Settings } from "./settings/Settings";
+export { default as GoogleApps } from "./googleApps/GoogleApps";
+export { default as AccountProfile } from "./accountProfile/AccountProfile";

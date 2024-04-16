@@ -1,15 +1,15 @@
-import { Form, Icon, Logo } from "../../components";
+import { Form, Icon, Logo, User } from "../../components";
 import { ContainerLeft, ContainerRight, FormContainer, IconWrapper, Nav, Search } from "./NavBarStyles";
 import { IoMdMenu, IoMdHelpCircleOutline } from "react-icons/io";
 import { IoSearchSharp, IoSettingsOutline } from "react-icons/io5";
 import { LuSlidersHorizontal } from "react-icons/lu";
 import { CgMenuGridO } from "react-icons/cg";
-import { AccountPhoto } from "../../assets";
 import { useAsideState, useFormState, useNavBarState } from "../../state-management";
+import { AccountPhoto } from "../../assets";
 
 const NavBar = () => {
 	const { setShowMenuOn } = useAsideState();
-	const { showMoreState, setShowMoreStateOn, setSupportStateOff, setSupportStateOn, setShowMoreStateOff, setSettingStateOn } = useNavBarState();
+	const { showMoreState, setShowMoreStateOn, setGoogleAppStateOff, setGoogleAppStateOn, setSupportStateOff, setSupportStateOn, setShowMoreStateOff, setSettingStateOn } = useNavBarState();
 
 	const iconStyle = {
 		iconSize: 23,
@@ -50,6 +50,7 @@ const NavBar = () => {
 							onClick={() => {
 								setShowMoreStateOn();
 								setSupportStateOff();
+								setGoogleAppStateOff();
 							}}>
 							<Icon>
 								<LuSlidersHorizontal size={iconStyle.iconSize} color={iconStyle.iconColor} />
@@ -68,6 +69,7 @@ const NavBar = () => {
 						onClick={() => {
 							setSupportStateOn();
 							setShowMoreStateOff();
+							setGoogleAppStateOff();
 						}}
 					/>
 				</Icon>
@@ -78,18 +80,27 @@ const NavBar = () => {
 						setSettingStateOn();
 						setShowMoreStateOff();
 						setSupportStateOff();
+						setGoogleAppStateOff();
 					}}>
 					<Icon>
 						<IoSettingsOutline size={iconStyle.iconSize} color={iconStyle.iconColor} />
 					</Icon>
 				</div>
 
-				<Icon>
-					<CgMenuGridO size={iconStyle.iconSize} color={iconStyle.iconColor} title="Google apps" />
-				</Icon>
+				<div
+					title="Google apps"
+					onClick={() => {
+						setGoogleAppStateOn();
+						setShowMoreStateOff();
+						setSupportStateOff();
+					}}>
+					<Icon>
+						<CgMenuGridO size={iconStyle.iconSize} color={iconStyle.iconColor} />
+					</Icon>
+				</div>
 
 				<Icon>
-					<img src={AccountPhoto} alt="Profile picture" style={{ height: "3rem", borderRadius: "100%" }} title="Google Account" />
+					<User img={AccountPhoto} />
 				</Icon>
 			</ContainerRight>
 		</Nav>

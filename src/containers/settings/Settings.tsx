@@ -26,7 +26,7 @@ const Settings = () => {
 				</FlexContainer>
 
 				<BtnAllSettingContainer>
-					<BtnTertiary name="See all settings" />
+					<BtnTertiary name="See all settings" width="100%" />
 				</BtnAllSettingContainer>
 			</AllSettingWrapper>
 
