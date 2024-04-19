@@ -4,22 +4,29 @@ import { BiSolidKeyboard } from "react-icons/bi";
 import { Icon } from "../../components";
 import { FlexWrapper, FlexWrapperArrow, FlexWrapperCheckbox, MessageCount, UpperMessageWrapper } from "./MessageStyles";
 import { inboxMessageDetails, inboxMessageDetailsPage2 } from "../../pages/inbox/useInboxParams";
+import { useNavBarState } from "../../state-management";
 
 export const upperIconSize = 19;
-const refreshPage = () => {
-	window.location.reload();
-};
 
 const UpperMessage = () => {
+	const refreshPage = () => {
+		window.location.reload();
+	};
+	const { setSelectMesssageTypeStateOn, setSelectMessageTypeStateOff, setMarkAllMessageReadStateOn, setMarkAllMessageReadStateOff } = useNavBarState();
 	return (
 		<>
 			<UpperMessageWrapper>
 				<FlexWrapper>
 					<FlexWrapper>
-						<FlexWrapperCheckbox>
+						<FlexWrapperCheckbox title="Select">
 							<input type="checkbox" />
 						</FlexWrapperCheckbox>
-						<FlexWrapperArrow>
+						<FlexWrapperArrow
+							title="Select"
+							onClick={() => {
+								setSelectMesssageTypeStateOn();
+								setMarkAllMessageReadStateOff();
+							}}>
 							<span className="d-flex">
 								<MdArrowDropDown size={upperIconSize} />
 							</span>
@@ -32,9 +39,16 @@ const UpperMessage = () => {
 						</Icon>
 					</div>
 
-					<Icon>
-						<IoMdMore size={upperIconSize} />
-					</Icon>
+					<div
+						title="More"
+						onClick={() => {
+							setMarkAllMessageReadStateOn();
+							setSelectMessageTypeStateOff();
+						}}>
+						<Icon>
+							<IoMdMore size={upperIconSize} />
+						</Icon>
+					</div>
 				</FlexWrapper>
 
 				<FlexWrapper>

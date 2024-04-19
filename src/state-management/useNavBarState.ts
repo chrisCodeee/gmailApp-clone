@@ -16,6 +16,18 @@ interface NavBarProps {
 	googleAppState: boolean;
 	setGoogleAppStateOn: () => void;
 	setGoogleAppStateOff: () => void;
+
+	accountProfileState: boolean;
+	setAccountProfileStateOn: () => void;
+	setAccountProfileStateOff: () => void;
+
+	selectMessageTypeState: boolean;
+	setSelectMesssageTypeStateOn: () => void;
+	setSelectMessageTypeStateOff: () => void;
+
+	markAllMessageReadState: boolean;
+	setMarkAllMessageReadStateOn: () => void;
+	setMarkAllMessageReadStateOff: () => void;
 }
 
 const useNavBarState = create<NavBarProps>((set) => ({
@@ -34,6 +46,18 @@ const useNavBarState = create<NavBarProps>((set) => ({
 	googleAppState: false,
 	setGoogleAppStateOn: () => set((store) => ({ googleAppState: !store.googleAppState })),
 	setGoogleAppStateOff: () => set(() => ({ googleAppState: false })),
+
+	accountProfileState: false,
+	setAccountProfileStateOn: () => set((store) => ({ accountProfileState: !store.accountProfileState })),
+	setAccountProfileStateOff: () => set(() => ({ accountProfileState: false })),
+
+	selectMessageTypeState: false,
+	setSelectMesssageTypeStateOn: () => set((store) => ({ selectMessageTypeState: !store.selectMessageTypeState })),
+	setSelectMessageTypeStateOff: () => set(() => ({ selectMessageTypeState: false })),
+
+	markAllMessageReadState: false,
+	setMarkAllMessageReadStateOn: () => set((store) => ({ markAllMessageReadState: !store.markAllMessageReadState })),
+	setMarkAllMessageReadStateOff: () => set(() => ({ markAllMessageReadState: false })),
 }));
 
 export default useNavBarState;

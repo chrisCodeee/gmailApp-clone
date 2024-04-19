@@ -8,3 +8,5 @@ export { default as Support } from "./support/Support";
 export { default as Settings } from "./settings/Settings";
 export { default as GoogleApps } from "./googleApps/GoogleApps";
 export { default as AccountProfile } from "./accountProfile/AccountProfile";
+export { default as SelectMessageType } from "./selectMessageType/SelectMessageType";
+export { default as MarkAllAsRead } from "./markAllAsRead/MarkAllAsRead";

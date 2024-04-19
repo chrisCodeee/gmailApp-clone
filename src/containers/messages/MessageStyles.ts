@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const MessageWrapper = styled.div`
+	position: relative;
 	height: 80vh;
 	overflow-y: auto;
 	padding: 0 0.7rem 0 0.2rem;

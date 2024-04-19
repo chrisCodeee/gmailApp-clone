@@ -9,7 +9,7 @@ import { AccountPhoto } from "../../assets";
 
 const NavBar = () => {
 	const { setShowMenuOn } = useAsideState();
-	const { showMoreState, setShowMoreStateOn, setGoogleAppStateOff, setGoogleAppStateOn, setSupportStateOff, setSupportStateOn, setShowMoreStateOff, setSettingStateOn } = useNavBarState();
+	const { showMoreState, setShowMoreStateOn, setGoogleAppStateOff, setGoogleAppStateOn, setSupportStateOff, setSupportStateOn, setShowMoreStateOff, setSettingStateOn, setAccountProfileStateOn, setAccountProfileStateOff, setSelectMessageTypeStateOff, setMarkAllMessageReadStateOff } = useNavBarState();
 
 	const iconStyle = {
 		iconSize: 23,
@@ -24,7 +24,11 @@ const NavBar = () => {
 	};
 
 	return (
-		<Nav>
+		<Nav
+			onClick={() => {
+				setSelectMessageTypeStateOff();
+				setMarkAllMessageReadStateOff();
+			}}>
 			<ContainerLeft>
 				<IconWrapper>
 					<button onClick={setShowMenuOn}>
@@ -51,6 +55,7 @@ const NavBar = () => {
 								setShowMoreStateOn();
 								setSupportStateOff();
 								setGoogleAppStateOff();
+								setAccountProfileStateOff();
 							}}>
 							<Icon>
 								<LuSlidersHorizontal size={iconStyle.iconSize} color={iconStyle.iconColor} />
@@ -70,6 +75,7 @@ const NavBar = () => {
 							setSupportStateOn();
 							setShowMoreStateOff();
 							setGoogleAppStateOff();
+							setAccountProfileStateOff();
 						}}
 					/>
 				</Icon>
@@ -81,6 +87,7 @@ const NavBar = () => {
 						setShowMoreStateOff();
 						setSupportStateOff();
 						setGoogleAppStateOff();
+						setAccountProfileStateOff();
 					}}>
 					<Icon>
 						<IoSettingsOutline size={iconStyle.iconSize} color={iconStyle.iconColor} />
@@ -93,15 +100,24 @@ const NavBar = () => {
 						setGoogleAppStateOn();
 						setShowMoreStateOff();
 						setSupportStateOff();
+						setAccountProfileStateOff();
 					}}>
 					<Icon>
 						<CgMenuGridO size={iconStyle.iconSize} color={iconStyle.iconColor} />
 					</Icon>
 				</div>
 
-				<Icon>
-					<User img={AccountPhoto} />
-				</Icon>
+				<div
+					onClick={() => {
+						setAccountProfileStateOn();
+						setShowMoreStateOff();
+						setSupportStateOff();
+						setGoogleAppStateOff();
+					}}>
+					<Icon>
+						<User img={AccountPhoto} />
+					</Icon>
+				</div>
 			</ContainerRight>
 		</Nav>
 	);

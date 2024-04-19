@@ -8,7 +8,7 @@ const Home = () => {
 	const { setFormStateOff } = useFormState();
 
 	const { showRightSideState, showMenu, setShowMenuOnOver } = useAsideState();
-	const { setShowMoreStateOff, setSupportStateOff, setGoogleAppStateOff, settingState } = useNavBarState();
+	const { setShowMoreStateOff, setSupportStateOff, setGoogleAppStateOff, setSelectMessageTypeStateOff, setMarkAllMessageReadStateOff, settingState } = useNavBarState();
 
 	return (
 		<MainContainer
@@ -19,7 +19,11 @@ const Home = () => {
 				setGoogleAppStateOff();
 			}}>
 			{showMenu && (
-				<LeftAsideContainer>
+				<LeftAsideContainer
+					onClick={() => {
+						setSelectMessageTypeStateOff();
+						setMarkAllMessageReadStateOff();
+					}}>
 					<Aside />
 				</LeftAsideContainer>
 			)}
@@ -40,7 +44,7 @@ const Home = () => {
 				</div>
 			)}
 
-			<RightAsideContainer>
+			<RightAsideContainer onClick={setSelectMessageTypeStateOff}>
 				<RightSideBar />
 			</RightAsideContainer>
 
