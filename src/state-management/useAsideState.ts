@@ -28,10 +28,17 @@ interface AsideProps {
 	setShowRIghtSideStateOff: () => void;
 
 	showMenu: boolean;
-	// stay: boolean;
 	setShowMenuOn: () => void;
 	setShowMenuOnOver: () => void;
 	setShowMenuOff: () => void;
+
+	createLabelState: boolean;
+	setCreateLabelStateOn: () => void;
+	setCreateLabelStateOff: () => void;
+
+	composeMessageState: boolean;
+	setComposeMessageStateOn: () => void;
+	setComposeMessageStateOff: () => void;
 }
 
 const useAsideState = create<AsideProps>((set) => ({
@@ -62,10 +69,17 @@ const useAsideState = create<AsideProps>((set) => ({
 	setShowRIghtSideStateOff: () => set(() => ({ showRightSideState: false })),
 
 	showMenu: true,
-	// stay: false,
 	setShowMenuOn: () => set((store) => ({ showMenu: !store.showMenu })),
 	setShowMenuOnOver: () => set(() => ({ showMenu: true })),
 	setShowMenuOff: () => set(() => ({ showMenu: false })),
+
+	createLabelState: false,
+	setCreateLabelStateOn: () => set(() => ({ createLabelState: true })),
+	setCreateLabelStateOff: () => set(() => ({ createLabelState: false })),
+
+	composeMessageState: false,
+	setComposeMessageStateOn: () => set((store) => ({ composeMessageState: !store.composeMessageState })),
+	setComposeMessageStateOff: () => set(() => ({ composeMessageState: false })),
 }));
 
 export default useAsideState;

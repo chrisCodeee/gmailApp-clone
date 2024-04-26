@@ -4,7 +4,8 @@ import { BiSolidKeyboard } from "react-icons/bi";
 import { Icon } from "../../components";
 import { FlexWrapper, FlexWrapperArrow, FlexWrapperCheckbox, MessageCount, UpperMessageWrapper } from "./MessageStyles";
 import { inboxMessageDetails, inboxMessageDetailsPage2 } from "../../pages/inbox/useInboxParams";
-import { useNavBarState } from "../../state-management";
+import { useInboxState } from "../../state-management";
+import { useState } from "react";
 
 export const upperIconSize = 19;
 
@@ -12,20 +13,24 @@ const UpperMessage = () => {
 	const refreshPage = () => {
 		window.location.reload();
 	};
-	const { setSelectMesssageTypeStateOn, setSelectMessageTypeStateOff, setMarkAllMessageReadStateOn, setMarkAllMessageReadStateOff } = useNavBarState();
+
+	const [inputCheckboxState, setInputCheckboxState] = useState(false);
+
+	const { setSelectMesssageTypeStateOn, setSelectMessageTypeStateOff, setMarkAllMessageReadStateOn, setMarkAllMessageReadStateOff, setSelectInputToolStateOn, setSelectInputToolStateOff } = useInboxState();
 	return (
 		<>
 			<UpperMessageWrapper>
 				<FlexWrapper>
 					<FlexWrapper>
-						<FlexWrapperCheckbox title="Select">
-							<input type="checkbox" />
+						<FlexWrapperCheckbox title="Select" onClick={() => setInputCheckboxState(!inputCheckboxState)}>
+							<input type="checkbox" checked={inputCheckboxState} />
 						</FlexWrapperCheckbox>
 						<FlexWrapperArrow
 							title="Select"
 							onClick={() => {
 								setSelectMesssageTypeStateOn();
 								setMarkAllMessageReadStateOff();
+								setSelectInputToolStateOff();
 							}}>
 							<span className="d-flex">
 								<MdArrowDropDown size={upperIconSize} />
@@ -44,6 +49,7 @@ const UpperMessage = () => {
 						onClick={() => {
 							setMarkAllMessageReadStateOn();
 							setSelectMessageTypeStateOff();
+							setSelectInputToolStateOff();
 						}}>
 						<Icon>
 							<IoMdMore size={upperIconSize} />
@@ -55,19 +61,27 @@ const UpperMessage = () => {
 					<MessageCount>
 						{inboxMessageDetails.length - (inboxMessageDetails.length - 1)}-{inboxMessageDetails.length} of {inboxMessageDetails.length + inboxMessageDetailsPage2.length}
 					</MessageCount>
-					<Icon>
-						{/* <button> */}
-						<MdKeyboardArrowLeft size={upperIconSize} />
-						{/* </button> */}
-					</Icon>
-					<Icon>
-						<MdKeyboardArrowRight size={upperIconSize} />
-					</Icon>
+					<div title="Newer">
+						<Icon>
+							<MdKeyboardArrowLeft size={upperIconSize} />
+						</Icon>
+					</div>
+					<div title="Older">
+						<Icon>
+							<MdKeyboardArrowRight size={upperIconSize} />
+						</Icon>
+					</div>
 					<FlexWrapper>
-						<FlexWrapperCheckbox>
+						<FlexWrapperCheckbox title="Input tools on/off (Ctrl-Shift-K)">
 							<BiSolidKeyboard size={upperIconSize} />
 						</FlexWrapperCheckbox>
-						<FlexWrapperArrow>
+						<FlexWrapperArrow
+							title="Select input tool"
+							onClick={() => {
+								setSelectInputToolStateOn();
+								setSelectMessageTypeStateOff();
+								setMarkAllMessageReadStateOff();
+							}}>
 							<span className="d-flex">
 								<MdArrowDropDown size={upperIconSize} />
 							</span>

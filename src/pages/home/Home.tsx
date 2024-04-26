@@ -1,6 +1,6 @@
 import { LeftAsideContainer, MainContainer, MessageContainer, RightAsideContainer } from "./HomeStyles";
 import { Aside, Messages, RightSideBar, Settings } from "../../containers";
-import { useAsideState, useFormState } from "../../state-management";
+import { useAsideState, useFormState, useInboxState } from "../../state-management";
 import { ShowRIghtSideBtn } from "../../components";
 import useNavBarState from "../../state-management/useNavBarState";
 
@@ -8,7 +8,9 @@ const Home = () => {
 	const { setFormStateOff } = useFormState();
 
 	const { showRightSideState, showMenu, setShowMenuOnOver } = useAsideState();
-	const { setShowMoreStateOff, setSupportStateOff, setGoogleAppStateOff, setSelectMessageTypeStateOff, setMarkAllMessageReadStateOff, settingState } = useNavBarState();
+	const { setShowMoreStateOff, setSupportStateOff, setGoogleAppStateOff, settingState, setAccountProfileStateOff } = useNavBarState();
+
+	const { setSelectMessageTypeStateOff, setMarkAllMessageReadStateOff } = useInboxState();
 
 	return (
 		<MainContainer
@@ -17,6 +19,7 @@ const Home = () => {
 				setShowMoreStateOff();
 				setSupportStateOff();
 				setGoogleAppStateOff();
+				setAccountProfileStateOff();
 			}}>
 			{showMenu && (
 				<LeftAsideContainer

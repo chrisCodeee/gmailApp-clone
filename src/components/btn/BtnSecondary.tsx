@@ -1,11 +1,12 @@
 import { BtnSecondaryContainer } from "./BtnStyle";
 interface BtnProps {
 	name: string;
+	borderRadius?: string;
 }
-const BtnSecondary = ({ name }: BtnProps) => {
+const BtnSecondary = ({ name, borderRadius = "3px" }: BtnProps) => {
 	return (
 		<>
-			<BtnSecondaryContainer>{name}</BtnSecondaryContainer>
+			<BtnSecondaryContainer borderRadius={borderRadius}>{name}</BtnSecondaryContainer>
 		</>
 	);
 };

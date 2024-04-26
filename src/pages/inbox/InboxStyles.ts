@@ -90,7 +90,7 @@ const InboxMessageContainer = styled.button`
 
 const InboxMessageWrapper = styled.div`
 	align-items: center;
-	padding: 0 1rem 0 0.2rem;
+	padding: 0 0rem 0 0.2rem;
 	margin: 0;
 	display: flex;
 	flex-wrap: no-wrap;
@@ -98,7 +98,7 @@ const InboxMessageWrapper = styled.div`
 
 const InboxSubjectWrapper = styled.div`
 	display: flex;
-	padding: 0 2rem 0 0;
+	// padding: 0 0rem 0 0;
 	align-items: center;
 	width: 260px;
 	cursor: pointer;
@@ -108,7 +108,7 @@ const InboxMessageBodyWrapper = styled.div`
 	display: flex;
 	align-items: center;
 	align-self: stretch;
-	width: 77%;
+	flex-grow: 1;
 `;
 
 const InboxMessageBodyWrapperSubject = styled.div`

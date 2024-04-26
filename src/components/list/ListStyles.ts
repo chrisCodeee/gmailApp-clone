@@ -5,6 +5,7 @@ const AsideList = styled.li`
 
 	& .active {
 		background-color: rgb(194, 231, 255);
+		font-weight: 600;
 	}
 
 	& a {
@@ -15,10 +16,6 @@ const AsideList = styled.li`
 		&:hover:not(.active) {
 			background-color: #e9eef6;
 		}
-	}
-
-	& *:focus {
-		font-weight: 600;
 	}
 `;
 
@@ -104,16 +101,11 @@ const ListItemsWrapper = styled.ul``;
 
 const CategoryIcon = styled.div`
 	border-radius: 100%;
-	padding: 0.6rem;
 	cursor: pointer;
 
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
-	&:hover {
-		background-color: rgba(180, 182, 187, 0.3);
-	}
 `;
 
 const flex = "d-flex justify-content-between align-items-center";

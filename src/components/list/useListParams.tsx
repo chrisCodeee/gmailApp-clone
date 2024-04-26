@@ -1,15 +1,14 @@
-import { HiOutlineTrash } from "react-icons/hi2";
 import { MdInbox, MdLabelImportantOutline, MdOutlineChat, MdOutlineScheduleSend, MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp, MdOutlinePeopleOutline, MdOutlineForum } from "react-icons/md";
-import { AiOutlineFile, AiOutlineSetting } from "react-icons/ai";
+import { AiOutlineFile } from "react-icons/ai";
 import { BiInfoCircle, BiSend } from "react-icons/bi";
 import { PiTagSimple, PiTag } from "react-icons/pi";
 import { RiStarSLine, RiSpam2Line } from "react-icons/ri";
 import { TbClockHour5, TbMail } from "react-icons/tb";
-import { HiPlus } from "react-icons/hi";
 import useAsideState from "../../state-management/useAsideState";
 import { IoMdArrowDropdown, IoMdArrowDropright, IoMdMore } from "react-icons/io";
 import { upperIconSize } from "../../containers/messages/UpperMessage";
 import { CategoryIcon } from "./ListStyles";
+import { CgTrash } from "react-icons/cg";
 
 export const iconSize = 19;
 
@@ -30,12 +29,7 @@ const useListParams = () => {
 		{ icon: <MdOutlineScheduleSend size={iconSize} />, name: "Scheduled", count: "", link: "/scheduled" },
 		{ icon: <TbMail size={iconSize} />, name: "All mail", count: "", link: "/inbox" },
 		{ icon: <RiSpam2Line size={iconSize} />, name: "Spam", count: "2", link: "/spam" },
-		{ icon: <HiOutlineTrash size={iconSize} />, name: "Trash", count: "", link: "/trash" },
-	];
-
-	const list_3 = [
-		{ icon: <AiOutlineSetting size={iconSize} />, name: "Manage labels", link: "/settings/labels" },
-		{ icon: <HiPlus size={iconSize} />, name: "Create new labels", link: "/create" },
+		{ icon: <CgTrash size={iconSize} />, name: "Trash", count: "", link: "/trash" },
 	];
 
 	const socialCategoryIconState = socialCategoryState ? (
@@ -82,7 +76,7 @@ const useListParams = () => {
 
 	const categoryArrowIcon = categoryState ? <IoMdArrowDropdown size={15} /> : <IoMdArrowDropright size={15} />;
 
-	return { list_1, list_2, list_3, list_4, more, category, iconSize, categoryArrowIcon };
+	return { list_1, list_2, list_4, more, category, iconSize, categoryArrowIcon };
 };
 
 export default useListParams;

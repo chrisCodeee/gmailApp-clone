@@ -2,15 +2,20 @@ import { BiPencil } from "react-icons/bi";
 import { BtnCompose, ListItems } from "../../components";
 import MenuList from "../../components/list/MenuList";
 import { BtnComposeWrapper, ListWrapper } from "./AsideStyles";
-import { useAsideState } from "../../state-management";
+import { useAsideState, useComposeMessageState } from "../../state-management";
 
 const Aside = () => {
-	const { showMenu } = useAsideState();
+	const { showMenu, setComposeMessageStateOn } = useAsideState();
+	const { setMaximizeStateOff } = useComposeMessageState();
 	return (
 		<>
 			{showMenu && (
 				<>
-					<BtnComposeWrapper>
+					<BtnComposeWrapper
+						onClick={() => {
+							setComposeMessageStateOn();
+							setMaximizeStateOff();
+						}}>
 						<BtnCompose />
 					</BtnComposeWrapper>
 

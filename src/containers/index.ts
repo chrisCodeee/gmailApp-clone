@@ -10,3 +10,6 @@ export { default as GoogleApps } from "./googleApps/GoogleApps";
 export { default as AccountProfile } from "./accountProfile/AccountProfile";
 export { default as SelectMessageType } from "./selectMessageType/SelectMessageType";
 export { default as MarkAllAsRead } from "./markAllAsRead/MarkAllAsRead";
+export { default as LanguageInputTool } from "./languageInputTool/LanguageInputTool";
+export { default as CreateLabelModal } from "./createLabelModal/CreateLabelModal";
+export { default as Compose } from "./compose/Compose";

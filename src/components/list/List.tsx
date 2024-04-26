@@ -10,13 +10,14 @@ interface List {
 	text_bold?: string;
 	paddingRight?: string;
 	paddingLeft?: string;
+	bgColor?: string;
 }
 
-const List = ({ icon, name, count, link, text_bold, paddingRight, paddingLeft }: List) => {
+const List = ({ icon, name, count, link, text_bold, paddingRight, paddingLeft, bgColor }: List) => {
 	return (
 		<>
 			<AsideList style={{ paddingRight: paddingRight }}>
-				<NavLink to={link} className={flex}>
+				<NavLink to={link} className={flex} style={{ backgroundColor: bgColor }}>
 					<AsideIconWrapper style={{ paddingLeft: paddingLeft }}>
 						<AsideIcon>{icon}</AsideIcon>
 						<AsideListText style={{ fontWeight: text_bold }}>{name}</AsideListText>

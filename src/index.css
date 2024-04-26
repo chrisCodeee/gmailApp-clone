@@ -41,6 +41,7 @@ div.messageContainer::-webkit-scrollbar-track-piece {
 
 html {
 	font-size: 62.5%;
+	color: rgb(132, 190, 167);
 }
 
 body {

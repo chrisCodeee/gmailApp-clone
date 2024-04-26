@@ -12,4 +12,3 @@ export { default as Scheduled } from "./scheduled/Scheduled";
 export { default as Spam } from "./spam/Spam";
 export { default as Trash } from "./trash/Trash";
 export { default as ManageLabel } from "./manageLabel/ManageLabel";
-export { default as CreateLabel } from "./createLabel/CreateLabel";

@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { CreateLabel, Draft, ErrorPage, Home, Important, Inbox, ManageLabel, Promotion, Scheduled, Sent, Snoozed, Spam, Starred, Trash } from "./pages";
+import { Draft, ErrorPage, Home, Important, Inbox, ManageLabel, Promotion, Scheduled, Sent, Snoozed, Spam, Starred, Trash } from "./pages";
 import { App } from "./app";
 import Chats from "./pages/chats/Chats";
 
@@ -26,7 +26,6 @@ const route = createBrowserRouter([
 					{ path: "/scheduled", element: <Scheduled /> },
 					{ path: "/spam", element: <Spam /> },
 					{ path: "/settings/labels", element: <ManageLabel /> },
-					{ path: "/create", element: <CreateLabel /> },
 				],
 			},
 		],

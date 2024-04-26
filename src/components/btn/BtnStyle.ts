@@ -36,11 +36,11 @@ const ShowRightSideWrapper = styled.div`
 	}
 `;
 
-const BtnSecondaryContainer = styled.button`
+const BtnSecondaryContainer = styled.button<{ borderRadius: string }>`
 	display: flex;
 	align-items: center;
 	align-self: stretch;
-	padding: 0.7rem 1.5rem;
+	padding: 0.7rem 1.8rem;
 	cursor: pointer;
 	font-weight: 500;
 	color: inherit;
@@ -51,14 +51,13 @@ const BtnSecondaryContainer = styled.button`
 		display: block;
 		height: 100%;
 		width: 100%;
-		border-radius: 5px;
+		border-radius: ${(props) => props.borderRadius};
 		position: absolute;
 		top: 0;
 		left: 0;
 		transition: all 0.15s;
 		transform: scale(0);
 		opacity: 0;
-		border-radius: 3px;
 	}
 
 	&:hover::after {

@@ -1,10 +1,10 @@
 import { Outlet } from "react-router-dom";
 import { MessageWrapper } from "./MessageStyles";
 import UpperMessage from "./UpperMessage";
-import { useNavBarState } from "../../state-management";
+import { useInboxState } from "../../state-management";
 
 const Messages = () => {
-	const { setSelectMessageTypeStateOff, setMarkAllMessageReadStateOff } = useNavBarState();
+	const { setSelectMessageTypeStateOff, setMarkAllMessageReadStateOff, setSelectInputToolStateOff } = useInboxState();
 	return (
 		<>
 			<UpperMessage />
@@ -12,6 +12,7 @@ const Messages = () => {
 				onClick={() => {
 					setSelectMessageTypeStateOff();
 					setMarkAllMessageReadStateOff();
+					setSelectInputToolStateOff();
 				}}>
 				<Outlet />
 			</MessageWrapper>

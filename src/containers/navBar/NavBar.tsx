@@ -4,12 +4,15 @@ import { IoMdMenu, IoMdHelpCircleOutline } from "react-icons/io";
 import { IoSearchSharp, IoSettingsOutline } from "react-icons/io5";
 import { LuSlidersHorizontal } from "react-icons/lu";
 import { CgMenuGridO } from "react-icons/cg";
-import { useAsideState, useFormState, useNavBarState } from "../../state-management";
+import { useAsideState, useFormState, useInboxState, useNavBarState } from "../../state-management";
 import { AccountPhoto } from "../../assets";
 
 const NavBar = () => {
 	const { setShowMenuOn } = useAsideState();
-	const { showMoreState, setShowMoreStateOn, setGoogleAppStateOff, setGoogleAppStateOn, setSupportStateOff, setSupportStateOn, setShowMoreStateOff, setSettingStateOn, setAccountProfileStateOn, setAccountProfileStateOff, setSelectMessageTypeStateOff, setMarkAllMessageReadStateOff } = useNavBarState();
+
+	const { showMoreState, setShowMoreStateOn, setGoogleAppStateOff, setGoogleAppStateOn, setSupportStateOff, setSupportStateOn, setShowMoreStateOff, setSettingStateOn, setAccountProfileStateOn, setAccountProfileStateOff } = useNavBarState();
+
+	const { setSelectMessageTypeStateOff, setMarkAllMessageReadStateOff, setSelectInputToolStateOff } = useInboxState();
 
 	const iconStyle = {
 		iconSize: 23,
@@ -28,16 +31,19 @@ const NavBar = () => {
 			onClick={() => {
 				setSelectMessageTypeStateOff();
 				setMarkAllMessageReadStateOff();
+				setSelectInputToolStateOff();
 			}}>
 			<ContainerLeft>
 				<IconWrapper>
-					<button onClick={setShowMenuOn}>
+					<button onClick={setShowMenuOn} title="Main menu">
 						<Icon>
 							<IoMdMenu size={iconStyle.iconSize} color={iconStyle.iconColor} />
 						</Icon>
 					</button>
 
-					<Logo />
+					<div title="Gmail">
+						<Logo />
+					</div>
 				</IconWrapper>
 
 				<Search className="col-9" style={formStyle}>
@@ -66,19 +72,18 @@ const NavBar = () => {
 			</ContainerLeft>
 
 			<ContainerRight>
-				<Icon>
-					<IoMdHelpCircleOutline
-						size={iconStyle.iconSize}
-						color={iconStyle.iconColor}
-						title="Support"
-						onClick={() => {
-							setSupportStateOn();
-							setShowMoreStateOff();
-							setGoogleAppStateOff();
-							setAccountProfileStateOff();
-						}}
-					/>
-				</Icon>
+				<div
+					title="Support"
+					onClick={() => {
+						setSupportStateOn();
+						setShowMoreStateOff();
+						setGoogleAppStateOff();
+						setAccountProfileStateOff();
+					}}>
+					<Icon>
+						<IoMdHelpCircleOutline size={iconStyle.iconSize} color={iconStyle.iconColor} />
+					</Icon>
+				</div>
 
 				<div
 					title="Settings"

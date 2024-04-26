@@ -1,6 +1,6 @@
-import { HiOutlineTrash } from "react-icons/hi2";
 import { LuMailOpen } from "react-icons/lu";
 import { MdOutlineArchive } from "react-icons/md";
+import { CgTrash } from "react-icons/cg";
 import { TbClockHour5 } from "react-icons/tb";
 import { Icon } from "../../../components";
 import { iconSize } from "../../../components/list/useListParams";
@@ -16,7 +16,7 @@ const Unsubscribe = () => {
 				</Icon>
 
 				<Icon>
-					<HiOutlineTrash size={iconSize} />
+					<CgTrash size={iconSize} />
 				</Icon>
 
 				<Icon>

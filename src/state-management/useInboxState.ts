@@ -10,6 +10,18 @@ interface InboxProps {
 
 	primaryActive: boolean;
 	setPrimaryActiveOff: () => void;
+
+	selectMessageTypeState: boolean;
+	setSelectMesssageTypeStateOn: () => void;
+	setSelectMessageTypeStateOff: () => void;
+
+	markAllMessageReadState: boolean;
+	setMarkAllMessageReadStateOn: () => void;
+	setMarkAllMessageReadStateOff: () => void;
+
+	selectInputToolState: boolean;
+	setSelectInputToolStateOn: () => void;
+	setSelectInputToolStateOff: () => void;
 }
 
 const useInboxState = create<InboxProps>((set) => ({
@@ -22,6 +34,18 @@ const useInboxState = create<InboxProps>((set) => ({
 
 	primaryActive: true,
 	setPrimaryActiveOff: () => set(() => ({ primaryActive: false })),
+
+	selectMessageTypeState: false,
+	setSelectMesssageTypeStateOn: () => set((store) => ({ selectMessageTypeState: !store.selectMessageTypeState })),
+	setSelectMessageTypeStateOff: () => set(() => ({ selectMessageTypeState: false })),
+
+	markAllMessageReadState: false,
+	setMarkAllMessageReadStateOn: () => set((store) => ({ markAllMessageReadState: !store.markAllMessageReadState })),
+	setMarkAllMessageReadStateOff: () => set(() => ({ markAllMessageReadState: false })),
+
+	selectInputToolState: false,
+	setSelectInputToolStateOn: () => set((store) => ({ selectInputToolState: !store.selectInputToolState })),
+	setSelectInputToolStateOff: () => set(() => ({ selectInputToolState: false })),
 }));
 
 export default useInboxState;
