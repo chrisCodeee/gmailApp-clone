@@ -3,11 +3,11 @@ import { BtnName, BtnSend, ComposeContainer, ComposeForm, ComposeFormInputContai
 import { useComposeMessageState, useInboxState, useNavBarState } from "../../state-management";
 import { ComposeFormatIcon, ComposeMessageHeading } from "./component";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 
 const Compose = () => {
 	const { setShowMoreStateOff, setAccountProfileStateOff, setSupportStateOff, setGoogleAppStateOff } = useNavBarState();
 	const { setSelectMessageTypeStateOff, setMarkAllMessageReadStateOff, setSelectInputToolStateOff } = useInboxState();
+	const { recipientState, setRecipientStateOff, setRecipientStateOn } = useComposeMessageState();
 
 	const closeAllState = () => {
 		setShowMoreStateOff();
@@ -21,7 +21,6 @@ const Compose = () => {
 
 	const { maximizeState } = useComposeMessageState();
 
-	const [to, setTo] = useState(true);
 	return (
 		<>
 			<ComposeContainer maximizeState={maximizeState}>
@@ -34,34 +33,34 @@ const Compose = () => {
 					{/* Compose Message Form */}
 					<ComposeForm>
 						<ComposeFormInputContainer className="d-flex">
-							{to && (
-								<Link to="" className="me-2">
+							{recipientState && (
+								<Link to="" className="me-2" title="Select contacts">
 									To
 								</Link>
 							)}
-							<input type="email" placeholder={!to ? "Recipients" : ""} className="w-100" required autoFocus onClick={() => setTo(true)} />
-							{to && (
+							<input type="email" placeholder={!recipientState ? "Recipients" : ""} className="w-100" required autoFocus onClick={setRecipientStateOn} />
+							{recipientState && (
 								<div className="d-flex">
-									<Link to="" className="me-2">
+									<Link to="" className="me-2" title="Add Cc recipients (Ctrl-Shift-C)">
 										Cc
 									</Link>
-									<Link to="" className="me-2">
+									<Link to="" className="pe-3" title="Add Bcc recipients (Ctrl-Shift-B)">
 										Bcc
 									</Link>
 								</div>
 							)}
 						</ComposeFormInputContainer>
 
-						<ComposeFormInputContainer onClick={() => setTo(false)}>
+						<ComposeFormInputContainer onClick={setRecipientStateOff}>
 							<input type="text" placeholder="Subject" className="w-100" />
 						</ComposeFormInputContainer>
 
-						<div className="mt-2" onClick={() => setTo(false)}>
+						<div className="mt-2" onClick={setRecipientStateOff}>
 							<ComposeMessageTextArea rows={maximizeState ? 21 : 15} />
 						</div>
 
 						{/* Compose Message Footer */}
-						<ComposeMessageFooter onClick={() => setTo(false)}>
+						<ComposeMessageFooter onClick={setRecipientStateOff}>
 							<BtnSend title="Send (Ctrl-Enter)">
 								<BtnName>Send</BtnName>
 								<Divider>&nbsp;</Divider>

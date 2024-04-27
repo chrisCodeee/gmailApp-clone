@@ -53,6 +53,10 @@ const ResizeIconWrapper = styled.div`
 
 const ComposeForm = styled.form`
 	padding: 0 1rem 1rem 1.5rem;
+
+	& a:hover {
+		text-decoration: underline;
+	}
 `;
 
 const ComposeFormInputContainer = styled.div`

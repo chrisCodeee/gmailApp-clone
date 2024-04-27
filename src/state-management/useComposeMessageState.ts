@@ -8,6 +8,10 @@ interface ComposeMessageProps {
 	maximizeState: boolean;
 	setMaximizeStateOn: () => void;
 	setMaximizeStateOff: () => void;
+
+	recipientState: boolean;
+	setRecipientStateOn: () => void;
+	setRecipientStateOff: () => void;
 }
 
 const useComposeMessageState = create<ComposeMessageProps>((set) => ({
@@ -18,6 +22,10 @@ const useComposeMessageState = create<ComposeMessageProps>((set) => ({
 	maximizeState: false,
 	setMaximizeStateOn: () => set((store) => ({ maximizeState: !store.maximizeState })),
 	setMaximizeStateOff: () => set(() => ({ maximizeState: false })),
+
+	recipientState: true,
+	setRecipientStateOn: () => set(() => ({ recipientState: true })),
+	setRecipientStateOff: () => set(() => ({ recipientState: false })),
 }));
 
 export default useComposeMessageState;
