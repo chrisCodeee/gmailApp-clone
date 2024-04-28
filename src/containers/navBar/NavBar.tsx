@@ -4,7 +4,7 @@ import { IoMdMenu, IoMdHelpCircleOutline } from "react-icons/io";
 import { IoSearchSharp, IoSettingsOutline } from "react-icons/io5";
 import { LuSlidersHorizontal } from "react-icons/lu";
 import { CgMenuGridO } from "react-icons/cg";
-import { useAsideState, useFormState, useInboxState, useNavBarState } from "../../state-management";
+import { useAsideState, useComposeMessageState, useFormState, useInboxState, useNavBarState } from "../../state-management";
 import { AccountPhoto } from "../../assets";
 
 const NavBar = () => {
@@ -13,6 +13,8 @@ const NavBar = () => {
 	const { showMoreState, setShowMoreStateOn, setGoogleAppStateOff, setGoogleAppStateOn, setSupportStateOff, setSupportStateOn, setShowMoreStateOff, setSettingStateOn, setAccountProfileStateOn, setAccountProfileStateOff } = useNavBarState();
 
 	const { setSelectMessageTypeStateOff, setMarkAllMessageReadStateOff, setSelectInputToolStateOff } = useInboxState();
+
+	const { setMoreFormattingOptioneStateOff } = useComposeMessageState();
 
 	const iconStyle = {
 		iconSize: 23,
@@ -32,6 +34,7 @@ const NavBar = () => {
 				setSelectMessageTypeStateOff();
 				setMarkAllMessageReadStateOff();
 				setSelectInputToolStateOff();
+				setMoreFormattingOptioneStateOff();
 			}}>
 			<ContainerLeft>
 				<IconWrapper>

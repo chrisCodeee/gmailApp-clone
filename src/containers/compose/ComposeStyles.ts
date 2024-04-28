@@ -15,7 +15,7 @@ const ComposeContainer = styled.div<{ maximizeState: boolean }>`
 `;
 
 const ComposeMessageWrapper = styled.div<{ maximizeState: boolean }>`
-	width: ${(props) => (props.maximizeState ? "80%" : "52.5rem")};
+	width: ${(props) => (props.maximizeState ? "80%" : "55rem")};
 	height: ${(props) => (props.maximizeState ? "89vh" : "50rem")};
 	box-shadow: ${(props) => !props.maximizeState && "0 0 4px rgb(180, 182, 187)"};
 	position: ${(props) => !props.maximizeState && "fixed"};
@@ -64,11 +64,12 @@ const ComposeFormInputContainer = styled.div`
 	padding: 0.7rem 0;
 `;
 
-const ComposeMessageTextArea = styled.textarea`
+const ComposeMessageTextArea = styled.textarea<{ fontFamily: string }>`
 	border: 0;
 	outline: 0;
 	border-bottom: 1px solid rgba(180, 182, 187, 0.3);
 	width: 100%;
+	font-family: ${(props) => props.fontFamily};
 `;
 
 const ComposeMessageFooter = styled.div`
@@ -111,8 +112,8 @@ const FormatIconWrapper = styled.div`
 	margin: 0 0 0 0.6rem;
 `;
 
-const FormatIconContainer = styled.div<{ margin: string }>`
-	padding: 0.4rem 0.5rem;
+const FormatIconContainer = styled.div<{ margin: string; padding: string }>`
+	padding: ${(props) => props.padding};
 	margin: ${(props) => props.margin};
 	border-radius: 3px;
 	cursor: pointer;

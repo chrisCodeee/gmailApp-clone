@@ -3,7 +3,6 @@ import styled from "styled-components";
 const LanguageInputToolWrapper = styled.div`
 	position: absolute;
 	top: 103px;
-	// right: 73px;
 	background-color: #fff;
 	border-radius: 5px;
 	box-shadow: 0 0 8px rgb(180, 182, 187);

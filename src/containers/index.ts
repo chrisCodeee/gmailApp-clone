@@ -13,3 +13,5 @@ export { default as MarkAllAsRead } from "./markAllAsRead/MarkAllAsRead";
 export { default as LanguageInputTool } from "./languageInputTool/LanguageInputTool";
 export { default as CreateLabelModal } from "./createLabelModal/CreateLabelModal";
 export { default as Compose } from "./compose/Compose";
+export { default as FontStyle } from "./fontStyleSelect/FontStyle";
+export { default as FormattingOption } from "./formattingOption/FormattingOption";

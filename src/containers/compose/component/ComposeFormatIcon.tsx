@@ -3,15 +3,19 @@ import { MdFormatColorText, MdAttachFile, MdOutlineInsertLink, MdOutlineInsertEm
 import { FormatIcon } from ".";
 import { CgTrash } from "react-icons/cg";
 import { FormatIconWrapper } from "../ComposeStyles";
+import { useComposeMessageState } from "../../../state-management";
 
+export const formatIconSize = 18;
 const ComposeFormatIcon = () => {
-	const formatIconSize = 18;
+	const { setFormattingOptioneStateOn } = useComposeMessageState();
 	return (
 		<>
 			<FormatIconWrapper>
-				<FormatIcon title="Formatting options">
-					<MdFormatColorText size={formatIconSize} />
-				</FormatIcon>
+				<div onClick={setFormattingOptioneStateOn}>
+					<FormatIcon title="Formatting options">
+						<MdFormatColorText size={formatIconSize} />
+					</FormatIcon>
+				</div>
 
 				<FormatIcon title="Attach files">
 					<MdAttachFile size={formatIconSize} />

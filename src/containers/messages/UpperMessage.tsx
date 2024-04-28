@@ -23,7 +23,7 @@ const UpperMessage = () => {
 				<FlexWrapper>
 					<FlexWrapper>
 						<FlexWrapperCheckbox title="Select" onClick={() => setInputCheckboxState(!inputCheckboxState)}>
-							<input type="checkbox" checked={inputCheckboxState} />
+							<input type="checkbox" checked={inputCheckboxState} onChange={() => setInputCheckboxState(!inputCheckboxState)} />
 						</FlexWrapperCheckbox>
 						<FlexWrapperArrow
 							title="Select"
