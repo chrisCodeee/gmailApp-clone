@@ -14,4 +14,5 @@ export { default as LanguageInputTool } from "./languageInputTool/LanguageInputT
 export { default as CreateLabelModal } from "./createLabelModal/CreateLabelModal";
 export { default as Compose } from "./compose/Compose";
 export { default as FontStyle } from "./fontStyleSelect/FontStyle";
+export { default as FontSizeSelect } from "./sizeSelect/SizeSelect";
 export { default as FormattingOption } from "./formattingOption/FormattingOption";

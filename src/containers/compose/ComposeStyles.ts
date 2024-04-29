@@ -64,19 +64,23 @@ const ComposeFormInputContainer = styled.div`
 	padding: 0.7rem 0;
 `;
 
-const ComposeMessageTextArea = styled.textarea<{ fontFamily: string }>`
+const ComposeMessageTextArea = styled.textarea<{ fontFamily: string; fontSize: string }>`
 	border: 0;
 	outline: 0;
 	border-bottom: 1px solid rgba(180, 182, 187, 0.3);
 	width: 100%;
-	font-family: ${(props) => props.fontFamily};
+	font-family: ${(props) => (props.fontFamily ? props.fontFamily : "inherit")};
+	font-size: ${(props) => (props.fontSize ? props.fontSize : "inherit")};
+	height: 100%;
 `;
 
-const ComposeMessageFooter = styled.div`
+const ComposeMessageFooter = styled.div<{ maximizeState: boolean }>`
 	padding: 0;
 	margin: 0.5rem 0 0 0;
 	display: flex;
 	align-items: center;
+	position: absolute;
+	bottom: ${(props) => (props.maximizeState ? "50px" : "10px")};
 `;
 
 const BtnSend = styled.button`

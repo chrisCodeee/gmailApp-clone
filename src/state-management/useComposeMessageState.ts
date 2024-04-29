@@ -24,11 +24,19 @@ interface ComposeMessageProps {
 	setFontStyleStateOn: () => void;
 	setFontStyleStateOff: () => void;
 
+	fontSizeState: boolean;
+	setFontSizeStateOn: () => void;
+	setFontSizeStateOff: () => void;
+
 	fontStyle: string;
 	fontFamilyStyle: string;
 	setFontStyle: (style: string, font: string, index: number) => void;
 
 	tick: number;
+
+	fontSizeIndex: number;
+	fontSize: string;
+	setFontSize: (fontSize: string, index: number) => void;
 }
 
 const useComposeMessageState = create<ComposeMessageProps>((set) => ({
@@ -55,10 +63,18 @@ const useComposeMessageState = create<ComposeMessageProps>((set) => ({
 	setFontStyleStateOn: () => set((store) => ({ fontStyleState: !store.fontStyleState })),
 	setFontStyleStateOff: () => set(() => ({ fontStyleState: false })),
 
+	fontSizeState: false,
+	setFontSizeStateOn: () => set((store) => ({ fontSizeState: !store.fontSizeState })),
+	setFontSizeStateOff: () => set(() => ({ fontSizeState: false })),
+
 	fontFamilyStyle: "",
 	tick: 0,
 	fontStyle: "",
 	setFontStyle: (style, font, index) => set(() => ({ fontStyle: style, fontFamilyStyle: font, tick: index })),
+
+	fontSizeIndex: 0,
+	fontSize: "",
+	setFontSize: (fontSize, index) => set(() => ({ fontSize: fontSize, fontSizeIndex: index })),
 }));
 
 export default useComposeMessageState;

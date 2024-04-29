@@ -9,11 +9,12 @@ import FullFormatingOption from "./FullFormatingOption";
 import { Formatting } from "./subFormattingOption";
 
 const FormattingOption = () => {
-	const { maximizeState, fontStyle, setFontStyleStateOn, setFontStyleStateOff, setMoreFormattingOptioneStateOn, setMoreFormattingOptioneStateOff } = useComposeMessageState();
+	const { maximizeState, fontStyle, setFontStyleStateOn, setFontSizeStateOff, setFontStyleStateOff, setMoreFormattingOptioneStateOn, setMoreFormattingOptioneStateOff, setFontSizeStateOn } = useComposeMessageState();
 
 	const closeFormattingOption = () => {
 		setMoreFormattingOptioneStateOff();
 		setFontStyleStateOff();
+		setFontSizeStateOff();
 	};
 	return (
 		<>
@@ -31,6 +32,7 @@ const FormattingOption = () => {
 						onClick={() => {
 							setMoreFormattingOptioneStateOff();
 							setFontStyleStateOn();
+							setFontSizeStateOff();
 						}}>
 						<FormatIcon title="Font (Ctrl-Shift-5, Ctrl-Shift-6)" padding="0.4rem 0 0.4rem 0.4rem" margin="0">
 							<FormatFlexContainer style={{ width: "100px" }}>
@@ -43,7 +45,11 @@ const FormattingOption = () => {
 
 					<FormatDivider>&nbsp;</FormatDivider>
 
-					<FormatFlexContainer onClick={closeFormattingOption}>
+					<FormatFlexContainer
+						onClick={() => {
+							closeFormattingOption();
+							setFontSizeStateOn();
+						}}>
 						<FormatIcon title="Size (Ctrl-Shift--, Ctrl-Shift-+)" padding="0.4rem 0 0.4rem 0.4rem" margin="0">
 							<FormatFlexContainer>
 								<MdFormatSize size={20} />

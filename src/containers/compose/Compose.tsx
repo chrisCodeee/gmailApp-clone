@@ -3,7 +3,7 @@ import { BtnName, BtnSend, ComposeContainer, ComposeForm, ComposeFormInputContai
 import { useComposeMessageState, useInboxState, useNavBarState } from "../../state-management";
 import { ComposeFormatIcon, ComposeMessageHeading } from "./component";
 import { Link } from "react-router-dom";
-import { FontStyle, FormattingOption } from "..";
+import { FontSizeSelect, FontStyle, FormattingOption } from "..";
 import MoreFormattingOPtion from "../formattingOption/MoreFormattingOPtion";
 
 const Compose = () => {
@@ -11,7 +11,7 @@ const Compose = () => {
 
 	const { setSelectMessageTypeStateOff, setMarkAllMessageReadStateOff, setSelectInputToolStateOff } = useInboxState();
 
-	const { recipientState, formattingOptionState, fontStyleState, maximizeState, fontFamilyStyle, moreFormattingOptionState, setRecipientStateOff, setRecipientStateOn, setFontStyleStateOff, setMoreFormattingOptioneStateOff } = useComposeMessageState();
+	const { recipientState, formattingOptionState, fontStyleState, maximizeState, fontSizeState, fontSize, fontFamilyStyle, moreFormattingOptionState, setRecipientStateOff, setRecipientStateOn, setFontStyleStateOff, setFontSizeStateOff, setMoreFormattingOptioneStateOff } = useComposeMessageState();
 
 	const closeAllState = () => {
 		setShowMoreStateOff();
@@ -26,6 +26,7 @@ const Compose = () => {
 	const closeFormattingOption = () => {
 		setMoreFormattingOptioneStateOff();
 		setFontStyleStateOff();
+		setFontSizeStateOff();
 	};
 
 	return (
@@ -65,12 +66,12 @@ const Compose = () => {
 								<input type="text" placeholder="Subject" className="w-100" />
 							</ComposeFormInputContainer>
 
-							<div className="mt-2" onClick={setRecipientStateOff}>
-								<ComposeMessageTextArea rows={maximizeState ? 21 : 15} fontFamily={fontFamilyStyle} />
+							<div className="mt-2" onClick={setRecipientStateOff} style={{ height: maximizeState ? "443px" : "322px" }}>
+								<ComposeMessageTextArea fontFamily={fontFamilyStyle} fontSize={fontSize} />
 							</div>
 
 							{/* Compose Message Footer */}
-							<ComposeMessageFooter onClick={setRecipientStateOff}>
+							<ComposeMessageFooter onClick={setRecipientStateOff} maximizeState={maximizeState}>
 								<BtnSend title="Send (Ctrl-Enter)">
 									<BtnName>Send</BtnName>
 
@@ -89,6 +90,8 @@ const Compose = () => {
 						{moreFormattingOptionState && <MoreFormattingOPtion />}
 
 						{fontStyleState && <FontStyle />}
+
+						{fontSizeState && <FontSizeSelect />}
 					</ComposeForm>
 				</ComposeMessageWrapper>
 			</ComposeContainer>
