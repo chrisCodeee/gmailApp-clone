@@ -1,96 +1,59 @@
-import { useComposeMessageState } from "../../state-management";
-
 const useFontStyles = () => {
-	const { setFontStyle, setFontFamilyStyle } = useComposeMessageState();
-
 	const fontStyles = [
 		{
 			name: "Sans Serif",
+			displayName: "Sans Serif",
 			fontFamily: "arial, sans-serif",
-			onClick: () => {
-				setFontStyle("Sans Serif");
-				setFontFamilyStyle("arial, sans-serif");
-			},
 		},
 		{
 			name: "Serif",
 			fontFamily: "times new roman, serif",
-			onClick: () => {
-				setFontStyle("Serif");
-				setFontFamilyStyle("times new roman, serif");
-			},
+			displayName: "Serif",
 		},
 		{
 			name: "Fixed Width",
 			fontFamily: "monospace",
-			onClick: () => {
-				setFontStyle("Fixed Wid...");
-				setFontFamilyStyle("monospace");
-			},
+			displayName: "Fixed Wid...",
 		},
 		{
 			name: "Wide",
 			fontFamily: "arial black, sans-serif",
-			onClick: () => {
-				setFontStyle("Wide");
-				setFontFamilyStyle("arial black, sans-serif");
-			},
+			displayName: "Wide",
 		},
 		{
 			name: "Narrow",
 			fontFamily: "arial narrow, sans-serif",
-			onClick: () => {
-				setFontStyle("Narrow");
-				setFontFamilyStyle("arial narrow, sans-serif");
-			},
+			displayName: "Narrow",
 		},
 		{
 			name: "Comic Sans MS",
 			fontFamily: "comic sans ms, sans-serif",
-			onClick: () => {
-				setFontStyle("Comic Sa...");
-				setFontFamilyStyle("comic sans ms, sans-serif");
-			},
+			displayName: "Comic Sa...",
 		},
 		{
 			name: "Garamond",
 			fontFamily: "garamond, times new roman, serif",
-			onClick: () => {
-				setFontStyle("Garamond");
-				setFontFamilyStyle("garamond, times new roman, serif");
-			},
+			displayName: "Garamond",
 		},
 		{
 			name: "Georgia",
 			fontFamily: "georgia",
-			onClick: () => {
-				setFontStyle("Georgia");
-				setFontFamilyStyle("georgia");
-			},
+			displayName: "Georgia",
 		},
 		{
 			name: "Tahoma",
 			fontFamily: "tahoma",
-			onClick: () => {
-				setFontStyle("Tahoma");
-				setFontFamilyStyle("tahoma");
-			},
+			displayName: "Tahoma",
 		},
 		{
 			name: "Trebuchet MS",
 			fontFamily: "trebuchet ms",
-			onClick: () => {
-				setFontStyle("Trebuche...");
-				setFontFamilyStyle("trebuchet ms");
-			},
+			displayName: "Trebuche...",
 		},
 		{
 			name: "Verdana",
 			fontFamily: "verdana",
-			onClick: () => {
-				setFontStyle("Verdana");
-				setFontFamilyStyle("verdana");
-			},
+			displayName: "Verdana",
 		},
 	];
 
