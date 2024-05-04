@@ -11,7 +11,7 @@ const Home = () => {
 	const { setShowMoreStateOff, setSupportStateOff, setGoogleAppStateOff, settingState, setAccountProfileStateOff } = useNavBarState();
 
 	const { setSelectMessageTypeStateOff, setMarkAllMessageReadStateOff } = useInboxState();
-	const { setMoreFormattingOptioneStateOff } = useComposeMessageState();
+	const { setMoreFormattingOptioneStateOff, setAlignFormattingOptioneStateOff, setFontSizeStateOff, setFontStyleStateOff, setColorStateOff } = useComposeMessageState();
 
 	return (
 		<MainContainer
@@ -22,6 +22,10 @@ const Home = () => {
 				setGoogleAppStateOff();
 				setAccountProfileStateOff();
 				setMoreFormattingOptioneStateOff();
+				setAlignFormattingOptioneStateOff();
+				setFontSizeStateOff();
+				setFontStyleStateOff();
+				setColorStateOff();
 			}}>
 			{showMenu && (
 				<LeftAsideContainer

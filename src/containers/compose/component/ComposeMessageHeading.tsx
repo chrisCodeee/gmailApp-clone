@@ -10,7 +10,7 @@ export const resizeIconSize = 17;
 const ComposeMessageHeading = () => {
 	const { setComposeMessageStateOff } = useAsideState();
 
-	const { setComposeMessageMinimizeStateOn, setMaximizeStateOn, maximizeState } = useComposeMessageState();
+	const { maximizeState, setComposeMessageMinimizeStateOn, setMaximizeStateOn, setFormattingOptioneStateOff, setAlignSelectState } = useComposeMessageState();
 
 	return (
 		<>
@@ -36,7 +36,13 @@ const ComposeMessageHeading = () => {
 					{maximizeState ? <LuMinimize2 size={resizeIconSize} title="Exit full screen (Shift for pop-out)" /> : <RxSize size={resizeIconSize} title="Full screen (Shift for pop-out)" />}
 				</ResizeIcon>
 
-				<ResizeIcon title="Save & close" onClick={setComposeMessageStateOff}>
+				<ResizeIcon
+					title="Save & close"
+					onClick={() => {
+						setComposeMessageStateOff();
+						setFormattingOptioneStateOff();
+						setAlignSelectState(null, "left");
+					}}>
 					<IoClose size={resizeIconSize} />
 				</ResizeIcon>
 			</ResizeIconWrapper>

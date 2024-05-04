@@ -35,7 +35,7 @@ const RightSideBar = () => {
 						</IconContainer>
 					</RightSideIconWrapper>
 
-					<div onClick={setShowRIghtSideStateOff} title="Hide side panel">
+					<div style={{ marginBottom: "-0.7rem" }} onClick={setShowRIghtSideStateOff} title="Hide side panel">
 						<Icon>
 							<MdKeyboardArrowRight size={iconSize} />
 						</Icon>

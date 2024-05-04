@@ -1,9 +1,10 @@
 import { IoMdArrowDropdown } from "react-icons/io";
-import { BtnName, BtnSend, ComposeContainer, ComposeForm, ComposeFormInputContainer, ComposeMessageFooter, ComposeMessageTextArea, ComposeMessageWrapper, Divider, NewMessageContainer } from "./ComposeStyles";
+// import { BtnName, BtnSend, ComposeContainer, ComposeForm, ComposeFormInputContainer, ComposeMessageFooter, ComposeMessageTextArea, ComposeMessageWrapper, Divider, NewMessageContainer } from "./ComposeStyles";
+import * as ComposeStyle from "./ComposeStyles";
 import { useComposeMessageState, useInboxState, useNavBarState } from "../../state-management";
 import { ComposeFormatIcon, ComposeMessageHeading } from "./component";
 import { Link } from "react-router-dom";
-import { FontSizeSelect, FontStyle, FormattingOption } from "..";
+import { AlignSelect, ColorSelect, FontSizeSelect, FontStyle, FormattingOption } from "..";
 import MoreFormattingOPtion from "../formattingOption/MoreFormattingOPtion";
 
 const Compose = () => {
@@ -11,7 +12,35 @@ const Compose = () => {
 
 	const { setSelectMessageTypeStateOff, setMarkAllMessageReadStateOff, setSelectInputToolStateOff } = useInboxState();
 
-	const { recipientState, formattingOptionState, fontStyleState, maximizeState, fontSizeState, fontSize, fontFamilyStyle, moreFormattingOptionState, setRecipientStateOff, setRecipientStateOn, setFontStyleStateOff, setFontSizeStateOff, setMoreFormattingOptioneStateOff } = useComposeMessageState();
+	const {
+		recipientState,
+		formattingOptionState,
+		fontStyleState,
+		maximizeState,
+		fontSizeState,
+		fontSize,
+		fontFamilyStyle,
+		moreFormattingOptionState,
+		alignFormattingOptionState,
+		boldState,
+		italicState,
+		strikethroughState,
+		underlineState,
+		colorState,
+		color,
+		alignText,
+		numberList,
+		bulletList,
+		listType,
+		indentText,
+		setRecipientStateOff,
+		setRecipientStateOn,
+		setFontStyleStateOff,
+		setFontSizeStateOff,
+		setMoreFormattingOptioneStateOff,
+		setAlignFormattingOptioneStateOff,
+		setColorStateOff,
+	} = useComposeMessageState();
 
 	const closeAllState = () => {
 		setShowMoreStateOff();
@@ -25,30 +54,48 @@ const Compose = () => {
 
 	const closeFormattingOption = () => {
 		setMoreFormattingOptioneStateOff();
+		setAlignFormattingOptioneStateOff();
 		setFontStyleStateOff();
 		setFontSizeStateOff();
+		setColorStateOff();
+	};
+
+	const textAreaStyle = {
+		fontFamilySelect: fontFamilyStyle,
+		fontSizeSelect: fontSize,
+		fontStyleSelect: fontStyleState,
+		boldSelect: boldState,
+		italicSelect: italicState,
+		underlineSelect: underlineState,
+		colorSelect: color,
+		align: alignText,
+		listStyleList: numberList,
+		listStyleBullet: bulletList,
+		strikeThrough: strikethroughState,
+		indentTextValue: indentText,
+		listType: listType,
 	};
 
 	return (
 		<>
-			<ComposeContainer maximizeState={maximizeState}>
-				<ComposeMessageWrapper onClick={closeAllState} maximizeState={maximizeState}>
+			<ComposeStyle.ComposeContainer maximizeState={maximizeState}>
+				<ComposeStyle.ComposeMessageWrapper onClick={closeAllState} maximizeState={maximizeState}>
 					{/* Compose Message Heading */}
-					<NewMessageContainer onClick={closeFormattingOption}>
+					<ComposeStyle.NewMessageContainer onClick={closeFormattingOption}>
 						<ComposeMessageHeading />
-					</NewMessageContainer>
+					</ComposeStyle.NewMessageContainer>
 
 					{/* Compose Message Form */}
-					<ComposeForm>
-						<div onClick={closeFormattingOption}>
-							<ComposeFormInputContainer className="d-flex">
+					<div onClick={closeFormattingOption}>
+						<ComposeStyle.ComposeForm>
+							<ComposeStyle.ComposeFormInputContainer className="d-flex">
 								{recipientState && (
 									<Link to="" className="me-2" title="Select contacts">
 										To
 									</Link>
 								)}
 
-								<input type="email" placeholder={!recipientState ? "Recipients" : ""} className="w-100" required autoFocus onClick={setRecipientStateOn} />
+								<input type="email" placeholder={!recipientState ? "Recipients" : ""} className="w-100" autoFocus onClick={setRecipientStateOn} />
 
 								{recipientState && (
 									<div className="d-flex">
@@ -61,40 +108,45 @@ const Compose = () => {
 										</Link>
 									</div>
 								)}
-							</ComposeFormInputContainer>
-							<ComposeFormInputContainer onClick={setRecipientStateOff}>
+							</ComposeStyle.ComposeFormInputContainer>
+							<ComposeStyle.ComposeFormInputContainer onClick={setRecipientStateOff}>
 								<input type="text" placeholder="Subject" className="w-100" />
-							</ComposeFormInputContainer>
+							</ComposeStyle.ComposeFormInputContainer>
 
-							<div className="mt-2" onClick={setRecipientStateOff} style={{ height: maximizeState ? "443px" : "322px" }}>
-								<ComposeMessageTextArea fontFamily={fontFamilyStyle} fontSize={fontSize} />
+							<div className="mt-2" onClick={setRecipientStateOff} style={{ height: maximizeState ? "443px" : "322px", position: "relative" }}>
+								{/* <ComposeStyle.ComposeMessageTextArea textStyle={textAreaStyle} /> */}
+								<ComposeStyle.ComposeMessageTextArea textStyle={textAreaStyle} contentEditable></ComposeStyle.ComposeMessageTextArea>
 							</div>
+						</ComposeStyle.ComposeForm>
 
-							{/* Compose Message Footer */}
-							<ComposeMessageFooter onClick={setRecipientStateOff} maximizeState={maximizeState}>
-								<BtnSend title="Send (Ctrl-Enter)">
-									<BtnName>Send</BtnName>
+						{/* Compose Message Footer */}
+						<ComposeStyle.ComposeMessageFooter onClick={setRecipientStateOff}>
+							<ComposeStyle.BtnSend title="Send (Ctrl-Enter)">
+								<ComposeStyle.BtnName>Send</ComposeStyle.BtnName>
 
-									<Divider>&nbsp;</Divider>
+								<ComposeStyle.Divider>&nbsp;</ComposeStyle.Divider>
 
-									<IoMdArrowDropdown size={15} />
-								</BtnSend>
+								<IoMdArrowDropdown size={15} />
+							</ComposeStyle.BtnSend>
 
-								{/* Compose Message Formatting Icons */}
-								<ComposeFormatIcon />
-							</ComposeMessageFooter>
-						</div>
+							{/* Compose Message Formatting Icons */}
+							<ComposeFormatIcon />
+						</ComposeStyle.ComposeMessageFooter>
+					</div>
 
-						{formattingOptionState && <FormattingOption />}
+					{formattingOptionState && <FormattingOption />}
 
-						{moreFormattingOptionState && <MoreFormattingOPtion />}
+					{moreFormattingOptionState && <MoreFormattingOPtion />}
 
-						{fontStyleState && <FontStyle />}
+					{fontStyleState && <FontStyle />}
 
-						{fontSizeState && <FontSizeSelect />}
-					</ComposeForm>
-				</ComposeMessageWrapper>
-			</ComposeContainer>
+					{fontSizeState && <FontSizeSelect />}
+
+					{colorState && <ColorSelect />}
+
+					{alignFormattingOptionState && <AlignSelect />}
+				</ComposeStyle.ComposeMessageWrapper>
+			</ComposeStyle.ComposeContainer>
 		</>
 	);
 };

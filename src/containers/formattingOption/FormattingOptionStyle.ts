@@ -32,13 +32,22 @@ const FormatDivider = styled.div`
 	margin: 0 0.3rem;
 `;
 
-const MoreFormattingOptionWrapper = styled.div`
+const MoreFormattingOptionContainer = styled.div`
 	box-shadow: rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px, rgba(0, 0, 0, 0.2) 0px 2px 4px -1px;
 	position: absolute;
-	right: 10px;
-	bottom: 100px;
 	background-color: #fff;
 	padding: 0.3rem;
+	border-radius: 3px;
 `;
 
-export { FormattingOptionWrapper, FormattingOptionContainer, FormatFlexContainer, FormatDivider, MoreFormattingOptionWrapper };
+const MoreFormattingOptionWrapper = styled(MoreFormattingOptionContainer)`
+	right: 10px;
+	bottom: 100px;
+`;
+
+const MoreAlignFormattingWrapper = styled(MoreFormattingOptionContainer)<{ maximizeState: boolean }>`
+	left: ${(props) => (props.maximizeState ? "546px" : "400px")};
+	bottom: ${(props) => (props.maximizeState ? "140px" : "100px")};
+`;
+
+export { FormattingOptionWrapper, FormattingOptionContainer, FormatFlexContainer, FormatDivider, MoreFormattingOptionWrapper, MoreAlignFormattingWrapper };

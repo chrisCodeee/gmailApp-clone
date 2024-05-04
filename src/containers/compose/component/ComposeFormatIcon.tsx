@@ -9,7 +9,7 @@ export const formatIconSize = 18;
 const ComposeFormatIcon = () => {
 	const { setFormattingOptioneStateOn } = useComposeMessageState();
 	return (
-		<>
+		<div className="d-flex justify-content-between flex-grow-1">
 			<FormatIconWrapper>
 				<div onClick={setFormattingOptioneStateOn}>
 					<FormatIcon title="Formatting options">
@@ -52,7 +52,7 @@ const ComposeFormatIcon = () => {
 			<FormatIcon title="Discard draft (Ctrl-Shift-D)" margin="0 0 0 auto">
 				<CgTrash size={formatIconSize} />
 			</FormatIcon>
-		</>
+		</div>
 	);
 };
 

@@ -3,12 +3,15 @@ import { ReactNode } from "react";
 interface Props {
 	icon: ReactNode;
 	title: string;
+	margin?: string;
 }
 
 const Formatting = (item: Props) => {
 	return (
 		<>
-			<FormatIcon title={item.title}>{item.icon}</FormatIcon>
+			<FormatIcon title={item.title} margin={item.margin}>
+				{item.icon}
+			</FormatIcon>
 		</>
 	);
 };

@@ -20,7 +20,7 @@ const ComposeMessageWrapper = styled.div<{ maximizeState: boolean }>`
 	box-shadow: ${(props) => !props.maximizeState && "0 0 4px rgb(180, 182, 187)"};
 	position: ${(props) => !props.maximizeState && "fixed"};
 	bottom: ${(props) => !props.maximizeState && "0"};
-	right: ${(props) => !props.maximizeState && "65px"};
+	right: ${(props) => !props.maximizeState && "80px"};
 	border-radius: 8px;
 	z-index: 100;
 	background-color: #fff;
@@ -55,7 +55,7 @@ const ComposeForm = styled.form`
 	padding: 0 1rem 1rem 1.5rem;
 
 	& a:hover {
-		text-decoration: underline;
+		textstyle-decoration: underline;
 	}
 `;
 
@@ -64,23 +64,48 @@ const ComposeFormInputContainer = styled.div`
 	padding: 0.7rem 0;
 `;
 
-const ComposeMessageTextArea = styled.textarea<{ fontFamily: string; fontSize: string }>`
+type textAreaStyle = {
+	fontFamilySelect: string;
+	fontSizeSelect: string;
+	boldSelect: boolean;
+	italicSelect: boolean;
+	underlineSelect: boolean;
+	colorSelect: string;
+	align: string;
+	listStyleList: boolean;
+	listStyleBullet: boolean;
+	strikeThrough: boolean;
+	indentTextValue: number;
+	listType: string;
+};
+
+const ComposeMessageTextArea = styled.li<{ textStyle: textAreaStyle }>`
 	border: 0;
 	outline: 0;
 	border-bottom: 1px solid rgba(180, 182, 187, 0.3);
 	width: 100%;
-	font-family: ${(props) => (props.fontFamily ? props.fontFamily : "inherit")};
-	font-size: ${(props) => (props.fontSize ? props.fontSize : "inherit")};
+	font-family: ${({ textStyle }) => (textStyle.fontFamilySelect ? textStyle.fontFamilySelect : "inherit")};
+	font-size: ${({ textStyle }) => (textStyle.fontSizeSelect ? textStyle.fontSizeSelect : "inherit")};
 	height: 100%;
+	font-weight: ${({ textStyle }) => textStyle.boldSelect && "bold"};
+	font-style: ${({ textStyle }) => textStyle.italicSelect && "italic"};
+	text-decoration: ${({ textStyle }) => textStyle.underlineSelect && "underline"};
+	color: ${({ textStyle }) => (textStyle.colorSelect ? textStyle.colorSelect : "inherit")};
+	text-align: ${({ textStyle }) => (textStyle.align ? textStyle.align : "left")};
+	list-style: ${({ textStyle }) => (textStyle.listStyleList || textStyle.listStyleBullet ? textStyle.listType : "none")};
+	text-indent: ${({ textStyle }) => `${textStyle.indentTextValue}px`};
+
+	padding-top: ${({ textStyle }) => (textStyle.listStyleList || textStyle.listStyleBullet ? "20px" : "0")};
+	text-decoration: ${({ textStyle }) => (textStyle.strikeThrough ? "line-through" : "")};
 `;
 
-const ComposeMessageFooter = styled.div<{ maximizeState: boolean }>`
-	padding: 0;
+const ComposeMessageFooter = styled.div`
+	padding: 0 1rem 0 1.5rem;
 	margin: 0.5rem 0 0 0;
 	display: flex;
 	align-items: center;
-	position: absolute;
-	bottom: ${(props) => (props.maximizeState ? "50px" : "10px")};
+	position: relative;
+	bottom: 3px;
 `;
 
 const BtnSend = styled.button`
@@ -116,7 +141,7 @@ const FormatIconWrapper = styled.div`
 	margin: 0 0 0 0.6rem;
 `;
 
-const FormatIconContainer = styled.div<{ margin: string; padding: string }>`
+const FormatIconContainer = styled.button<{ margin: string; padding: string }>`
 	padding: ${(props) => props.padding};
 	margin: ${(props) => props.margin};
 	border-radius: 3px;
@@ -126,7 +151,7 @@ const FormatIconContainer = styled.div<{ margin: string; padding: string }>`
 	color: rgba(32, 33, 36, 0.7);
 
 	&:hover {
-		background-color: rgba(180, 182, 187, 0.2);
+		background-color: rgba(180, 182, 187, 0.3);
 	}
 `;
 

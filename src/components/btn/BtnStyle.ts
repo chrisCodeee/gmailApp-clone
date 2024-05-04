@@ -21,7 +21,7 @@ const ShowRightSideWrapper = styled.div`
 	width: 25px;
 	position: absolute;
 	right: 0;
-	bottom: 0;
+	bottom: -10px;
 	background-color: #fff;
 	border-top-left-radius: 20px;
 	border-bottom-left-radius: 20px;

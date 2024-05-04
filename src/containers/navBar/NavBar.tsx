@@ -14,7 +14,7 @@ const NavBar = () => {
 
 	const { setSelectMessageTypeStateOff, setMarkAllMessageReadStateOff, setSelectInputToolStateOff } = useInboxState();
 
-	const { setMoreFormattingOptioneStateOff } = useComposeMessageState();
+	const { setMoreFormattingOptioneStateOff, setAlignFormattingOptioneStateOff, setFontSizeStateOff, setFontStyleStateOff, setColorStateOff } = useComposeMessageState();
 
 	const iconStyle = {
 		iconSize: 23,
@@ -35,6 +35,10 @@ const NavBar = () => {
 				setMarkAllMessageReadStateOff();
 				setSelectInputToolStateOff();
 				setMoreFormattingOptioneStateOff();
+				setAlignFormattingOptioneStateOff();
+				setFontSizeStateOff();
+				setFontStyleStateOff();
+				setColorStateOff();
 			}}>
 			<ContainerLeft>
 				<IconWrapper>

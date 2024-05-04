@@ -37,6 +37,7 @@ div.messageContainer::-webkit-scrollbar-track-piece {
 
 * {
 	box-sizing: border-box;
+	user-select: none;
 }
 
 html {
@@ -50,6 +51,7 @@ body {
 	height: 100vh;
 	overflow: hidden;
 	color: var(--color-text);
+	user-select: inherit;
 }
 
 h4 {
@@ -125,4 +127,8 @@ li {
 /* Inbox Hover Icon State */
 .iconHover {
 	display: none;
+}
+
+.fake_textarea:focus {
+	outline: 0;
 }

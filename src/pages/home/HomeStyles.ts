@@ -12,7 +12,7 @@ const LeftAsideContainer = styled.aside`
 `;
 
 const RightAsideContainer = styled.aside`
-	padding: 0.6rem 1rem 0.6rem 0;
+	padding: 0.6rem 1rem 0 0.7rem;
 `;
 
 const MessageContainer = styled.div`

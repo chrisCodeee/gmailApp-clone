@@ -9,7 +9,28 @@ import FullFormatingOption from "./FullFormatingOption";
 import { Formatting } from "./subFormattingOption";
 
 const FormattingOption = () => {
-	const { maximizeState, fontStyle, setFontStyleStateOn, setFontSizeStateOff, setFontStyleStateOff, setMoreFormattingOptioneStateOn, setMoreFormattingOptioneStateOff, setFontSizeStateOn } = useComposeMessageState();
+	const {
+		maximizeState,
+		fontStyle,
+		alignTextSelectIcon,
+		setFontStyleStateOn,
+		setColorStateOn,
+		setFontSizeStateOff,
+		setFontStyleStateOff,
+		setMoreFormattingOptioneStateOn,
+		setMoreFormattingOptioneStateOff,
+		setAlignFormattingOptioneStateOff,
+		setAlignFormattingOptioneStateOn,
+		setFontSizeStateOn,
+		setBoldStateOn,
+		setItalicStateOn,
+		setUnderlineStateOn,
+		setColorStateOff,
+		setNumberList,
+		setBulletList,
+		setNumberListOff,
+		setBulletListOff,
+	} = useComposeMessageState();
 
 	const closeFormattingOption = () => {
 		setMoreFormattingOptioneStateOff();
@@ -20,7 +41,12 @@ const FormattingOption = () => {
 		<>
 			<FormattingOptionWrapper maximizeState={maximizeState}>
 				<FormattingOptionContainer maximizeState={maximizeState}>
-					<FormatFlexContainer style={{ marginLeft: "3.5px" }} onClick={closeFormattingOption}>
+					<FormatFlexContainer
+						style={{ marginLeft: "3.5px" }}
+						onClick={() => {
+							closeFormattingOption();
+							setAlignFormattingOptioneStateOff();
+						}}>
 						<Formatting title="Undo (Ctrl-Z)" icon={<LuUndo2 size={formatIconSize} />} />
 
 						<Formatting title="Redo (Ctrl-Y)" icon={<LuRedo2 size={formatIconSize} />} />
@@ -31,8 +57,10 @@ const FormattingOption = () => {
 					<FormatFlexContainer
 						onClick={() => {
 							setMoreFormattingOptioneStateOff();
+							setAlignFormattingOptioneStateOff();
 							setFontStyleStateOn();
 							setFontSizeStateOff();
+							setColorStateOff();
 						}}>
 						<FormatIcon title="Font (Ctrl-Shift-5, Ctrl-Shift-6)" padding="0.4rem 0 0.4rem 0.4rem" margin="0">
 							<FormatFlexContainer style={{ width: "100px" }}>
@@ -49,6 +77,8 @@ const FormattingOption = () => {
 						onClick={() => {
 							closeFormattingOption();
 							setFontSizeStateOn();
+							setColorStateOff();
+							setAlignFormattingOptioneStateOff();
 						}}>
 						<FormatIcon title="Size (Ctrl-Shift--, Ctrl-Shift-+)" padding="0.4rem 0 0.4rem 0.4rem" margin="0">
 							<FormatFlexContainer>
@@ -61,36 +91,78 @@ const FormattingOption = () => {
 
 					<FormatDivider>&nbsp;</FormatDivider>
 
-					<FormatFlexContainer onClick={closeFormattingOption}>
-						<Formatting title="Bold (Ctrl-B)" icon={<AiOutlineBold size={formatIconSize} />} />
+					<FormatFlexContainer
+						onClick={() => {
+							closeFormattingOption();
+							setAlignFormattingOptioneStateOff();
+						}}>
+						<div
+							onClick={() => {
+								setBoldStateOn();
+								setColorStateOff();
+							}}>
+							<Formatting title="Bold (Ctrl-B)" icon={<AiOutlineBold size={formatIconSize} />} />
+						</div>
 
-						<Formatting title="Italic (Ctrl-I)" icon={<MdFormatItalic size={21} />} />
+						<div
+							onClick={() => {
+								setItalicStateOn();
+								setColorStateOff();
+							}}>
+							<Formatting title="Italic (Ctrl-I)" icon={<MdFormatItalic size={21} />} />
+						</div>
 
-						<Formatting title="Underline (Ctrl-U)" icon={<MdFormatUnderlined size={21} />} />
+						<div
+							onClick={() => {
+								setUnderlineStateOn();
+								setColorStateOff();
+							}}>
+							<Formatting title="Underline (Ctrl-U)" icon={<MdFormatUnderlined size={21} />} />
+						</div>
 
-						<FormatIcon title="Text color" padding="0.4rem 0 0.4rem 0.4rem">
-							<FormatFlexContainer>
-								<MdFormatColorText size={16} />
-
-								<MdArrowDropDown size={formatIconSize} />
-							</FormatFlexContainer>
-						</FormatIcon>
+						<div onClick={setColorStateOn}>
+							<FormatIcon title="Text color" padding="0.4rem 0 0.4rem 0.4rem">
+								<FormatFlexContainer>
+									<MdFormatColorText size={16} />
+									<MdArrowDropDown size={formatIconSize} />
+								</FormatFlexContainer>
+							</FormatIcon>
+						</div>
 					</FormatFlexContainer>
 
 					<FormatDivider>&nbsp;</FormatDivider>
 
-					<FormatFlexContainer onClick={closeFormattingOption}>
-						<FormatIcon title="Align" padding="0.4rem 0 0.4rem 0.4rem">
-							<FormatFlexContainer>
-								<MdOutlineFormatAlignLeft size={formatIconSize} />
+					<FormatFlexContainer
+						onClick={() => {
+							closeFormattingOption();
+							setColorStateOff();
+						}}>
+						<div onClick={setAlignFormattingOptioneStateOn}>
+							<FormatIcon title="Align" padding="0.4rem 0 0.4rem 0.4rem">
+								<FormatFlexContainer>
+									{/* <MdOutlineFormatAlignLeft size={formatIconSize} /> */}
+									{alignTextSelectIcon ? alignTextSelectIcon : <MdOutlineFormatAlignLeft size={formatIconSize} />}
+									<MdArrowDropDown size={formatIconSize} />
+								</FormatFlexContainer>
+							</FormatIcon>
+						</div>
 
-								<MdArrowDropDown size={formatIconSize} />
-							</FormatFlexContainer>
-						</FormatIcon>
-
-						<Formatting title="Numbered list (Ctrl-Shift-7)" icon={<MdFormatListNumbered size={20} />} />
-
-						<Formatting title="Bulleted list (Ctrl-Shift-8)" icon={<MdFormatListBulleted size={20} />} />
+						<div className="d-flex" onClick={setAlignFormattingOptioneStateOff}>
+							<div
+								onClick={() => {
+									setNumberList("decimal");
+									setBulletListOff();
+								}}>
+								<Formatting title="Numbered list (Ctrl-Shift-7)" icon={<MdFormatListNumbered size={20} />} />
+							</div>
+							<div
+								onClick={() => {
+									setBulletList("disc");
+									setNumberListOff();
+								}}>
+								<Formatting title="Bulleted list (Ctrl-Shift-8)" icon={<MdFormatListBulleted size={20} />} />
+							</div>
+						</div>
 
 						{maximizeState && <FullFormatingOption />}
 					</FormatFlexContainer>
@@ -102,8 +174,10 @@ const FormattingOption = () => {
 								onClick={() => {
 									setMoreFormattingOptioneStateOn();
 									setFontStyleStateOff();
+									setColorStateOff();
+									setAlignFormattingOptioneStateOff();
 								}}>
-								<FormatIcon title="Numbered list (Ctrl-Shift-7)" padding="0.4rem 0.15rem">
+								<FormatIcon title="More formatting options" padding="0.4rem 0.15rem">
 									<MdArrowDropDown size={formatIconSize} />
 								</FormatIcon>
 							</div>
