@@ -1,190 +1,151 @@
 import { LuUndo2, LuRedo2 } from "react-icons/lu";
 import { FormatIcon } from "../compose/component";
 import { formatIconSize } from "../compose/component/ComposeFormatIcon";
-import { MdArrowDropDown, MdFormatColorText, MdFormatItalic, MdFormatListBulleted, MdFormatListNumbered, MdFormatSize, MdFormatUnderlined, MdOutlineFormatAlignLeft } from "react-icons/md";
+import * as MdFormatIcon from "react-icons/md";
 import { AiOutlineBold } from "react-icons/ai";
-import { FormatDivider, FormatFlexContainer, FormattingOptionContainer, FormattingOptionWrapper } from "./FormattingOptionStyle";
-import { useComposeMessageState } from "../../state-management";
+import * as FormattingOptionStyles from "./FormattingOptionStyle";
 import FullFormatingOption from "./FullFormatingOption";
 import { Formatting } from "./subFormattingOption";
+import { useCompose } from "../../hooks";
 
 const FormattingOption = () => {
-	const {
-		maximizeState,
-		fontStyle,
-		alignTextSelectIcon,
-		setFontStyleStateOn,
-		setColorStateOn,
-		setFontSizeStateOff,
-		setFontStyleStateOff,
-		setMoreFormattingOptioneStateOn,
-		setMoreFormattingOptioneStateOff,
-		setAlignFormattingOptioneStateOff,
-		setAlignFormattingOptioneStateOn,
-		setFontSizeStateOn,
-		setBoldStateOn,
-		setItalicStateOn,
-		setUnderlineStateOn,
-		setColorStateOff,
-		setNumberList,
-		setBulletList,
-		setNumberListOff,
-		setBulletListOff,
-	} = useComposeMessageState();
+	const { closeFormattingStylesOption, fontSizeFormattingOption, fontStyleFormattingOption, useComposeMessage } = useCompose();
 
-	const closeFormattingOption = () => {
-		setMoreFormattingOptioneStateOff();
-		setFontStyleStateOff();
-		setFontSizeStateOff();
-	};
 	return (
 		<>
-			<FormattingOptionWrapper maximizeState={maximizeState}>
-				<FormattingOptionContainer maximizeState={maximizeState}>
-					<FormatFlexContainer
+			<FormattingOptionStyles.FormattingOptionWrapper maximizeState={useComposeMessage.maximizeState}>
+				<FormattingOptionStyles.FormattingOptionContainer maximizeState={useComposeMessage.maximizeState}>
+					<FormattingOptionStyles.FormatFlexContainer
 						style={{ marginLeft: "3.5px" }}
 						onClick={() => {
-							closeFormattingOption();
-							setAlignFormattingOptioneStateOff();
+							closeFormattingStylesOption();
+							useComposeMessage.setAlignFormattingOptioneStateOff();
 						}}>
 						<Formatting title="Undo (Ctrl-Z)" icon={<LuUndo2 size={formatIconSize} />} />
 
 						<Formatting title="Redo (Ctrl-Y)" icon={<LuRedo2 size={formatIconSize} />} />
-					</FormatFlexContainer>
+					</FormattingOptionStyles.FormatFlexContainer>
 
-					<FormatDivider>&nbsp;</FormatDivider>
+					<FormattingOptionStyles.FormatDivider>&nbsp;</FormattingOptionStyles.FormatDivider>
 
-					<FormatFlexContainer
-						onClick={() => {
-							setMoreFormattingOptioneStateOff();
-							setAlignFormattingOptioneStateOff();
-							setFontStyleStateOn();
-							setFontSizeStateOff();
-							setColorStateOff();
-						}}>
+					<FormattingOptionStyles.FormatFlexContainer onClick={fontStyleFormattingOption}>
 						<FormatIcon title="Font (Ctrl-Shift-5, Ctrl-Shift-6)" padding="0.4rem 0 0.4rem 0.4rem" margin="0">
-							<FormatFlexContainer style={{ width: "100px" }}>
-								<span style={{ marginRight: "8px" }}>{fontStyle ? fontStyle : "Sans Serif"}</span>
+							<FormattingOptionStyles.FormatFlexContainer style={{ width: "100px" }}>
+								<span style={{ marginRight: "8px" }}>{useComposeMessage.fontStyle ? useComposeMessage.fontStyle : "Sans Serif"}</span>
 
-								<MdArrowDropDown size={formatIconSize} />
-							</FormatFlexContainer>
+								<MdFormatIcon.MdArrowDropDown size={formatIconSize} />
+							</FormattingOptionStyles.FormatFlexContainer>
 						</FormatIcon>
-					</FormatFlexContainer>
+					</FormattingOptionStyles.FormatFlexContainer>
 
-					<FormatDivider>&nbsp;</FormatDivider>
+					<FormattingOptionStyles.FormatDivider>&nbsp;</FormattingOptionStyles.FormatDivider>
 
-					<FormatFlexContainer
-						onClick={() => {
-							closeFormattingOption();
-							setFontSizeStateOn();
-							setColorStateOff();
-							setAlignFormattingOptioneStateOff();
-						}}>
+					<FormattingOptionStyles.FormatFlexContainer onClick={fontSizeFormattingOption}>
 						<FormatIcon title="Size (Ctrl-Shift--, Ctrl-Shift-+)" padding="0.4rem 0 0.4rem 0.4rem" margin="0">
-							<FormatFlexContainer>
-								<MdFormatSize size={20} />
+							<FormattingOptionStyles.FormatFlexContainer>
+								<MdFormatIcon.MdFormatSize size={20} />
 
-								<MdArrowDropDown size={formatIconSize} />
-							</FormatFlexContainer>
+								<MdFormatIcon.MdArrowDropDown size={formatIconSize} />
+							</FormattingOptionStyles.FormatFlexContainer>
 						</FormatIcon>
-					</FormatFlexContainer>
+					</FormattingOptionStyles.FormatFlexContainer>
 
-					<FormatDivider>&nbsp;</FormatDivider>
+					<FormattingOptionStyles.FormatDivider>&nbsp;</FormattingOptionStyles.FormatDivider>
 
-					<FormatFlexContainer
+					<FormattingOptionStyles.FormatFlexContainer
 						onClick={() => {
-							closeFormattingOption();
-							setAlignFormattingOptioneStateOff();
+							closeFormattingStylesOption();
+							useComposeMessage.setAlignFormattingOptioneStateOff();
 						}}>
 						<div
 							onClick={() => {
-								setBoldStateOn();
-								setColorStateOff();
+								useComposeMessage.setBoldStateOn();
+								useComposeMessage.setColorStateOff();
 							}}>
 							<Formatting title="Bold (Ctrl-B)" icon={<AiOutlineBold size={formatIconSize} />} />
 						</div>
 
 						<div
 							onClick={() => {
-								setItalicStateOn();
-								setColorStateOff();
+								useComposeMessage.setItalicStateOn();
+								useComposeMessage.setColorStateOff();
 							}}>
-							<Formatting title="Italic (Ctrl-I)" icon={<MdFormatItalic size={21} />} />
+							<Formatting title="Italic (Ctrl-I)" icon={<MdFormatIcon.MdFormatItalic size={21} />} />
 						</div>
 
 						<div
 							onClick={() => {
-								setUnderlineStateOn();
-								setColorStateOff();
+								useComposeMessage.setUnderlineStateOn();
+								useComposeMessage.setColorStateOff();
 							}}>
-							<Formatting title="Underline (Ctrl-U)" icon={<MdFormatUnderlined size={21} />} />
+							<Formatting title="Underline (Ctrl-U)" icon={<MdFormatIcon.MdFormatUnderlined size={21} />} />
 						</div>
 
-						<div onClick={setColorStateOn}>
+						<div onClick={useComposeMessage.setColorStateOn}>
 							<FormatIcon title="Text color" padding="0.4rem 0 0.4rem 0.4rem">
-								<FormatFlexContainer>
-									<MdFormatColorText size={16} />
-									<MdArrowDropDown size={formatIconSize} />
-								</FormatFlexContainer>
+								<FormattingOptionStyles.FormatFlexContainer>
+									<MdFormatIcon.MdFormatColorText size={16} />
+									<MdFormatIcon.MdArrowDropDown size={formatIconSize} />
+								</FormattingOptionStyles.FormatFlexContainer>
 							</FormatIcon>
 						</div>
-					</FormatFlexContainer>
+					</FormattingOptionStyles.FormatFlexContainer>
 
-					<FormatDivider>&nbsp;</FormatDivider>
+					<FormattingOptionStyles.FormatDivider>&nbsp;</FormattingOptionStyles.FormatDivider>
 
-					<FormatFlexContainer
+					<FormattingOptionStyles.FormatFlexContainer
 						onClick={() => {
-							closeFormattingOption();
-							setColorStateOff();
+							closeFormattingStylesOption();
+							useComposeMessage.setColorStateOff();
 						}}>
-						<div onClick={setAlignFormattingOptioneStateOn}>
+						<div onClick={useComposeMessage.setAlignFormattingOptioneStateOn}>
 							<FormatIcon title="Align" padding="0.4rem 0 0.4rem 0.4rem">
-								<FormatFlexContainer>
-									{/* <MdOutlineFormatAlignLeft size={formatIconSize} /> */}
-									{alignTextSelectIcon ? alignTextSelectIcon : <MdOutlineFormatAlignLeft size={formatIconSize} />}
-									<MdArrowDropDown size={formatIconSize} />
-								</FormatFlexContainer>
+								<FormattingOptionStyles.FormatFlexContainer>
+									{useComposeMessage.alignTextSelectIcon ? useComposeMessage.alignTextSelectIcon : <MdFormatIcon.MdOutlineFormatAlignLeft size={formatIconSize} />}
+									<MdFormatIcon.MdArrowDropDown size={formatIconSize} />
+								</FormattingOptionStyles.FormatFlexContainer>
 							</FormatIcon>
 						</div>
 
-						<div className="d-flex" onClick={setAlignFormattingOptioneStateOff}>
+						<div className="d-flex" onClick={useComposeMessage.setAlignFormattingOptioneStateOff}>
 							<div
 								onClick={() => {
-									setNumberList("decimal");
-									setBulletListOff();
+									useComposeMessage.setNumberList("decimal");
+									useComposeMessage.setBulletListOff();
 								}}>
-								<Formatting title="Numbered list (Ctrl-Shift-7)" icon={<MdFormatListNumbered size={20} />} />
+								<Formatting title="Numbered list (Ctrl-Shift-7)" icon={<MdFormatIcon.MdFormatListNumbered size={20} />} />
 							</div>
 							<div
 								onClick={() => {
-									setBulletList("disc");
-									setNumberListOff();
+									useComposeMessage.setBulletList("disc");
+									useComposeMessage.setNumberListOff();
 								}}>
-								<Formatting title="Bulleted list (Ctrl-Shift-8)" icon={<MdFormatListBulleted size={20} />} />
+								<Formatting title="Bulleted list (Ctrl-Shift-8)" icon={<MdFormatIcon.MdFormatListBulleted size={20} />} />
 							</div>
 						</div>
 
-						{maximizeState && <FullFormatingOption />}
-					</FormatFlexContainer>
+						{useComposeMessage.maximizeState && <FullFormatingOption />}
+					</FormattingOptionStyles.FormatFlexContainer>
 
-					{!maximizeState && (
+					{!useComposeMessage.maximizeState && (
 						<>
-							<FormatDivider>&nbsp;</FormatDivider>
+							<FormattingOptionStyles.FormatDivider>&nbsp;</FormattingOptionStyles.FormatDivider>
 							<div
 								onClick={() => {
-									setMoreFormattingOptioneStateOn();
-									setFontStyleStateOff();
-									setColorStateOff();
-									setAlignFormattingOptioneStateOff();
+									useComposeMessage.setMoreFormattingOptioneStateOn();
+									useComposeMessage.setFontStyleStateOff();
+									useComposeMessage.setFontSizeStateOff();
+									useComposeMessage.setColorStateOff();
+									useComposeMessage.setAlignFormattingOptioneStateOff();
 								}}>
 								<FormatIcon title="More formatting options" padding="0.4rem 0.15rem">
-									<MdArrowDropDown size={formatIconSize} />
+									<MdFormatIcon.MdArrowDropDown size={formatIconSize} />
 								</FormatIcon>
 							</div>
 						</>
 					)}
-				</FormattingOptionContainer>
-			</FormattingOptionWrapper>
+				</FormattingOptionStyles.FormattingOptionContainer>
+			</FormattingOptionStyles.FormattingOptionWrapper>
 		</>
 	);
 };

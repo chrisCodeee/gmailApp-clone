@@ -1,12 +1,12 @@
 import { MdFormatIndentDecrease } from "react-icons/md";
 import Formatting from "./Formatting";
-import { useComposeMessageState } from "../../../state-management";
+import { useCompose } from "../../../hooks";
 
 const IndexDecrease = () => {
-	const { setIndexTextDecrease } = useComposeMessageState();
+	const { useComposeMessage } = useCompose();
 	return (
 		<>
-			<div onClick={setIndexTextDecrease}>
+			<div onClick={useComposeMessage.setIndexTextDecrease}>
 				<Formatting title="Indent less (Ctrl-[)" icon={<MdFormatIndentDecrease size={20} />} />
 			</div>
 		</>

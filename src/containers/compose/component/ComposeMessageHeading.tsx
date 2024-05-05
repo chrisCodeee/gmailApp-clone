@@ -2,21 +2,22 @@ import { IoClose } from "react-icons/io5";
 import { MdMinimize } from "react-icons/md";
 import { LuMinimize2 } from "react-icons/lu";
 import { ResizeIconWrapper, ResizeIcon } from "../ComposeStyles";
-import { useAsideState, useComposeMessageState } from "../../../state-management";
+import { useAsideState } from "../../../state-management";
 import { RxSize } from "react-icons/rx";
+import { useCompose } from "../../../hooks";
 
 export const resizeIconSize = 17;
 
 const ComposeMessageHeading = () => {
 	const { setComposeMessageStateOff } = useAsideState();
 
-	const { maximizeState, setComposeMessageMinimizeStateOn, setMaximizeStateOn, setFormattingOptioneStateOff, setAlignSelectState } = useComposeMessageState();
+	const { useComposeMessage } = useCompose();
 
 	return (
 		<>
 			<div
 				onClick={() => {
-					setComposeMessageMinimizeStateOn();
+					useComposeMessage.setComposeMessageMinimizeStateOn();
 					setComposeMessageStateOff();
 				}}
 				className="flex-grow-1">
@@ -26,22 +27,22 @@ const ComposeMessageHeading = () => {
 				<ResizeIcon
 					title="Minimize"
 					onClick={() => {
-						setComposeMessageMinimizeStateOn();
+						useComposeMessage.setComposeMessageMinimizeStateOn();
 						setComposeMessageStateOff();
 					}}>
 					<MdMinimize size={resizeIconSize} />
 				</ResizeIcon>
 
-				<ResizeIcon className="mx-1" onClick={setMaximizeStateOn}>
-					{maximizeState ? <LuMinimize2 size={resizeIconSize} title="Exit full screen (Shift for pop-out)" /> : <RxSize size={resizeIconSize} title="Full screen (Shift for pop-out)" />}
+				<ResizeIcon className="mx-1" onClick={useComposeMessage.setMaximizeStateOn}>
+					{useComposeMessage.maximizeState ? <LuMinimize2 size={resizeIconSize} title="Exit full screen (Shift for pop-out)" /> : <RxSize size={resizeIconSize} title="Full screen (Shift for pop-out)" />}
 				</ResizeIcon>
 
 				<ResizeIcon
 					title="Save & close"
 					onClick={() => {
 						setComposeMessageStateOff();
-						setFormattingOptioneStateOff();
-						setAlignSelectState(null, "left");
+						useComposeMessage.setFormattingOptioneStateOff();
+						useComposeMessage.setAlignSelectState(null, "left");
 					}}>
 					<IoClose size={resizeIconSize} />
 				</ResizeIcon>

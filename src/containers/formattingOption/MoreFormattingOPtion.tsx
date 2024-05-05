@@ -1,11 +1,11 @@
-import { useComposeMessageState } from "../../state-management";
+import { useCompose } from "../../hooks";
 import { MoreFormattingOptionWrapper } from "./FormattingOptionStyle";
 import { IndexDecrease, IndexIncrease, QuoteFormat, RemoveFormat, StrikeThrough } from "./subFormattingOption";
 
 const MoreFormattingOPtion = () => {
-	const { setMoreFormattingOptioneStateOff } = useComposeMessageState();
+	const { useComposeMessage } = useCompose();
 	return (
-		<MoreFormattingOptionWrapper onClick={setMoreFormattingOptioneStateOff}>
+		<MoreFormattingOptionWrapper onClick={useComposeMessage.setMoreFormattingOptioneStateOff}>
 			<RemoveFormat />
 			<StrikeThrough />
 			<QuoteFormat />

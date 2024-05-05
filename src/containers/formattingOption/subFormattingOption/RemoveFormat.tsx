@@ -1,22 +1,10 @@
 import { LiaRemoveFormatSolid } from "react-icons/lia";
 import Formatting from "./Formatting";
-import { useComposeMessageState } from "../../../state-management";
+import { useCompose } from "../../../hooks";
 
 const RemoveFormat = () => {
-	const { setBoldStateOff, setItalicStateOff, setUnderlineStateOff, setFontSizeOff, setBgColorOff, setColorOff, setAlignSelectStateOff, setBulletListOff, setNumberListOff, setStrikethroughStateOff, setIndexTextOff } = useComposeMessageState();
-	const removeFormat = () => {
-		setBoldStateOff();
-		setItalicStateOff();
-		setUnderlineStateOff();
-		setFontSizeOff();
-		setBgColorOff();
-		setColorOff();
-		setAlignSelectStateOff();
-		setBulletListOff();
-		setNumberListOff();
-		setStrikethroughStateOff();
-		setIndexTextOff();
-	};
+	const { removeFormat } = useCompose();
+
 	return (
 		<>
 			<div onClick={removeFormat}>

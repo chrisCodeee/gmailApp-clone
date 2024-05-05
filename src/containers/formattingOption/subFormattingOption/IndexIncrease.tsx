@@ -1,12 +1,12 @@
 import { MdFormatIndentIncrease } from "react-icons/md";
 import Formatting from "./Formatting";
-import { useComposeMessageState } from "../../../state-management";
+import { useCompose } from "../../../hooks";
 
 const IndexIncrease = () => {
-	const { setIndexTextIncrease } = useComposeMessageState();
+	const { useComposeMessage } = useCompose();
 	return (
 		<>
-			<div onClick={setIndexTextIncrease}>
+			<div onClick={useComposeMessage.setIndexTextIncrease}>
 				<Formatting title="Indent more (Ctrl-])" icon={<MdFormatIndentIncrease size={20} />} />
 			</div>
 		</>

@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { AccountProfile, Compose, CreateLabelModal, GoogleApps, LanguageInputTool, MarkAllAsRead, NavBar, SearchMoreOptions, SelectMessageType, Support } from "../containers";
+import { AccountProfile, Compose, CreateLabelModal, GoogleApps, InsertLink, LanguageInputTool, MarkAllAsRead, NavBar, SearchMoreOptions, SelectMessageType, Support } from "../containers";
 import { AppWrapper } from "./AppStyles";
 import { useAsideState, useComposeMessageState, useInboxState, useNavBarState } from "../state-management";
 import { ComposeMessageMinimized } from "../containers/compose/component";
@@ -30,6 +30,8 @@ function App() {
 			{composeMessageState && <Compose />}
 
 			{composeMessageMinimizeState && <ComposeMessageMinimized />}
+
+			<InsertLink />
 		</AppWrapper>
 	);
 }

@@ -1,12 +1,12 @@
 import { PiTextStrikethroughBold } from "react-icons/pi";
 import Formatting from "./Formatting";
-import { useComposeMessageState } from "../../../state-management";
+import { useCompose } from "../../../hooks";
 
 const StrikeThrough = () => {
-	const { setStrikethroughStateOn } = useComposeMessageState();
+	const { useComposeMessage } = useCompose();
 	return (
 		<>
-			<div onClick={setStrikethroughStateOn}>
+			<div onClick={useComposeMessage.setStrikethroughStateOn}>
 				<Formatting title="Strikethrough (Alt-Shift-5)" icon={<PiTextStrikethroughBold size={20} />} />
 			</div>
 		</>
