@@ -1,51 +1,53 @@
 import { LiaPencilAltSolid } from "react-icons/lia";
-import { MdFormatColorText, MdAttachFile, MdOutlineInsertLink, MdOutlineInsertEmoticon, MdAddToDrive, MdOutlineInsertPhoto, MdOutlineLockClock, MdMoreVert } from "react-icons/md";
+import * as MdIcon from "react-icons/md";
 import { FormatIcon } from ".";
 import { CgTrash } from "react-icons/cg";
 import { FormatIconWrapper } from "../ComposeStyles";
-import { useComposeMessageState } from "../../../state-management";
+import { useCompose } from "../../../hooks";
 
 export const formatIconSize = 18;
 const ComposeFormatIcon = () => {
-	const { setFormattingOptioneStateOn } = useComposeMessageState();
+	const { useComposeMessage } = useCompose();
 	return (
 		<div className="d-flex justify-content-between flex-grow-1">
 			<FormatIconWrapper>
-				<div onClick={setFormattingOptioneStateOn}>
+				<div onClick={useComposeMessage.setFormattingOptioneStateOn}>
 					<FormatIcon title="Formatting options">
-						<MdFormatColorText size={formatIconSize} />
+						<MdIcon.MdFormatColorText size={formatIconSize} />
 					</FormatIcon>
 				</div>
 
 				<FormatIcon title="Attach files">
-					<MdAttachFile size={formatIconSize} />
+					<MdIcon.MdAttachFile size={formatIconSize} />
 				</FormatIcon>
 
-				<FormatIcon title="Insert link (Ctrl-K)">
-					<MdOutlineInsertLink size={formatIconSize} />
-				</FormatIcon>
+				<div onClick={useComposeMessage.setInsertLinkOn}>
+					<FormatIcon title="Insert link (Ctrl-K)">
+						<MdIcon.MdOutlineInsertLink size={formatIconSize} />
+					</FormatIcon>
+				</div>
 
 				<FormatIcon title="Insert emoji (Ctrl-Shift-2)">
-					<MdOutlineInsertEmoticon size={formatIconSize} />
+					<MdIcon.MdOutlineInsertEmoticon size={formatIconSize} />
 				</FormatIcon>
 
 				<FormatIcon title="Insert files using Drive">
-					<MdAddToDrive size={formatIconSize} />
+					<MdIcon.MdAddToDrive size={formatIconSize} />
 				</FormatIcon>
 
 				<FormatIcon title="Insert photo">
-					<MdOutlineInsertPhoto size={formatIconSize} />
+					<MdIcon.MdOutlineInsertPhoto size={formatIconSize} />
 				</FormatIcon>
 
 				<FormatIcon title="Toggle conidential mode">
-					<MdOutlineLockClock size={formatIconSize} />
+					<MdIcon.MdOutlineLockClock size={formatIconSize} />
 				</FormatIcon>
 
 				<FormatIcon title="Insert signature">
 					<LiaPencilAltSolid size={formatIconSize} />
 				</FormatIcon>
 				<FormatIcon title="More options">
-					<MdMoreVert size={formatIconSize} />
+					<MdIcon.MdMoreVert size={formatIconSize} />
 				</FormatIcon>
 			</FormatIconWrapper>
 

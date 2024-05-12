@@ -1,17 +1,17 @@
 import styled from "styled-components";
 
-const FormattingOptionWrapper = styled.div<{ maximizeState: boolean }>`
+const FormattingOptionWrapper = styled.div<{ maximizestate: boolean }>`
 	position: absolute;
-	bottom: ${(props) => (props.maximizeState ? "110px" : "70px")};
-	left: ${(props) => (props.maximizeState ? "170px" : "0")};
-	width: ${(props) => (props.maximizeState ? "fit-content" : "100%")};
+	bottom: ${(props) => (props.maximizestate ? "110px" : "70px")};
+	left: ${(props) => (props.maximizestate ? "170px" : "0")};
+	width: ${(props) => (props.maximizestate ? "fit-content" : "100%")};
 	font-weight: 500;
-	padding: ${(props) => !props.maximizeState && "0 15px"};
+	padding: ${(props) => !props.maximizestate && "0 15px"};
 `;
 
-const FormattingOptionContainer = styled.div<{ maximizeState: boolean }>`
+const FormattingOptionContainer = styled.div<{ maximizestate: boolean }>`
 	display: flex;
-	justify-content: ${(props) => !props.maximizeState && "space-between"};
+	justify-content: ${(props) => !props.maximizestate && "space-between"};
 	align-items: center;
 	background-color: #fff;
 	box-shadow: rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px, rgba(0, 0, 0, 0.2) 0px 2px 4px -1px;
@@ -45,9 +45,9 @@ const MoreFormattingOptionWrapper = styled(MoreFormattingOptionContainer)`
 	bottom: 100px;
 `;
 
-const MoreAlignFormattingWrapper = styled(MoreFormattingOptionContainer)<{ maximizeState: boolean }>`
-	left: ${(props) => (props.maximizeState ? "546px" : "400px")};
-	bottom: ${(props) => (props.maximizeState ? "140px" : "100px")};
+const MoreAlignFormattingWrapper = styled(MoreFormattingOptionContainer)<{ maximizestate: boolean }>`
+	left: ${(props) => (props.maximizestate ? "546px" : "400px")};
+	bottom: ${(props) => (props.maximizestate ? "140px" : "100px")};
 `;
 
 export { FormattingOptionWrapper, FormattingOptionContainer, FormatFlexContainer, FormatDivider, MoreFormattingOptionWrapper, MoreAlignFormattingWrapper };

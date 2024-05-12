@@ -93,6 +93,29 @@ interface ComposeMessageProps {
 	setIndexTextIncrease: () => void;
 	setIndexTextDecrease: () => void;
 	setIndexTextOff: () => void;
+
+	urlLinkState: boolean;
+	mainLinkText: string;
+	displayText: string;
+	composeUrlText: any[];
+	urlText: string;
+	setDisplayText: (displayTextValue: string) => void;
+	setUrlText: (urlTextValue: string) => void;
+	setUrlLinkState: (state: boolean) => void;
+	setDisplayComposeTextState: () => void;
+	setMainUrlLink: () => void;
+
+	insertLinkState: boolean;
+	setInsertLinkOn: () => void;
+	setInsertLinkOff: () => void;
+
+	insertLinkEmailState: boolean;
+	setInsertLinkEmailOn: () => void;
+	setInsertLinkEmailOff: () => void;
+
+	alertState: boolean;
+	setAlertOn: () => void;
+	setAlertOff: () => void;
 }
 
 const useComposeMessageState = create<ComposeMessageProps>((set) => ({
@@ -189,6 +212,29 @@ const useComposeMessageState = create<ComposeMessageProps>((set) => ({
 	setIndexTextIncrease: () => set((store) => ({ indentText: store.indentText + 40 })),
 	setIndexTextDecrease: () => set((store) => ({ indentText: store.indentText > 0 ? store.indentText - 40 : store.indentText })),
 	setIndexTextOff: () => set(() => ({ indentText: 0 })),
+
+	urlLinkState: false,
+	composeUrlText: [""],
+	mainLinkText: "",
+	displayText: "",
+	urlText: "",
+	setDisplayText: (displayTextValue) => set(() => ({ displayText: displayTextValue })),
+	setUrlText: (urlTextValue) => set(() => ({ urlText: urlTextValue })),
+	setUrlLinkState: (state) => set(() => ({ urlLinkState: state })),
+	setDisplayComposeTextState: () => set((store) => ({ insertLinkState: false, composeUrlText: [...store.composeUrlText, store.mainLinkText] })),
+	setMainUrlLink: () => set((store) => ({ mainLinkText: store.urlLinkState ? store.displayText : store.urlText })),
+
+	insertLinkState: false,
+	setInsertLinkOn: () => set((store) => ({ insertLinkState: !store.insertLinkState })),
+	setInsertLinkOff: () => set(() => ({ insertLinkState: false })),
+
+	insertLinkEmailState: true,
+	setInsertLinkEmailOn: () => set(() => ({ insertLinkEmailState: false })),
+	setInsertLinkEmailOff: () => set(() => ({ insertLinkEmailState: true })),
+
+	alertState: false,
+	setAlertOn: () => set(() => ({ alertState: true })),
+	setAlertOff: () => set(() => ({ alertState: false })),
 }));
 
 export default useComposeMessageState;

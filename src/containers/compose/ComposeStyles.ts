@@ -1,26 +1,26 @@
 import styled from "styled-components";
 
-const ComposeContainer = styled.div<{ maximizeState: boolean }>`
-	height: ${(props) => props.maximizeState && "100vh"};
-	width: ${(props) => props.maximizeState && "100vw"};
-	background-color: ${(props) => props.maximizeState && "rgba(0,0,0,.5)"};
-	position: ${(props) => props.maximizeState && "absolute"};
-	top: ${(props) => props.maximizeState && "0"};
-	left: ${(props) => props.maximizeState && "0"};
-	right: ${(props) => props.maximizeState && "0"};
-	z-index: ${(props) => props.maximizeState && "100000"};
+const ComposeContainer = styled.div<{ maximizestate: boolean }>`
+	height: ${(props) => props.maximizestate && "100vh"};
+	width: ${(props) => props.maximizestate && "100vw"};
+	background-color: ${(props) => props.maximizestate && "rgba(0,0,0,.5)"};
+	position: ${(props) => props.maximizestate && "absolute"};
+	top: ${(props) => props.maximizestate && "0"};
+	left: ${(props) => props.maximizestate && "0"};
+	right: ${(props) => props.maximizestate && "0"};
+	z-index: ${(props) => props.maximizestate && "100000"};
 	display: flex;
 	align-items: center;
 	justify-content: center;
 `;
 
-const ComposeMessageWrapper = styled.div<{ maximizeState: boolean }>`
-	width: ${(props) => (props.maximizeState ? "80%" : "55rem")};
-	height: ${(props) => (props.maximizeState ? "89vh" : "50rem")};
-	box-shadow: ${(props) => !props.maximizeState && "0 0 4px rgb(180, 182, 187)"};
-	position: ${(props) => !props.maximizeState && "fixed"};
-	bottom: ${(props) => !props.maximizeState && "0"};
-	right: ${(props) => !props.maximizeState && "80px"};
+const ComposeMessageWrapper = styled.div<{ maximizestate: boolean }>`
+	width: ${(props) => (props.maximizestate ? "80%" : "55rem")};
+	height: ${(props) => (props.maximizestate ? "89vh" : "50rem")};
+	box-shadow: ${(props) => !props.maximizestate && "0 0 4px rgb(180, 182, 187)"};
+	position: ${(props) => !props.maximizestate && "fixed"};
+	bottom: ${(props) => !props.maximizestate && "0"};
+	right: ${(props) => !props.maximizestate && "80px"};
 	border-radius: 8px;
 	z-index: 100;
 	background-color: #fff;
@@ -79,26 +79,53 @@ type textAreaStyle = {
 	listType: string;
 };
 
-const ComposeMessageTextArea = styled.li<{ textStyle: textAreaStyle }>`
+const ComposeMessageTextArea = styled.li<{ textstyle: textAreaStyle }>`
 	border: 0;
 	outline: 0;
 	border-bottom: 1px solid rgba(180, 182, 187, 0.3);
 	width: 100%;
-	font-family: ${({ textStyle }) => (textStyle.fontFamilySelect ? textStyle.fontFamilySelect : "inherit")};
-	font-size: ${({ textStyle }) => (textStyle.fontSizeSelect ? textStyle.fontSizeSelect : "inherit")};
+	font-family: ${({ textstyle }) => (textstyle.fontFamilySelect ? textstyle.fontFamilySelect : "inherit")};
+	font-size: ${({ textstyle }) => (textstyle.fontSizeSelect ? textstyle.fontSizeSelect : "inherit")};
 	height: 100%;
-	font-weight: ${({ textStyle }) => textStyle.boldSelect && "bold"};
-	font-style: ${({ textStyle }) => textStyle.italicSelect && "italic"};
-	text-decoration: ${({ textStyle }) => textStyle.underlineSelect && "underline"};
-	color: ${({ textStyle }) => (textStyle.colorSelect ? textStyle.colorSelect : "inherit")};
-	text-align: ${({ textStyle }) => (textStyle.align ? textStyle.align : "left")};
-	list-style: ${({ textStyle }) => (textStyle.listStyleList || textStyle.listStyleBullet ? textStyle.listType : "none")};
-	text-indent: ${({ textStyle }) => `${textStyle.indentTextValue}px`};
+	font-weight: ${({ textstyle }) => textstyle.boldSelect && "bold"};
+	font-style: ${({ textstyle }) => textstyle.italicSelect && "italic"};
+	text-decoration: ${({ textstyle }) => textstyle.underlineSelect && "underline"};
+	color: ${({ textstyle }) => (textstyle.colorSelect ? textstyle.colorSelect : "inherit")};
+	text-align: ${({ textstyle }) => (textstyle.align ? textstyle.align : "left")};
+	list-style: ${({ textstyle }) => (textstyle.listStyleList || textstyle.listStyleBullet ? textstyle.listType : "none")};
+	text-indent: ${({ textstyle }) => `${textstyle.indentTextValue}px`};
 
-	padding-top: ${({ textStyle }) => (textStyle.listStyleList || textStyle.listStyleBullet ? "20px" : "0")};
-	text-decoration: ${({ textStyle }) => (textStyle.strikeThrough ? "line-through" : "")};
+	padding-top: ${({ textstyle }) => (textstyle.listStyleList || textstyle.listStyleBullet ? "20px" : "0")};
+	text-decoration: ${({ textstyle }) => (textstyle.strikeThrough ? "line-through" : "")};
+
+	& a {
+		text-decoration: underline;
+		color: ${({ textstyle }) => (textstyle.colorSelect ? textstyle.colorSelect : " rgb(17, 85, 204)")};
+		// display: inline-block;
+		cursor: pointer;
+	}
 `;
 
+const UrlTextContainer = styled.div`
+	box-shadow: 0px 0 2px rgba(0, 0, 0, 0.7);
+	position: absolute;
+	top: 110%;
+	left: 0;
+	background-color: #fff;
+	display: flex;
+	align-items: center;
+	padding: 0.5rem;
+
+	& span,
+	& a {
+		padding: 0 0.6rem;
+		cursor: pointer;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+`;
 const ComposeMessageFooter = styled.div`
 	padding: 0 1rem 0 1.5rem;
 	margin: 0.5rem 0 0 0;
@@ -171,4 +198,4 @@ const ComposeMessageHeadingWrapper = styled.div`
 	padding: 1rem 1rem 1rem 1.5rem;
 `;
 
-export { ComposeContainer, ComposeMessageWrapper, NewMessageContainer, ResizeIconWrapper, ComposeForm, ComposeFormInputContainer, ComposeMessageTextArea, ComposeMessageFooter, BtnSend, Divider, BtnName, FormatIconContainer, FormatIconWrapper, ResizeIcon, ComposeMessageHeadingWrapper };
+export { ComposeContainer, ComposeMessageWrapper, NewMessageContainer, ResizeIconWrapper, ComposeForm, ComposeFormInputContainer, ComposeMessageTextArea, ComposeMessageFooter, BtnSend, Divider, BtnName, FormatIconContainer, FormatIconWrapper, ResizeIcon, ComposeMessageHeadingWrapper, UrlTextContainer };

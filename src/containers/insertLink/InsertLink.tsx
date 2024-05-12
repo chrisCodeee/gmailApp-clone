@@ -1,76 +1,135 @@
 import { IoClose } from "react-icons/io5";
 import { BtnSecondary, Icon } from "../../components";
 import { Link } from "react-router-dom";
+import * as InsertLinkStyle from "./InsertLinkStyle";
+import { useCompose } from "../../hooks";
+import { useEffect, useState } from "react";
 
 const InsertLink = () => {
+	const { useComposeMessage } = useCompose();
+
+	const [validEmail, setValidEmail] = useState("");
+	const [validEmailState, setValidEmailState] = useState(false);
+
+	const text = useComposeMessage.urlText.split("@");
+	const text2 = text[text.length - 1].split(".");
+
+	const checkEmail = () => {
+		if (!useComposeMessage.urlText.includes("@") || !text2[0] || text2[1].length < 2) {
+			setValidEmail("Invalid email address");
+		} else {
+			setValidEmail("");
+		}
+	};
+
+	// To update the mainUrlLink
+	useEffect(() => {
+		useComposeMessage.setMainUrlLink();
+		{
+			validEmailState && text2[1] && checkEmail();
+		}
+	}, [useComposeMessage.displayText, useComposeMessage.urlText]);
+
+	const checkUrl = () => {
+		if (useComposeMessage.urlText === "") {
+			useComposeMessage.setAlertOn(); //Design the alert
+		}
+	};
 	return (
 		<>
-			<div className="" style={{ position: "absolute", top: 0, left: "0", height: "100vh", width: "100vw", backgroundColor: "rgba(0,0,0,.3)", zIndex: "10000", display: "flex", justifyContent: "center", alignItems: "center" }}>
-				<div className="" style={{ width: "625px", backgroundColor: "#fff", borderRadius: "5px", padding: "1.5rem 1.5rem 1.5rem 2.5rem" }}>
-					<div className="d-flex justify-content-between align-items-center">
-						<span style={{ fontSize: "2.2rem" }}>Edit Link</span>
-						<Icon>
-							<IoClose size={25} />
-						</Icon>
-					</div>
+			<InsertLinkStyle.InsertLinkWrapper>
+				<InsertLinkStyle.InsertLinkContainer $emailstate={useComposeMessage.insertLinkEmailState.toString()}>
+					<InsertLinkStyle.InsertLinkHeading>
+						<span>Edit Link</span>
 
-					<div className="d-flex" style={{ paddingRight: "1.5rem", margin: "1rem 0" }}>
-						<label htmlFor="textToDisplay" style={{ marginRight: "1rem" }}>
-							Text to display:
-						</label>
-						<input type="text" id="textToDisplay" style={{ border: "1px solid #000", borderRadius: "3px", flexGrow: "1" }} />
-					</div>
-
-					<div className="">
-						<span>Link to:</span>
-						<div className="d-flex" style={{ padding: "0 1.5rem 0 1rem" }}>
-							<div className="col-3" style={{ marginRight: "2rem" }}>
-								<div className="d-flex align-items-center" style={{ margin: ".6rem 0" }}>
-									<input type="radio" name="textAddress" id="webAddress" checked />
-									<label htmlFor="webAddress" style={{ marginLeft: ".5rem" }}>
-										Web address
-									</label>
-								</div>
-
-								<div className="d-flex align-items-center">
-									<input type="radio" name="textAddress" id="emailAddress" />
-									<label htmlFor="emailAddress" style={{ marginLeft: ".5rem" }}>
-										Email address
-									</label>
-								</div>
-							</div>
-							<div className="" style={{ marginTop: "-1.5rem" }}>
-								<div className="">
-									<label className="d-block" htmlFor="urlLink" style={{ fontWeight: "500" }}>
-										To what URL should this link go?
-									</label>
-									<input type="text" id="urlLink" style={{ width: "100%", border: "1px solid #000", borderRadius: "3px" }} />
-								</div>
-
-								<div className="" style={{ marginTop: "1.3rem" }}>
-									<Link to="" style={{ textDecoration: "underline", color: "rgb(17, 85, 204)" }}>
-										Test this link
-									</Link>
-
-									<p style={{ fontSize: "1.11rem", marginTop: "1.5rem", lineHeight: "2" }}>
-										<span style={{ fontWeight: "500" }}>Not sure what to put in the box?</span> First, find the page on the web that you want to link to. (A{" "}
-										<Link to="" style={{ textDecoration: "underline", color: "rgb(17, 85, 204)" }}>
-											search engine
-										</Link>{" "}
-										might be useful.) Then, copy the web address from the box in your browser's address bar, and paste it into the box above.
-									</p>
-								</div>
-
-								<div className="d-flex justify-content-end" style={{ marginTop: "3rem" }}>
-									<BtnSecondary name="Cancel" borderRadius="20px" />
-
-									<button style={{ backgroundColor: "rgba(180, 182, 187, 0.15)", borderRadius: "20px", padding: "0.7rem 3rem", marginLeft: "1rem" }}>Ok</button>
-								</div>
-							</div>
+						<div onClick={useComposeMessage.setInsertLinkOff}>
+							<Icon>
+								<IoClose size={25} />
+							</Icon>
 						</div>
-					</div>
-				</div>
-			</div>
+					</InsertLinkStyle.InsertLinkHeading>
+
+					<InsertLinkStyle.InsertTextToDisplay>
+						<label htmlFor="textToDisplay">Text to display:</label>
+
+						<input
+							type="text"
+							id="textToDisplay"
+							value={useComposeMessage.mainLinkText}
+							onChange={(e) => {
+								useComposeMessage.setDisplayText(e.target.value);
+								useComposeMessage.setUrlLinkState(true);
+							}}
+							autoFocus
+						/>
+					</InsertLinkStyle.InsertTextToDisplay>
+
+					<span>Link to:</span>
+					<InsertLinkStyle.InsertLinkAddressWrapper>
+						<InsertLinkStyle.InsetLinkAddressContainer className="col-3">
+							<InsertLinkStyle.InsertLinkWebAddressContainer $insertemailstyle={useComposeMessage.insertLinkEmailState.toString()} onClick={useComposeMessage.setInsertLinkEmailOff}>
+								<input type="radio" name="textAddress" id="webAddress" checked={useComposeMessage.insertLinkEmailState} onChange={useComposeMessage.setInsertLinkEmailOn} />
+
+								<label htmlFor="urlLink">Web address</label>
+							</InsertLinkStyle.InsertLinkWebAddressContainer>
+
+							<InsertLinkStyle.InsertLinkEmailAddressContainer $insertemailstyle={useComposeMessage.insertLinkEmailState.toString()} onClick={useComposeMessage.setInsertLinkEmailOn}>
+								<input type="radio" name="textAddress" id="emailAddress" checked={!useComposeMessage.insertLinkEmailState} onChange={useComposeMessage.setInsertLinkEmailOff} />
+
+								<label htmlFor="urlLink">Email address</label>
+							</InsertLinkStyle.InsertLinkEmailAddressContainer>
+						</InsertLinkStyle.InsetLinkAddressContainer>
+						<InsertLinkStyle.InsertLinkDestinationWrapper>
+							<InsertLinkStyle.InsertLinkDestinationContainer>
+								<label>{useComposeMessage.insertLinkEmailState ? "To what URL should this link go?" : "To what email address should this link?"}</label>
+
+								<input
+									onInvalid={() => setValidEmail("Invalid Email address")}
+									type={useComposeMessage.insertLinkEmailState ? "url" : "email"}
+									id="urlLink"
+									value={useComposeMessage.urlText}
+									onChange={(e) => {
+										useComposeMessage.setUrlText(e.target.value);
+										!useComposeMessage.displayText && useComposeMessage.setUrlLinkState(false);
+										checkEmail();
+										setValidEmailState(true);
+									}}
+								/>
+
+								{!useComposeMessage.insertLinkEmailState && (
+									<p className="text-center" style={{ fontWeight: "500", color: "rgb(204, 0, 0)", margin: "0", padding: "0" }}>
+										{validEmail}
+									</p>
+								)}
+							</InsertLinkStyle.InsertLinkDestinationContainer>
+
+							<InsertLinkStyle.InsertLinkTestLinkContainer $emailstate={useComposeMessage.insertLinkEmailState.toString()}>
+								<Link to={useComposeMessage.urlText && `https://www.${useComposeMessage.urlText}`} onClick={() => checkUrl()} target={useComposeMessage.urlText && "_blank"}>
+									Test this link
+								</Link>
+
+								<InsertLinkStyle.InsertLinkText>
+									<span>Not sure what to put in the box?</span> First, find the page on the web that you want to link to. (A{" "}
+									<Link to="https://www.google.com" target="_blank">
+										search engine
+									</Link>{" "}
+									might be useful.) Then, copy the web address from the box in your browser's address bar, and paste it into the box above.
+								</InsertLinkStyle.InsertLinkText>
+							</InsertLinkStyle.InsertLinkTestLinkContainer>
+
+							<InsertLinkStyle.InsertLinkButtonWrapper $emailstate={useComposeMessage.insertLinkEmailState.toString()}>
+								<div onClick={useComposeMessage.setInsertLinkOff}>
+									<BtnSecondary name="Cancel" borderRadius="20px" />
+								</div>
+
+								<InsertLinkStyle.BtnOk disabled={!useComposeMessage.urlText} $btnstate={useComposeMessage.urlText} onClick={useComposeMessage.setDisplayComposeTextState}>
+									OK
+								</InsertLinkStyle.BtnOk>
+							</InsertLinkStyle.InsertLinkButtonWrapper>
+						</InsertLinkStyle.InsertLinkDestinationWrapper>
+					</InsertLinkStyle.InsertLinkAddressWrapper>
+				</InsertLinkStyle.InsertLinkContainer>
+			</InsertLinkStyle.InsertLinkWrapper>
 		</>
 	);
 };

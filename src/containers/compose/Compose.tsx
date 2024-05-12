@@ -8,10 +8,12 @@ import { useCompose } from "../../hooks";
 
 const Compose = () => {
 	const { textAreaStyle, closeAllState, closeFormattingOption, useComposeMessage } = useCompose();
+	// const [isContentEditable, setIsContentEditable] = useState(true);
+
 	return (
 		<>
-			<ComposeStyle.ComposeContainer maximizeState={useComposeMessage.maximizeState}>
-				<ComposeStyle.ComposeMessageWrapper onClick={closeAllState} maximizeState={useComposeMessage.maximizeState}>
+			<ComposeStyle.ComposeContainer maximizestate={useComposeMessage.maximizeState}>
+				<ComposeStyle.ComposeMessageWrapper onClick={closeAllState} maximizestate={useComposeMessage.maximizeState}>
 					{/* Compose Message Heading */}
 					<ComposeStyle.NewMessageContainer onClick={closeFormattingOption}>
 						<ComposeMessageHeading />
@@ -47,7 +49,24 @@ const Compose = () => {
 
 							<div className="mt-2" onClick={useComposeMessage.setRecipientStateOff} style={{ height: useComposeMessage.maximizeState ? "443px" : "322px", position: "relative" }}>
 								{/* <ComposeStyle.ComposeMessageTextArea textStyle={textAreaStyle} /> */}
-								<ComposeStyle.ComposeMessageTextArea textStyle={textAreaStyle} contentEditable></ComposeStyle.ComposeMessageTextArea>
+								<ComposeStyle.ComposeMessageTextArea textstyle={textAreaStyle} contentEditable>
+									{useComposeMessage.composeUrlText.map((text) => (
+										<Link to={`http://www.${useComposeMessage.urlText}`} target="_blank">
+											{text}
+										</Link>
+									))}
+
+									{/* Link Hover */}
+
+									{/* {isUrlHover && (
+										<ComposeStyle.UrlTextContainer style={{ textDecoration: "none", color: "rgb(17, 85, 204)" }} contentEditable={false}>
+											<div className="pe-0" style={{ color: "rgb(32, 33, 36)", textDecoration: "inherit" }}>
+												Go to link:
+											</div>
+											<Link to={`http://www.${useComposeMessage.urlText}`} target="_blank">{`http://${useComposeMessage.urlText}`}</Link>|<span>Change</span>|<span>Remove</span>
+										</ComposeStyle.UrlTextContainer>
+									)} */}
+								</ComposeStyle.ComposeMessageTextArea>
 							</div>
 						</ComposeStyle.ComposeForm>
 

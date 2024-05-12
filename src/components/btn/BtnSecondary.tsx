@@ -6,7 +6,7 @@ interface BtnProps {
 const BtnSecondary = ({ name, borderRadius = "3px" }: BtnProps) => {
 	return (
 		<>
-			<BtnSecondaryContainer borderRadius={borderRadius}>{name}</BtnSecondaryContainer>
+			<BtnSecondaryContainer $borderradius={borderRadius}>{name}</BtnSecondaryContainer>
 		</>
 	);
 };

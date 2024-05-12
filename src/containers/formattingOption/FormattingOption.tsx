@@ -13,8 +13,8 @@ const FormattingOption = () => {
 
 	return (
 		<>
-			<FormattingOptionStyles.FormattingOptionWrapper maximizeState={useComposeMessage.maximizeState}>
-				<FormattingOptionStyles.FormattingOptionContainer maximizeState={useComposeMessage.maximizeState}>
+			<FormattingOptionStyles.FormattingOptionWrapper maximizestate={useComposeMessage.maximizeState}>
+				<FormattingOptionStyles.FormattingOptionContainer maximizestate={useComposeMessage.maximizeState}>
 					<FormattingOptionStyles.FormatFlexContainer
 						style={{ marginLeft: "3.5px" }}
 						onClick={() => {

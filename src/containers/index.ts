@@ -19,3 +19,4 @@ export { default as FormattingOption } from "./formattingOption/FormattingOption
 export { default as ColorSelect } from "./colorSelect/ColorSelect";
 export { default as AlignSelect } from "./alignSelect/AlignSelect";
 export { default as InsertLink } from "./insertLink/InsertLink";
+export { default as Alert } from "./alert/Alert";

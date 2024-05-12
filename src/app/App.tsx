@@ -1,37 +1,34 @@
 import { Outlet } from "react-router-dom";
-import { AccountProfile, Compose, CreateLabelModal, GoogleApps, InsertLink, LanguageInputTool, MarkAllAsRead, NavBar, SearchMoreOptions, SelectMessageType, Support } from "../containers";
+import * as Container from "../containers";
 import { AppWrapper } from "./AppStyles";
-import { useAsideState, useComposeMessageState, useInboxState, useNavBarState } from "../state-management";
+import { useAsideState, useInboxState, useNavBarState } from "../state-management";
 import { ComposeMessageMinimized } from "../containers/compose/component";
+import { useCompose } from "../hooks";
 
 function App() {
 	const { showMoreState, supportState, googleAppState, accountProfileState } = useNavBarState();
 
 	const { createLabelState, composeMessageState } = useAsideState();
 
-	const { composeMessageMinimizeState } = useComposeMessageState();
+	const { useComposeMessage } = useCompose();
 
 	const { selectMessageTypeState, markAllMessageReadState, selectInputToolState } = useInboxState();
 	return (
 		<AppWrapper>
-			<NavBar />
-
+			<Container.NavBar />
 			<Outlet />
-
-			{createLabelState && <CreateLabelModal />}
-
-			{googleAppState && <GoogleApps />}
-			{showMoreState && <SearchMoreOptions />}
-			{supportState && <Support />}
-			{accountProfileState && <AccountProfile />}
-			{selectMessageTypeState && <SelectMessageType />}
-			{markAllMessageReadState && <MarkAllAsRead />}
-			{selectInputToolState && <LanguageInputTool />}
-			{composeMessageState && <Compose />}
-
-			{composeMessageMinimizeState && <ComposeMessageMinimized />}
-
-			<InsertLink />
+			{createLabelState && <Container.CreateLabelModal />}
+			{googleAppState && <Container.GoogleApps />}
+			{showMoreState && <Container.SearchMoreOptions />}
+			{supportState && <Container.Support />}
+			{accountProfileState && <Container.AccountProfile />}
+			{selectMessageTypeState && <Container.SelectMessageType />}
+			{markAllMessageReadState && <Container.MarkAllAsRead />}
+			{selectInputToolState && <Container.LanguageInputTool />}
+			{composeMessageState && <Container.Compose />}
+			{useComposeMessage.composeMessageMinimizeState && <ComposeMessageMinimized />}
+			{useComposeMessage.insertLinkState && <Container.InsertLink />}
+			{useComposeMessage.alertState && <Container.Alert />}
 		</AppWrapper>
 	);
 }

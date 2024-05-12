@@ -36,7 +36,7 @@ const ShowRightSideWrapper = styled.div`
 	}
 `;
 
-const BtnSecondaryContainer = styled.button<{ borderRadius: string }>`
+const BtnSecondaryContainer = styled.button<{ $borderradius: string }>`
 	display: flex;
 	align-items: center;
 	align-self: stretch;
@@ -51,7 +51,7 @@ const BtnSecondaryContainer = styled.button<{ borderRadius: string }>`
 		display: block;
 		height: 100%;
 		width: 100%;
-		border-radius: ${(props) => props.borderRadius};
+		border-radius: ${(props) => props.$borderradius};
 		position: absolute;
 		top: 0;
 		left: 0;
