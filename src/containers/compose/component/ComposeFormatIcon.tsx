@@ -17,9 +17,11 @@ const ComposeFormatIcon = () => {
 					</FormatIcon>
 				</div>
 
-				<FormatIcon title="Attach files">
-					<MdIcon.MdAttachFile size={formatIconSize} />
-				</FormatIcon>
+				<div onClick={useComposeMessage.setNotActiveOn}>
+					<FormatIcon title="Attach files">
+						<MdIcon.MdAttachFile size={formatIconSize} />
+					</FormatIcon>
+				</div>
 
 				<div onClick={useComposeMessage.setInsertLinkOn}>
 					<FormatIcon title="Insert link (Ctrl-K)">
@@ -27,21 +29,29 @@ const ComposeFormatIcon = () => {
 					</FormatIcon>
 				</div>
 
-				<FormatIcon title="Insert emoji (Ctrl-Shift-2)">
-					<MdIcon.MdOutlineInsertEmoticon size={formatIconSize} />
-				</FormatIcon>
+				<div onClick={useComposeMessage.setNotActiveOn}>
+					<FormatIcon title="Insert emoji (Ctrl-Shift-2)">
+						<MdIcon.MdOutlineInsertEmoticon size={formatIconSize} />
+					</FormatIcon>
+				</div>
 
-				<FormatIcon title="Insert files using Drive">
-					<MdIcon.MdAddToDrive size={formatIconSize} />
-				</FormatIcon>
+				<div onClick={useComposeMessage.setNotActiveOn}>
+					<FormatIcon title="Insert files using Drive">
+						<MdIcon.MdAddToDrive size={formatIconSize} />
+					</FormatIcon>
+				</div>
 
-				<FormatIcon title="Insert photo">
-					<MdIcon.MdOutlineInsertPhoto size={formatIconSize} />
-				</FormatIcon>
+				<div onClick={useComposeMessage.setNotActiveOn}>
+					<FormatIcon title="Insert photo">
+						<MdIcon.MdOutlineInsertPhoto size={formatIconSize} />
+					</FormatIcon>
+				</div>
 
-				<FormatIcon title="Toggle conidential mode">
-					<MdIcon.MdOutlineLockClock size={formatIconSize} />
-				</FormatIcon>
+				<div onClick={useComposeMessage.setConfidentialModeOn}>
+					<FormatIcon title="Toggle conidential mode">
+						<MdIcon.MdOutlineLockClock size={formatIconSize} />
+					</FormatIcon>
+				</div>
 
 				<FormatIcon title="Insert signature">
 					<LiaPencilAltSolid size={formatIconSize} />

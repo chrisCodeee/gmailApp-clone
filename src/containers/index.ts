@@ -20,3 +20,5 @@ export { default as ColorSelect } from "./colorSelect/ColorSelect";
 export { default as AlignSelect } from "./alignSelect/AlignSelect";
 export { default as InsertLink } from "./insertLink/InsertLink";
 export { default as Alert } from "./alert/Alert";
+export { default as ConfidentialMode } from "./confidentialMode/ConfidentialMode";
+export { default as ConfidentialModeExpire } from "./confidentialModeExpire/ConfidentialModeExpire";

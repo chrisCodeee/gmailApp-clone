@@ -28,7 +28,10 @@ function App() {
 			{composeMessageState && <Container.Compose />}
 			{useComposeMessage.composeMessageMinimizeState && <ComposeMessageMinimized />}
 			{useComposeMessage.insertLinkState && <Container.InsertLink />}
-			{useComposeMessage.alertState && <Container.Alert />}
+			{useComposeMessage.alertState && <Container.Alert alertName="The URL is not valid and cannot be loaded." />}
+			{useComposeMessage.notActiveState && <Container.Alert alertName="Sorry, this is yet to be implemented. Thank you for checking out my work." />}
+
+			{useComposeMessage.confidentialModeState && <Container.ConfidentialMode />}
 		</AppWrapper>
 	);
 }

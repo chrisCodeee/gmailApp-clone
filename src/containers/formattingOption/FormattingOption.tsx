@@ -21,9 +21,13 @@ const FormattingOption = () => {
 							closeFormattingStylesOption();
 							useComposeMessage.setAlignFormattingOptioneStateOff();
 						}}>
-						<Formatting title="Undo (Ctrl-Z)" icon={<LuUndo2 size={formatIconSize} />} />
+						<div onClick={useComposeMessage.setNotActiveOn}>
+							<Formatting title="Undo (Ctrl-Z)" icon={<LuUndo2 size={formatIconSize} />} />
+						</div>
 
-						<Formatting title="Redo (Ctrl-Y)" icon={<LuRedo2 size={formatIconSize} />} />
+						<div onClick={useComposeMessage.setNotActiveOn}>
+							<Formatting title="Redo (Ctrl-Y)" icon={<LuRedo2 size={formatIconSize} />} />
+						</div>
 					</FormattingOptionStyles.FormatFlexContainer>
 
 					<FormattingOptionStyles.FormatDivider>&nbsp;</FormattingOptionStyles.FormatDivider>

@@ -40,7 +40,7 @@ const BtnSecondaryContainer = styled.button<{ $borderradius: string }>`
 	display: flex;
 	align-items: center;
 	align-self: stretch;
-	padding: 0.7rem 1.8rem;
+	padding: 0.7rem 1.9rem;
 	cursor: pointer;
 	font-weight: 500;
 	color: inherit;
@@ -69,9 +69,8 @@ const BtnSecondaryContainer = styled.button<{ $borderradius: string }>`
 `;
 
 const BtnPrimaryContainer = styled.button`
-	background-color: rgb(26, 115, 232);
+	background-color: rgb(11, 87, 208);
 	color: #fff;
-	padding: 7.5px 20px;
 	font-weight: 500;
 
 	&:hover {

@@ -116,6 +116,22 @@ interface ComposeMessageProps {
 	alertState: boolean;
 	setAlertOn: () => void;
 	setAlertOff: () => void;
+
+	notActiveState: boolean;
+	setNotActiveOn: () => void;
+	setNotActiveOff: () => void;
+
+	confidentialModeState: boolean;
+	setConfidentialModeOn: () => void;
+	setConfidentialModeOff: () => void;
+
+	confidentialModeExpireState: boolean;
+	setConfidentialModeExpireOn: () => void;
+	setConfidentialModeExpireOff: () => void;
+
+	confidentialModeExpireTime: string;
+	confidentialModeExpireNextTime: string;
+	setConfidentialModeExpireTime: (timeFrame: string, nextTime: string) => void;
 }
 
 const useComposeMessageState = create<ComposeMessageProps>((set) => ({
@@ -235,6 +251,22 @@ const useComposeMessageState = create<ComposeMessageProps>((set) => ({
 	alertState: false,
 	setAlertOn: () => set(() => ({ alertState: true })),
 	setAlertOff: () => set(() => ({ alertState: false })),
+
+	notActiveState: false,
+	setNotActiveOn: () => set(() => ({ notActiveState: true })),
+	setNotActiveOff: () => set(() => ({ notActiveState: false })),
+
+	confidentialModeState: false,
+	setConfidentialModeOn: () => set(() => ({ confidentialModeState: true })),
+	setConfidentialModeOff: () => set(() => ({ confidentialModeState: false })),
+
+	confidentialModeExpireState: false,
+	setConfidentialModeExpireOn: () => set(() => ({ confidentialModeExpireState: true })),
+	setConfidentialModeExpireOff: () => set(() => ({ confidentialModeExpireState: false })),
+
+	confidentialModeExpireTime: "",
+	confidentialModeExpireNextTime: "",
+	setConfidentialModeExpireTime: (timeFrame, nextTime) => set(() => ({ confidentialModeExpireTime: timeFrame, confidentialModeExpireNextTime: nextTime })),
 }));
 
 export default useComposeMessageState;
