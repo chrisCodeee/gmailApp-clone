@@ -67,7 +67,7 @@ const ConfidentialMode = () => {
 							<BtnSecondary name="Cancel" borderRadius="20px" />
 						</ConfidentialModeStyle.ConfidentialModeBtnContainer>
 
-						<ConfidentialModeStyle.ConfidentialModeBtnContainer>
+						<ConfidentialModeStyle.ConfidentialModeBtnContainer onClick={useComposeMessage.setConfidentialModeTimeShowOn}>
 							<BtnPrimary name="Save" borderRadius="20px" padding="7.5px 25px" />
 						</ConfidentialModeStyle.ConfidentialModeBtnContainer>
 					</ConfidentialModeStyle.ConfidentialModeBtnWrapper>

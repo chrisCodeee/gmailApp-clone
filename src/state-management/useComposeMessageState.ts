@@ -131,7 +131,13 @@ interface ComposeMessageProps {
 
 	confidentialModeExpireTime: string;
 	confidentialModeExpireNextTime: string;
-	setConfidentialModeExpireTime: (timeFrame: string, nextTime: string) => void;
+	confidentialModeExpireNextTimeShow: string;
+	confidentialModeExpireNextTimeShowState: boolean;
+	setConfidentialModeExpireTime: (timeFrame: string, nextTime: string, nextTimeShow: string) => void;
+
+	confidentialModeTimeShow: boolean;
+	setConfidentialModeTimeShowOn: () => void;
+	setConfidentialModeTimeShowOff: () => void;
 }
 
 const useComposeMessageState = create<ComposeMessageProps>((set) => ({
@@ -257,7 +263,8 @@ const useComposeMessageState = create<ComposeMessageProps>((set) => ({
 	setNotActiveOff: () => set(() => ({ notActiveState: false })),
 
 	confidentialModeState: false,
-	setConfidentialModeOn: () => set(() => ({ confidentialModeState: true })),
+	confidentialModeExpireNextTimeShowState: false,
+	setConfidentialModeOn: () => set(() => ({ confidentialModeState: true, confidentialModeExpireNextTimeShowState: false })),
 	setConfidentialModeOff: () => set(() => ({ confidentialModeState: false })),
 
 	confidentialModeExpireState: false,
@@ -266,7 +273,12 @@ const useComposeMessageState = create<ComposeMessageProps>((set) => ({
 
 	confidentialModeExpireTime: "",
 	confidentialModeExpireNextTime: "",
-	setConfidentialModeExpireTime: (timeFrame, nextTime) => set(() => ({ confidentialModeExpireTime: timeFrame, confidentialModeExpireNextTime: nextTime })),
+	confidentialModeExpireNextTimeShow: "",
+	setConfidentialModeExpireTime: (timeFrame, nextTime, nextTimeShow) => set(() => ({ confidentialModeExpireTime: timeFrame, confidentialModeExpireNextTime: nextTime, confidentialModeExpireNextTimeShow: nextTimeShow })),
+
+	confidentialModeTimeShow: false,
+	setConfidentialModeTimeShowOn: () => set(() => ({ confidentialModeTimeShow: true, confidentialModeState: false, confidentialModeExpireNextTimeShowState: true })),
+	setConfidentialModeTimeShowOff: () => set(() => ({ confidentialModeTimeShow: false })),
 }));
 
 export default useComposeMessageState;

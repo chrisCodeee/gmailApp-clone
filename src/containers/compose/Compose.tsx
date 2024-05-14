@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { AlignSelect, ColorSelect, FontSizeSelect, FontStyle, FormattingOption } from "..";
 import MoreFormattingOPtion from "../formattingOption/MoreFormattingOPtion";
 import { useCompose } from "../../hooks";
+import ConfidentialExpireShow from "../confindentialExpireShow/ConfidentialExpireShow";
 
 const Compose = () => {
 	const { textAreaStyle, closeAllState, closeFormattingOption, useComposeMessage } = useCompose();
@@ -96,6 +97,8 @@ const Compose = () => {
 					{useComposeMessage.colorState && <ColorSelect />}
 
 					{useComposeMessage.alignFormattingOptionState && <AlignSelect />}
+
+					{useComposeMessage.confidentialModeTimeShow && <ConfidentialExpireShow />}
 				</ComposeStyle.ComposeMessageWrapper>
 			</ComposeStyle.ComposeContainer>
 		</>
