@@ -16,7 +16,7 @@ const Compose = () => {
 			<ComposeStyle.ComposeContainer maximizestate={useComposeMessage.maximizeState}>
 				<ComposeStyle.ComposeMessageWrapper onClick={closeAllState} maximizestate={useComposeMessage.maximizeState}>
 					{/* Compose Message Heading */}
-					<ComposeStyle.NewMessageContainer onClick={closeFormattingOption}>
+					<ComposeStyle.NewMessageContainer onClick={closeFormattingOption} confidenialModeState={useComposeMessage.confidentialModeTimeShow.toString()}>
 						<ComposeMessageHeading />
 					</ComposeStyle.NewMessageContainer>
 

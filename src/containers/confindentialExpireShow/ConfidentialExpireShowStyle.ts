@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-const ConfidentialExpireShowWrapper = styled.div`
+const ConfidentialExpireShowWrapper = styled.div<{ formattingOptionState: string }>`
 	position: absolute;
-	bottom: 110px;
+	bottom: ${(props) => (props.formattingOptionState === "true" ? "110px" : "60px")};
 	border: 1px solid rgba(0, 0, 0, 0.15);
 	margin: 0 1.5rem;
 	border-radius: 3px;

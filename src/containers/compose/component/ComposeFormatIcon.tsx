@@ -47,7 +47,11 @@ const ComposeFormatIcon = () => {
 					</FormatIcon>
 				</div>
 
-				<div onClick={useComposeMessage.setConfidentialModeOn}>
+				<div
+					onClick={() => {
+						useComposeMessage.setConfidentialModeOn();
+						useComposeMessage.setConfidentialModeTimeShowOff();
+					}}>
 					<FormatIcon title="Toggle conidential mode">
 						<MdIcon.MdOutlineLockClock size={formatIconSize} />
 					</FormatIcon>

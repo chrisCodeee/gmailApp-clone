@@ -9,13 +9,13 @@ const ConfidentialExpireShow = () => {
 	const { useComposeMessage } = useCompose();
 	return (
 		<>
-			<ConfidentialExpireShowStyle.ConfidentialExpireShowWrapper>
+			<ConfidentialExpireShowStyle.ConfidentialExpireShowWrapper formattingOptionState={useComposeMessage.formattingOptionState.toString()}>
 				<ConfidentialExpireShowStyle.ConfidentialExpireShowContainer>
 					<ConfidentialExpireShowStyle.ConfidentialIconLockWrapper className="col-2">
 						<img src={ConfidentialModeImage} alt="Lock clock" />
 					</ConfidentialExpireShowStyle.ConfidentialIconLockWrapper>
 					<ConfidentialExpireShowStyle.ConfidentialModeExpireTimeWrapper>
-						<div>Content expires {useComposeMessage.confidentialModeExpireNextTimeShowState && useComposeMessage.confidentialModeExpireNextTimeShow ? useComposeMessage.confidentialModeExpireNextTimeShow : currentDate.slice(5, currentDate.length)}.</div>
+						<div>Content expires {useComposeMessage.confidentialModeExpireNextTimeValueOnClick ? useComposeMessage.confidentialModeExpireNextTimeValueOnClick : currentDate.slice(5, currentDate.length)}.</div>
 						<p>Recipients won't have the option to forward, copy, print, or download this email.</p>
 					</ConfidentialExpireShowStyle.ConfidentialModeExpireTimeWrapper>
 

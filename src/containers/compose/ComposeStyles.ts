@@ -15,6 +15,7 @@ const ComposeContainer = styled.div<{ maximizestate: boolean }>`
 `;
 
 const ComposeMessageWrapper = styled.div<{ maximizestate: boolean }>`
+	overflow: hidden;
 	width: ${(props) => (props.maximizestate ? "80%" : "55rem")};
 	height: ${(props) => (props.maximizestate ? "89vh" : "50rem")};
 	box-shadow: ${(props) => !props.maximizestate && "0 0 4px rgb(180, 182, 187)"};
@@ -36,13 +37,14 @@ const ResizeIcon = styled.div`
 	}
 `;
 
-const NewMessageContainer = styled.div`
+const NewMessageContainer = styled.div<{ confidenialModeState: string }>`
 	font-weight: 500;
 	cursor: pointer;
-	background-color: rgba(26, 115, 232, 0.05);
+	background-color: ${(props) => (props.confidenialModeState === "true" ? "rgb(1, 87, 155) " : "rgba(26, 115, 232, 0.05)")};
 	display: flex;
 	justify-content: space-between;
 	padding: 1rem 1rem 1rem 1.5rem;
+	color: ${(props) => (props.confidenialModeState === "true" ? "#fff" : "inherit")};
 `;
 
 const ResizeIconWrapper = styled.div`

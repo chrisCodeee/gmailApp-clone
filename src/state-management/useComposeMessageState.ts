@@ -132,8 +132,9 @@ interface ComposeMessageProps {
 	confidentialModeExpireTime: string;
 	confidentialModeExpireNextTime: string;
 	confidentialModeExpireNextTimeShow: string;
-	confidentialModeExpireNextTimeShowState: boolean;
 	setConfidentialModeExpireTime: (timeFrame: string, nextTime: string, nextTimeShow: string) => void;
+
+	confidentialModeExpireNextTimeValueOnClick: string;
 
 	confidentialModeTimeShow: boolean;
 	setConfidentialModeTimeShowOn: () => void;
@@ -263,8 +264,7 @@ const useComposeMessageState = create<ComposeMessageProps>((set) => ({
 	setNotActiveOff: () => set(() => ({ notActiveState: false })),
 
 	confidentialModeState: false,
-	confidentialModeExpireNextTimeShowState: false,
-	setConfidentialModeOn: () => set(() => ({ confidentialModeState: true, confidentialModeExpireNextTimeShowState: false })),
+	setConfidentialModeOn: () => set((store) => ({ confidentialModeState: !store.confidentialModeState })),
 	setConfidentialModeOff: () => set(() => ({ confidentialModeState: false })),
 
 	confidentialModeExpireState: false,
@@ -276,8 +276,9 @@ const useComposeMessageState = create<ComposeMessageProps>((set) => ({
 	confidentialModeExpireNextTimeShow: "",
 	setConfidentialModeExpireTime: (timeFrame, nextTime, nextTimeShow) => set(() => ({ confidentialModeExpireTime: timeFrame, confidentialModeExpireNextTime: nextTime, confidentialModeExpireNextTimeShow: nextTimeShow })),
 
+	confidentialModeExpireNextTimeValueOnClick: "",
 	confidentialModeTimeShow: false,
-	setConfidentialModeTimeShowOn: () => set(() => ({ confidentialModeTimeShow: true, confidentialModeState: false, confidentialModeExpireNextTimeShowState: true })),
+	setConfidentialModeTimeShowOn: () => set((store) => ({ confidentialModeExpireNextTimeValueOnClick: store.confidentialModeExpireNextTimeShow, confidentialModeTimeShow: true, confidentialModeState: false })),
 	setConfidentialModeTimeShowOff: () => set(() => ({ confidentialModeTimeShow: false })),
 }));
 
