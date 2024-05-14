@@ -12,7 +12,7 @@ const ConfidentialMode = () => {
 
 	return (
 		<>
-			<ConfidentialModeStyle.ConfidentialModeWrapper>
+			<ConfidentialModeStyle.ConfidentialModeWrapper onClick={useComposeMessage.setConfidentialModeOff}>
 				<ConfidentialModeStyle.ConfidentialModeContainer>
 					<ConfidentialModeStyle.ConfidentialModeHeading>Confidential mode</ConfidentialModeStyle.ConfidentialModeHeading>
 

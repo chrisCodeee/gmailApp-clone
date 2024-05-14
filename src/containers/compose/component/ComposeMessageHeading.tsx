@@ -43,6 +43,7 @@ const ComposeMessageHeading = () => {
 						setComposeMessageStateOff();
 						useComposeMessage.setFormattingOptioneStateOff();
 						useComposeMessage.setAlignSelectState(null, "left");
+						useComposeMessage.setConfidentialModeTimeShowOff();
 					}}>
 					<IoClose size={resizeIconSize} />
 				</ResizeIcon>

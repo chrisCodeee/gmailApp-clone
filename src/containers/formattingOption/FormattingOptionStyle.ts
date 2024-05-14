@@ -38,6 +38,8 @@ const MoreFormattingOptionContainer = styled.div`
 	background-color: #fff;
 	padding: 0.3rem;
 	border-radius: 3px;
+
+	z-index: 2;
 `;
 
 const MoreFormattingOptionWrapper = styled(MoreFormattingOptionContainer)`

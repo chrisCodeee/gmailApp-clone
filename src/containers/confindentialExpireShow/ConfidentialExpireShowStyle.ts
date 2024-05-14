@@ -6,6 +6,7 @@ const ConfidentialExpireShowWrapper = styled.div<{ formattingOptionState: string
 	border: 1px solid rgba(0, 0, 0, 0.15);
 	margin: 0 1.5rem;
 	border-radius: 3px;
+	z-index: 1;
 `;
 
 const ConfidentialExpireShowContainer = styled.div`

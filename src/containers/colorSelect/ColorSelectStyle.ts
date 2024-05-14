@@ -11,6 +11,8 @@ const ColorSelectWrapper = styled.div<{ maximizeState: boolean }>`
 	width: 32.3rem;
 	bottom: ${(props) => (props.maximizeState ? "140px" : "100px")};
 	left: ${(props) => (props.maximizeState ? "210px" : "60px")};
+
+	z-index: 2;
 `;
 
 const ColorWrapper = styled.button<{ bgColor: string; margin: string }>`

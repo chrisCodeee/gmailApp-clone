@@ -7,6 +7,16 @@ import { currentDate } from "../confidentialModeExpire/confidentialModeParams";
 
 const ConfidentialExpireShow = () => {
 	const { useComposeMessage } = useCompose();
+
+	const closeAll = () => {
+		useComposeMessage.setConfidentialModeOn();
+		useComposeMessage.setFontSizeStateOff();
+		useComposeMessage.setFontStyleStateOff();
+		useComposeMessage.setMoreFormattingOptioneStateOff();
+		useComposeMessage.setAlignFormattingOptioneStateOff();
+		useComposeMessage.setColorStateOff();
+	};
+
 	return (
 		<>
 			<ConfidentialExpireShowStyle.ConfidentialExpireShowWrapper formattingOptionState={useComposeMessage.formattingOptionState.toString()}>
@@ -21,7 +31,7 @@ const ConfidentialExpireShow = () => {
 
 					<ConfidentialExpireShowStyle.ConfidentialModeExpireButtonWrapper>
 						<ConfidentialExpireShowStyle.ConfidentialModeExpireButtonContainer>
-							<button onClick={useComposeMessage.setConfidentialModeOn}>Edit</button>
+							<button onClick={closeAll}>Edit</button>
 							<div onClick={useComposeMessage.setConfidentialModeTimeShowOff}>
 								<Icon>
 									<IoClose size={22} />
