@@ -1,12 +1,16 @@
 import styled from "styled-components";
 
-const ConfidentialExpireShowWrapper = styled.div<{ formattingOptionState: string }>`
+const ConfidentialExpireShowWrapper = styled.div<{ formattingOptionState: string; maximizeState: string }>`
 	position: absolute;
-	bottom: ${(props) => (props.formattingOptionState === "true" ? "110px" : "60px")};
+	bottom: ${(props) => (props.formattingOptionState === "true" || props.maximizeState === "true" ? "110px" : "60px")};
+	bottom: ${(props) => props.maximizeState === "true" && props.formattingOptionState === "true" && "150px"};
 	border: 1px solid rgba(0, 0, 0, 0.15);
 	margin: 0 1.5rem;
-	border-radius: 3px;
+	width: ${(props) => props.maximizeState === "true" && "78.2%"};
+	border-radius: 4px;
 	z-index: 1;
+
+	overflow: hidden;
 `;
 
 const ConfidentialExpireShowContainer = styled.div`
@@ -17,13 +21,13 @@ const ConfidentialExpireShowContainer = styled.div`
 	justify-content: space-between;
 `;
 
-const ConfidentialIconLockWrapper = styled.div`
+const ConfidentialIconLockWrapper = styled.div<{ maximizeState: string }>`
 	background-color: rgb(1, 87, 155);
 	border-radius: 100%;
 	height: 40px;
 	width: 40px;
 	padding: 8px;
-	margin: 1rem 0 0 0;
+	margin: ${(props) => (props.maximizeState === "true" ? "0" : "0.5em 0 0 0")};
 
 	& img {
 		object-fit: cover;

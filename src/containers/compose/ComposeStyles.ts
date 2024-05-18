@@ -15,7 +15,7 @@ const ComposeContainer = styled.div<{ maximizestate: boolean }>`
 `;
 
 const ComposeMessageWrapper = styled.div<{ maximizestate: boolean }>`
-	overflow: hidden;
+	overflow-y: hidden;
 	width: ${(props) => (props.maximizestate ? "80%" : "55rem")};
 	height: ${(props) => (props.maximizestate ? "89vh" : "50rem")};
 	box-shadow: ${(props) => !props.maximizestate && "0 0 4px rgb(180, 182, 187)"};
@@ -64,6 +64,10 @@ const ComposeForm = styled.form`
 const ComposeFormInputContainer = styled.div`
 	border-bottom: 1px solid rgba(180, 182, 187, 0.3);
 	padding: 0.7rem 0;
+
+	& a:hover {
+		text-decoration: underline;
+	}
 `;
 
 type textAreaStyle = {
@@ -81,7 +85,7 @@ type textAreaStyle = {
 	listType: string;
 };
 
-const ComposeMessageTextArea = styled.li<{ textstyle: textAreaStyle }>`
+const ComposeMessageTextArea = styled.div<{ textstyle: textAreaStyle }>`
 	border: 0;
 	outline: 0;
 	border-bottom: 1px solid rgba(180, 182, 187, 0.3);
@@ -139,8 +143,6 @@ const ComposeMessageFooter = styled.div`
 
 const BtnSend = styled.button`
 	border-radius: 30px;
-	width: 100px;
-	padding: 0 10px 0 20px;
 	background-color: rgb(11, 87, 208);
 	color: #fff;
 	font-weight: 500;
@@ -157,12 +159,10 @@ const Divider = styled.div`
 	width: 0.7px;
 	background-color: rgba(0, 0, 0, 0.5);
 	align-self: stretch;
-	margin: 0 0.7rem 0 0;
 `;
 
-const BtnName = styled.div`
-	padding: 7px 0;
-	margin: 0 auto 0 0;
+const BtnName = styled.div<{ confidentialMode: string }>`
+	padding: ${(props) => (props.confidentialMode === "true" ? "6px 15px" : "7px 17px 7px 13px")};
 `;
 
 const FormatIconWrapper = styled.div`

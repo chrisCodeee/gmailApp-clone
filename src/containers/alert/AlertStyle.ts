@@ -7,7 +7,7 @@ const AlertWrapper = styled.div`
 	right: 0;
 	width: 100%;
 	height: 100vh;
-	z-index: 100000000;
+	z-index: 2000000000;
 	cursor: pointer;
 	background-color: rgba(0, 0, 0, 0.3);
 	backdrop-filter: blur(1px);
@@ -19,7 +19,6 @@ const AlertContainer = styled.div`
 	padding: 2rem;
 	margin: 30px auto 0 auto;
 	width: 400px;
-	height: 150px;
 	background-color: #fff;
 	cursor: default;
 `;
@@ -34,6 +33,7 @@ const AlertFlexContainer = styled.div`
 const AlertBtnWrapper = styled.div`
 	display: flex;
 	justify-content: end;
+	margin: 3rem 0 0 0;
 `;
 
 export { AlertWrapper, AlertContainer, AlertFlexContainer, AlertBtnWrapper };

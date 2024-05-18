@@ -7,6 +7,7 @@ const FormattingOptionWrapper = styled.div<{ maximizestate: boolean }>`
 	width: ${(props) => (props.maximizestate ? "fit-content" : "100%")};
 	font-weight: 500;
 	padding: ${(props) => !props.maximizestate && "0 15px"};
+	background-color: #fff;
 `;
 
 const FormattingOptionContainer = styled.div<{ maximizestate: boolean }>`
@@ -17,6 +18,7 @@ const FormattingOptionContainer = styled.div<{ maximizestate: boolean }>`
 	box-shadow: rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px, rgba(0, 0, 0, 0.2) 0px 2px 4px -1px;
 	padding: 3.5px 0;
 	border-radius: 3px;
+	width: 100%;
 `;
 
 const FormatFlexContainer = styled.div`
@@ -47,9 +49,9 @@ const MoreFormattingOptionWrapper = styled(MoreFormattingOptionContainer)`
 	bottom: 100px;
 `;
 
-const MoreAlignFormattingWrapper = styled(MoreFormattingOptionContainer)<{ maximizestate: boolean }>`
-	left: ${(props) => (props.maximizestate ? "546px" : "400px")};
-	bottom: ${(props) => (props.maximizestate ? "140px" : "100px")};
+const MoreAlignFormattingWrapper = styled(MoreFormattingOptionContainer)<{ $maximizestate: string }>`
+	left: ${(props) => (props.$maximizestate === "true" ? "546px" : "400px")};
+	bottom: ${(props) => (props.$maximizestate === "true" ? "140px" : "100px")};
 `;
 
 export { FormattingOptionWrapper, FormattingOptionContainer, FormatFlexContainer, FormatDivider, MoreFormattingOptionWrapper, MoreAlignFormattingWrapper };

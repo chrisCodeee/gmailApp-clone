@@ -14,7 +14,7 @@ const AlignSelect = () => {
 	];
 
 	return (
-		<MoreAlignFormattingWrapper maximizeState={maximizeState} onClick={setAlignFormattingOptioneStateOff}>
+		<MoreAlignFormattingWrapper $maximizestate={maximizeState.toString()} onClick={setAlignFormattingOptioneStateOff}>
 			{icons.map((items) => (
 				<div key={items.title} onClick={() => setAlignSelectState(items.icon, items.alignValue)}>
 					<Formatting title={items.title} icon={items.icon} margin="0 0 0 0" />

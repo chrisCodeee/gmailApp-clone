@@ -6,13 +6,17 @@ import { BtnPrimary, BtnSecondary, Icon } from "../../components";
 import { useCompose } from "../../hooks";
 import ConfidentialModeExpire from "../confidentialModeExpire/ConfidentialModeExpire";
 import { currentDate } from "../confidentialModeExpire/confidentialModeParams";
+import { useState } from "react";
 
 const ConfidentialMode = () => {
 	const { useComposeMessage } = useCompose();
 
+	const [isNoSMSPasscode, setNoSMSPasscode] = useState(false);
+	const [isSMSPasscode, setSMSPasscode] = useState(false);
+
 	return (
 		<>
-			<ConfidentialModeStyle.ConfidentialModeWrapper onClick={useComposeMessage.setConfidentialModeOff}>
+			<ConfidentialModeStyle.ConfidentialModeWrapper>
 				<ConfidentialModeStyle.ConfidentialModeContainer>
 					<ConfidentialModeStyle.ConfidentialModeHeading>Confidential mode</ConfidentialModeStyle.ConfidentialModeHeading>
 
@@ -47,18 +51,52 @@ const ConfidentialMode = () => {
 					</div>
 
 					<ConfidentialModeStyle.ConfidentialModeSMSPasscodeWrapper>
-						<ConfidentialModeStyle.ConfidentialModeRadioWrapper className="col me-3">
-							<Icon>
-								<input type="radio" name="sms" id="noSMS" defaultChecked />
-							</Icon>
-							<label htmlFor="noSMS">No SMS passcode</label>
+						<ConfidentialModeStyle.ConfidentialModeRadioWrapper className="col me-3" smsChecked={isNoSMSPasscode.toString()}>
+							<div
+								className="d-flex align-items-center"
+								onClick={() => {
+									setNoSMSPasscode(true);
+									setSMSPasscode(false);
+								}}>
+								<div className="inputContainer">
+									<input
+										type="radio"
+										name="sms"
+										id="noSMS"
+										checked={isNoSMSPasscode}
+										onChange={() => {
+											setNoSMSPasscode(true);
+											setSMSPasscode(false);
+										}}
+									/>
+								</div>
+
+								<span>No SMS passcode</span>
+							</div>
 						</ConfidentialModeStyle.ConfidentialModeRadioWrapper>
 
-						<ConfidentialModeStyle.ConfidentialModeRadioWrapper className="col">
-							<Icon>
-								<input type="radio" name="sms" id="SMS" />
-							</Icon>
-							<label htmlFor="SMS">SMS passcode</label>
+						<ConfidentialModeStyle.ConfidentialModeRadioWrapper className="col" smsChecked={isSMSPasscode.toString()}>
+							<div
+								className="d-flex align-items-center"
+								onClick={() => {
+									setSMSPasscode(true);
+									setNoSMSPasscode(false);
+								}}>
+								<div className="inputContainer">
+									<input
+										type="radio"
+										name="sms"
+										id="SMS"
+										checked={isSMSPasscode}
+										onChange={() => {
+											setSMSPasscode(true);
+											setNoSMSPasscode(false);
+										}}
+									/>
+								</div>
+
+								<span>SMS passcode</span>
+							</div>
 						</ConfidentialModeStyle.ConfidentialModeRadioWrapper>
 					</ConfidentialModeStyle.ConfidentialModeSMSPasscodeWrapper>
 

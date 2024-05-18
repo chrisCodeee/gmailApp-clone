@@ -83,7 +83,7 @@ const ConfidentialModeSMSPasscodeWrapper = styled.div`
 	margin: 0 0 0 -1rem;
 `;
 
-const ConfidentialModeRadioWrapper = styled.div`
+const ConfidentialModeRadioWrapper = styled.div<{ smsChecked: string }>`
 	${flex};
 
 	& input {
@@ -93,6 +93,25 @@ const ConfidentialModeRadioWrapper = styled.div`
 
 	& label {
 		margin: 0 0 0 0.5rem;
+	}
+
+	& .inputContainer {
+		background-color: ${(props) => props.smsChecked === "true" && "rgba(180, 182, 187, 0.4)"};
+		border: ${(props) => (props.smsChecked === "true" ? "1px solid rgb(180, 182, 187)" : "1px solid transparent")};
+		border-radius: 100%;
+		width: 40px;
+		height: 40px;
+		${flex};
+		justify-content: center;
+		margin: 0 0.7rem 0 0;
+		transition: all 0.3s;
+	}
+
+	&:hover {
+		& .inputContainer {
+			background-color: ${(props) => (props.smsChecked === "true" ? "rgba(180, 182, 187, 0.4)" : "rgba(180, 182, 187, 0.2)")};
+			border: ${(props) => (props.smsChecked === "true" ? "1px solid rgb(180, 182, 187)" : "1px solid transparent")};
+		}
 	}
 `;
 

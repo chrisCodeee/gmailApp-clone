@@ -19,19 +19,22 @@ const ConfidentialExpireShow = () => {
 
 	return (
 		<>
-			<ConfidentialExpireShowStyle.ConfidentialExpireShowWrapper formattingOptionState={useComposeMessage.formattingOptionState.toString()}>
+			<ConfidentialExpireShowStyle.ConfidentialExpireShowWrapper formattingOptionState={useComposeMessage.formattingOptionState.toString()} maximizeState={useComposeMessage.maximizeState.toString()}>
 				<ConfidentialExpireShowStyle.ConfidentialExpireShowContainer>
-					<ConfidentialExpireShowStyle.ConfidentialIconLockWrapper className="col-2">
-						<img src={ConfidentialModeImage} alt="Lock clock" />
-					</ConfidentialExpireShowStyle.ConfidentialIconLockWrapper>
-					<ConfidentialExpireShowStyle.ConfidentialModeExpireTimeWrapper>
-						<div>Content expires {useComposeMessage.confidentialModeExpireNextTimeValueOnClick ? useComposeMessage.confidentialModeExpireNextTimeValueOnClick : currentDate.slice(5, currentDate.length)}.</div>
-						<p>Recipients won't have the option to forward, copy, print, or download this email.</p>
-					</ConfidentialExpireShowStyle.ConfidentialModeExpireTimeWrapper>
+					<div className="d-flex">
+						<ConfidentialExpireShowStyle.ConfidentialIconLockWrapper className="col-2" maximizeState={useComposeMessage.maximizeState.toString()}>
+							<img src={ConfidentialModeImage} alt="Lock clock" />
+						</ConfidentialExpireShowStyle.ConfidentialIconLockWrapper>
+						<ConfidentialExpireShowStyle.ConfidentialModeExpireTimeWrapper>
+							<div>Content expires {useComposeMessage.confidentialModeExpireNextTimeValueOnClick ? useComposeMessage.confidentialModeExpireNextTimeValueOnClick : currentDate.slice(5, currentDate.length)}.</div>
+							<p>Recipients won't have the option to forward, copy, print, or download this email.</p>
+						</ConfidentialExpireShowStyle.ConfidentialModeExpireTimeWrapper>
+					</div>
 
 					<ConfidentialExpireShowStyle.ConfidentialModeExpireButtonWrapper>
 						<ConfidentialExpireShowStyle.ConfidentialModeExpireButtonContainer>
 							<button onClick={closeAll}>Edit</button>
+
 							<div onClick={useComposeMessage.setConfidentialModeTimeShowOff}>
 								<Icon>
 									<IoClose size={22} />

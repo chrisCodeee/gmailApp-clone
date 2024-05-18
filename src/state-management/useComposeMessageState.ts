@@ -2,6 +2,12 @@ import { ReactNode } from "react";
 import { create } from "zustand";
 
 interface ComposeMessageProps {
+	recipientEmailAddress: string;
+	setRecipientEmailAddress: (value: string) => void;
+
+	emailSubject: string;
+	setEmailSubject: (value: string) => void;
+
 	boldState: boolean;
 	setBoldStateOn: () => void;
 	setBoldStateOff: () => void;
@@ -139,9 +145,39 @@ interface ComposeMessageProps {
 	confidentialModeTimeShow: boolean;
 	setConfidentialModeTimeShowOn: () => void;
 	setConfidentialModeTimeShowOff: () => void;
+
+	composeHeading: string;
+	setComposeHeading: () => void;
+	setComposeHeadingOff: () => void;
+
+	insertSignatureState: boolean;
+	setInsertSignatureOn: () => void;
+	setInsertSignatureOff: () => void;
+
+	scheduleSendState: boolean;
+	setScheduleSendOn: () => void;
+	setScheduleSendOff: () => void;
+
+	scheduleSendPopUpState: boolean;
+	setScheduleSendPopUpOn: () => void;
+	setScheduleSendPopUpOff: () => void;
+
+	scheduleSendCheckPopUpState: boolean;
+	setScheduleSendCheckPopUpOn: () => void;
+	setScheduleSendCheckPopUpOff: () => void;
+
+	scheduleCheckEmailPopUpState: boolean;
+	setScheduleCheckEmailPopUpOn: () => void;
+	setScheduleCheckEmailPopUpOff: () => void;
 }
 
 const useComposeMessageState = create<ComposeMessageProps>((set) => ({
+	recipientEmailAddress: "",
+	setRecipientEmailAddress: (value) => set(() => ({ recipientEmailAddress: value })),
+
+	emailSubject: "",
+	setEmailSubject: (value) => set(() => ({ emailSubject: value })),
+
 	boldState: false,
 	setBoldStateOn: () => set((store) => ({ boldState: !store.boldState })),
 	setBoldStateOff: () => set(() => ({ boldState: false })),
@@ -280,6 +316,30 @@ const useComposeMessageState = create<ComposeMessageProps>((set) => ({
 	confidentialModeTimeShow: false,
 	setConfidentialModeTimeShowOn: () => set((store) => ({ confidentialModeExpireNextTimeValueOnClick: store.confidentialModeExpireNextTimeShow, confidentialModeTimeShow: true, confidentialModeState: false })),
 	setConfidentialModeTimeShowOff: () => set(() => ({ confidentialModeTimeShow: false })),
+
+	composeHeading: "",
+	setComposeHeading: () => set(() => ({ composeHeading: "Draft saved" })),
+	setComposeHeadingOff: () => set(() => ({ composeHeading: "" })),
+
+	insertSignatureState: false,
+	setInsertSignatureOn: () => set((store) => ({ insertSignatureState: !store.insertSignatureState })),
+	setInsertSignatureOff: () => set(() => ({ insertSignatureState: false })),
+
+	scheduleSendState: false,
+	setScheduleSendOn: () => set((store) => ({ scheduleSendState: !store.scheduleSendState })),
+	setScheduleSendOff: () => set(() => ({ scheduleSendState: false })),
+
+	scheduleSendPopUpState: false,
+	setScheduleSendPopUpOn: () => set((store) => ({ scheduleSendPopUpState: !store.scheduleSendPopUpState })),
+	setScheduleSendPopUpOff: () => set(() => ({ scheduleSendPopUpState: false })),
+
+	scheduleSendCheckPopUpState: false,
+	setScheduleSendCheckPopUpOn: () => set((store) => ({ scheduleSendCheckPopUpState: !store.scheduleSendCheckPopUpState })),
+	setScheduleSendCheckPopUpOff: () => set(() => ({ scheduleSendCheckPopUpState: false })),
+
+	scheduleCheckEmailPopUpState: false,
+	setScheduleCheckEmailPopUpOn: () => set((store) => ({ scheduleCheckEmailPopUpState: !store.scheduleCheckEmailPopUpState })),
+	setScheduleCheckEmailPopUpOff: () => set(() => ({ scheduleCheckEmailPopUpState: false })),
 }));
 
 export default useComposeMessageState;

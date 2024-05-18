@@ -1,4 +1,5 @@
 const days = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"];
+const FullDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const months = ["Jan", "Feb", "Mar", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 const now = new Date();
@@ -73,4 +74,18 @@ const modeExpireList = [
 	{ name: "5 years", time: nextFiveYearsTime },
 ];
 
-export { currentDate, modeExpireList };
+// Schedule Send Time
+
+const nextThreeDays = new Date(currentDate);
+nextThreeDays.setDate(nextThreeDays.getDate() + 3);
+
+const nextThreeDaysParams = {
+	month: nextThreeDays.getMonth(),
+	date: nextThreeDays.getDate(),
+};
+const nextOneDayTime = `${months[nextDayParams.month]} ${nextDayParams.date}, 8:00 AM`;
+const nextOneDayAfternoonTime = `${months[nextDayParams.month]} ${nextDayParams.date}, 1:00 PM`;
+const nextThreeDaysTime = `${months[nextThreeDaysParams.month]} ${nextThreeDaysParams.date}, 8:00 AM`;
+const nextThreeDaysDay = `${FullDays[nextThreeDaysParams.month]} morning`;
+
+export { currentDate, modeExpireList, nextOneDayTime, nextOneDayAfternoonTime, nextThreeDaysTime, nextThreeDaysDay };

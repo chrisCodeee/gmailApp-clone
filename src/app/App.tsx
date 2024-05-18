@@ -4,6 +4,7 @@ import { AppWrapper } from "./AppStyles";
 import { useAsideState, useInboxState, useNavBarState } from "../state-management";
 import { ComposeMessageMinimized } from "../containers/compose/component";
 import { useCompose } from "../hooks";
+import { ScheduleCheckEmailPopUp } from "../containers/scheduleSend/component";
 
 function App() {
 	const { showMoreState, supportState, googleAppState, accountProfileState } = useNavBarState();
@@ -32,6 +33,10 @@ function App() {
 			{useComposeMessage.notActiveState && <Container.Alert alertName="Sorry, this is yet to be implemented. Thank you for checking out my work." />}
 
 			{useComposeMessage.confidentialModeState && <Container.ConfidentialMode />}
+			{useComposeMessage.insertSignatureState && <Container.InsertSignature />}
+
+			{useComposeMessage.scheduleSendPopUpState && <Container.ScheduleSendPopUp />}
+			{useComposeMessage.scheduleCheckEmailPopUpState && <ScheduleCheckEmailPopUp />}
 		</AppWrapper>
 	);
 }

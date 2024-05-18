@@ -21,7 +21,7 @@ const ComposeMessageHeading = () => {
 					setComposeMessageStateOff();
 				}}
 				className="flex-grow-1">
-				New Message
+				{useComposeMessage.composeHeading ? useComposeMessage.composeHeading : "New Message"}
 			</div>
 			<ResizeIconWrapper>
 				<ResizeIcon

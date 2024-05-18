@@ -26,24 +26,35 @@ const useCompose = () => {
 		useComposeMessage.setMoreFormattingOptioneStateOff();
 		useComposeMessage.setFontStyleStateOff();
 		useComposeMessage.setFontSizeStateOff();
+		useComposeMessage.setInsertSignatureOff();
+		useComposeMessage.setScheduleSendOff();
 	};
 
-	const closeFormattingOption = () => {
+	const insertCloseFormatting = () => {
 		closeFormmating();
 		useComposeMessage.setFontStyleStateOff();
 		useComposeMessage.setFontSizeStateOff();
+	};
+
+	const closeFormattingOption = () => {
+		insertCloseFormatting();
+		useComposeMessage.setInsertSignatureOff();
 	};
 
 	const fontSizeFormattingOption = () => {
 		closeFormmating();
 		useComposeMessage.setFontSizeStateOn();
 		useComposeMessage.setFontStyleStateOff();
+		useComposeMessage.setInsertSignatureOff();
+		useComposeMessage.setScheduleSendOff();
 	};
 
 	const fontStyleFormattingOption = () => {
 		closeFormmating();
 		useComposeMessage.setFontStyleStateOn();
 		useComposeMessage.setFontSizeStateOff();
+		useComposeMessage.setInsertSignatureOff();
+		useComposeMessage.setScheduleSendOff();
 	};
 
 	const removeFormat = () => {
@@ -75,7 +86,7 @@ const useCompose = () => {
 		indentTextValue: useComposeMessage.indentText,
 		listType: useComposeMessage.listType,
 	};
-	return { textAreaStyle, closeAllState, closeFormattingOption, closeFormattingStylesOption, fontSizeFormattingOption, fontStyleFormattingOption, removeFormat, useComposeMessage };
+	return { textAreaStyle, closeAllState, closeFormattingOption, closeFormattingStylesOption, fontSizeFormattingOption, fontStyleFormattingOption, removeFormat, insertCloseFormatting, useComposeMessage };
 };
 
 export default useCompose;

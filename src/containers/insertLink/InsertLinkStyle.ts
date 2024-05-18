@@ -12,7 +12,7 @@ const InsertLinkWrapper = styled.div`
 	height: 100vh;
 	width: 100vw;
 	background-color: rgba(0, 0, 0, 0.3);
-	z-index: 10000;
+	z-index: 2000000000;
 
 	& input {
 		height: 22px;
