@@ -5,6 +5,7 @@ import { useAsideState, useInboxState, useNavBarState } from "../state-managemen
 import { ComposeMessageMinimized } from "../containers/compose/component";
 import { useCompose } from "../hooks";
 import { ScheduleCheckEmailPopUp } from "../containers/scheduleSend/component";
+import MoreLabelOption from "../containers/moreOptions/subMoreOptions/MoreLabelOption";
 
 function App() {
 	const { showMoreState, supportState, googleAppState, accountProfileState } = useNavBarState();
@@ -18,6 +19,8 @@ function App() {
 		<AppWrapper>
 			<Container.NavBar />
 			<Outlet />
+
+			{/* Other Components when clicked or hovered */}
 			{createLabelState && <Container.CreateLabelModal />}
 			{googleAppState && <Container.GoogleApps />}
 			{showMoreState && <Container.SearchMoreOptions />}
@@ -37,6 +40,8 @@ function App() {
 
 			{useComposeMessage.scheduleSendPopUpState && <Container.ScheduleSendPopUp />}
 			{useComposeMessage.scheduleCheckEmailPopUpState && <ScheduleCheckEmailPopUp />}
+
+			{useComposeMessage.moreLabelOptionState && <MoreLabelOption />}
 		</AppWrapper>
 	);
 }

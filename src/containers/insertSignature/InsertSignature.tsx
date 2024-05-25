@@ -8,7 +8,7 @@ const InsertSignature = () => {
 		<>
 			<InsertSignatureStyle.InsertSignatureWrapper maximizeState={useComposeMessage.maximizeState.toString()}>
 				<InsertSignatureStyle.InsertSignatureHeading>
-					<div>Manage signatures</div>
+					<div onClick={useComposeMessage.setNotActiveOn}>Manage signatures</div>
 				</InsertSignatureStyle.InsertSignatureHeading>
 				<InsertSignatureStyle.InsertSignatureCheck>
 					<div>

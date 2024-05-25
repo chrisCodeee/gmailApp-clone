@@ -1,14 +1,15 @@
 import styled from "styled-components";
 
-const ConfidentialExpireShowWrapper = styled.div<{ formattingOptionState: string; maximizeState: string }>`
+const ConfidentialExpireShowWrapper = styled.div<{ formattingOptionState: string; maximizeState: string; recheckState: string }>`
 	position: absolute;
-	bottom: ${(props) => (props.formattingOptionState === "true" || props.maximizeState === "true" ? "110px" : "60px")};
-	bottom: ${(props) => props.maximizeState === "true" && props.formattingOptionState === "true" && "150px"};
+	bottom: ${(props) => (props.formattingOptionState === "true" || props.maximizeState === "true" || props.recheckState === "true" ? "110px" : "60px")};
+	bottom: ${(props) => props.maximizeState === "true" && (props.formattingOptionState === "true" || props.recheckState === "true") && "150px"};
+
 	border: 1px solid rgba(0, 0, 0, 0.15);
 	margin: 0 1.5rem;
 	width: ${(props) => props.maximizeState === "true" && "78.2%"};
 	border-radius: 4px;
-	z-index: 1;
+	z-index: 2;
 
 	overflow: hidden;
 `;

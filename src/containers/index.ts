@@ -28,3 +28,7 @@ export { default as ConfidentialModeShow } from "./confindentialExpireShow/Confi
 export { default as InsertSignature } from "./insertSignature/InsertSignature";
 export { default as ScheduleSend } from "./scheduleSend/ScheduleSend";
 export { default as ScheduleSendPopUp } from "./scheduleSend/ScheduleSendPopUp";
+export { default as MoreOptions } from "./moreOptions/MoreOptions";
+export { default as MoreLabelOptions } from "./moreOptions/subMoreOptions/MoreLabelOption";
+export { default as SetTimeAndDate } from "./moreOptions/subMoreOptions/SetTimeAndDate";
+export { default as CheckSpelling } from "./checkSpelling/CheckSpelling";

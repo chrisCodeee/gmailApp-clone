@@ -60,6 +60,7 @@ const FormattingOption = () => {
 						onClick={() => {
 							closeFormattingStylesOption();
 							useComposeMessage.setAlignFormattingOptioneStateOff();
+							useComposeMessage.setMoreOptionOff();
 						}}>
 						<div
 							onClick={() => {
@@ -101,6 +102,7 @@ const FormattingOption = () => {
 						onClick={() => {
 							closeFormattingStylesOption();
 							useComposeMessage.setColorStateOff();
+							useComposeMessage.setMoreOptionOff();
 						}}>
 						<div onClick={useComposeMessage.setAlignFormattingOptioneStateOn}>
 							<FormatIcon title="Align" padding="0.4rem 0 0.4rem 0.4rem">
@@ -141,6 +143,7 @@ const FormattingOption = () => {
 									useComposeMessage.setFontSizeStateOff();
 									useComposeMessage.setColorStateOff();
 									useComposeMessage.setAlignFormattingOptioneStateOff();
+									useComposeMessage.setMoreOptionOff();
 								}}>
 								<FormatIcon title="More formatting options" padding="0.4rem 0.15rem">
 									<MdFormatIcon.MdArrowDropDown size={formatIconSize} />

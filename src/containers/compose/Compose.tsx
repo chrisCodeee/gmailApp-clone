@@ -117,6 +117,10 @@ const Compose = () => {
 					{useComposeMessage.confidentialModeTimeShow && <Container.ConfidentialExpireShow />}
 
 					{useComposeMessage.scheduleSendState && <Container.ScheduleSend />}
+
+					{useComposeMessage.moreOptionState && <Container.MoreOptions />}
+
+					{useComposeMessage.recheckState && <Container.CheckSpelling />}
 				</ComposeStyle.ComposeMessageWrapper>
 			</ComposeStyle.ComposeContainer>
 		</>

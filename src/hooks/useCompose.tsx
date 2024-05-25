@@ -20,6 +20,8 @@ const useCompose = () => {
 		useComposeMessage.setMoreFormattingOptioneStateOff();
 		useComposeMessage.setAlignFormattingOptioneStateOff();
 		useComposeMessage.setColorStateOff();
+		useComposeMessage.setMoreOptionOff();
+		useComposeMessage.setMoreLabelOptionOff();
 	};
 
 	const closeFormattingStylesOption = () => {

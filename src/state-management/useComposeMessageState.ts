@@ -169,6 +169,24 @@ interface ComposeMessageProps {
 	scheduleCheckEmailPopUpState: boolean;
 	setScheduleCheckEmailPopUpOn: () => void;
 	setScheduleCheckEmailPopUpOff: () => void;
+
+	moreOptionState: boolean;
+	setMoreOptionOn: () => void;
+	setMoreOptionOff: () => void;
+
+	moreLabelOptionState: boolean;
+	setMoreLabelOptionOn: () => void;
+	setMoreLabelOptionOff: () => void;
+
+	iconTickState: boolean;
+	setIconTickOn: () => void;
+
+	defaultScreenIconTickState: boolean;
+	setDefaultScreenIconTickOn: () => void;
+
+	recheckState: boolean;
+	setRecheckOn: () => void;
+	setRecheckOff: () => void;
 }
 
 const useComposeMessageState = create<ComposeMessageProps>((set) => ({
@@ -340,6 +358,24 @@ const useComposeMessageState = create<ComposeMessageProps>((set) => ({
 	scheduleCheckEmailPopUpState: false,
 	setScheduleCheckEmailPopUpOn: () => set((store) => ({ scheduleCheckEmailPopUpState: !store.scheduleCheckEmailPopUpState })),
 	setScheduleCheckEmailPopUpOff: () => set(() => ({ scheduleCheckEmailPopUpState: false })),
+
+	moreOptionState: false,
+	setMoreOptionOn: () => set((store) => ({ moreOptionState: !store.moreOptionState })),
+	setMoreOptionOff: () => set(() => ({ moreOptionState: false })),
+
+	moreLabelOptionState: false,
+	setMoreLabelOptionOn: () => set(() => ({ moreLabelOptionState: true })),
+	setMoreLabelOptionOff: () => set(() => ({ moreLabelOptionState: false })),
+
+	iconTickState: false,
+	setIconTickOn: () => set((store) => ({ iconTickState: !store.iconTickState })),
+
+	defaultScreenIconTickState: false,
+	setDefaultScreenIconTickOn: () => set((store) => ({ defaultScreenIconTickState: !store.defaultScreenIconTickState })),
+
+	recheckState: false,
+	setRecheckOn: () => set(() => ({ recheckState: true })),
+	setRecheckOff: () => set(() => ({ recheckState: false })),
 }));
 
 export default useComposeMessageState;

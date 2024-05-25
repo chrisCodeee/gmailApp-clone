@@ -9,13 +9,17 @@ import { useAsideState } from "../../../state-management";
 export const formatIconSize = 18;
 const ComposeFormatIcon = () => {
 	const { setComposeMessageStateOff } = useAsideState();
-	const { useComposeMessage, insertCloseFormatting, closeFormattingOption } = useCompose();
+	const { useComposeMessage, insertCloseFormatting, closeFormattingOption, closeFormattingStylesOption } = useCompose();
 
 	return (
 		<div className="d-flex justify-content-between flex-grow-1" onClick={useComposeMessage.setScheduleSendOff}>
 			<FormatIconWrapper>
 				<div onClick={closeFormattingOption} className="d-flex justify-content-between">
-					<div onClick={useComposeMessage.setFormattingOptioneStateOn}>
+					<div
+						onClick={() => {
+							useComposeMessage.setFormattingOptioneStateOn();
+							useComposeMessage.setRecheckOff();
+						}}>
 						<FormatIcon title="Formatting options">
 							<MdIcon.MdFormatColorText size={formatIconSize} />
 						</FormatIcon>
@@ -66,9 +70,17 @@ const ComposeFormatIcon = () => {
 					</FormatIcon>
 				</div>
 
-				<FormatIcon title="More options">
-					<MdIcon.MdMoreVert size={formatIconSize} />
-				</FormatIcon>
+				<div
+					onClick={() => {
+						useComposeMessage.setMoreOptionOn();
+						useComposeMessage.setAlignFormattingOptioneStateOff();
+						useComposeMessage.setColorStateOff();
+						closeFormattingStylesOption();
+					}}>
+					<FormatIcon title="More options">
+						<MdIcon.MdMoreVert size={formatIconSize} />
+					</FormatIcon>
+				</div>
 			</FormatIconWrapper>
 
 			<div
@@ -77,6 +89,8 @@ const ComposeFormatIcon = () => {
 					useComposeMessage.setFormattingOptioneStateOff();
 					useComposeMessage.setAlignSelectState(null, "left");
 					useComposeMessage.setConfidentialModeTimeShowOff();
+					closeFormattingOption();
+					useComposeMessage.setRecheckOff();
 				}}>
 				<FormatIcon title="Discard draft (Ctrl-Shift-D)" margin="0 0 0 auto">
 					<CgTrash size={formatIconSize} />

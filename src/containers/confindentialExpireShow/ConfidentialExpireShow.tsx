@@ -19,7 +19,7 @@ const ConfidentialExpireShow = () => {
 
 	return (
 		<>
-			<ConfidentialExpireShowStyle.ConfidentialExpireShowWrapper formattingOptionState={useComposeMessage.formattingOptionState.toString()} maximizeState={useComposeMessage.maximizeState.toString()}>
+			<ConfidentialExpireShowStyle.ConfidentialExpireShowWrapper formattingOptionState={useComposeMessage.formattingOptionState.toString()} maximizeState={useComposeMessage.maximizeState.toString()} recheckState={useComposeMessage.recheckState.toString()}>
 				<ConfidentialExpireShowStyle.ConfidentialExpireShowContainer>
 					<div className="d-flex">
 						<ConfidentialExpireShowStyle.ConfidentialIconLockWrapper className="col-2" maximizeState={useComposeMessage.maximizeState.toString()}>
