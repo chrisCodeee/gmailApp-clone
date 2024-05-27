@@ -9,7 +9,7 @@ const ConfidentialExpireShowWrapper = styled.div<{ formattingOptionState: string
 	margin: 0 1.5rem;
 	width: ${(props) => props.maximizeState === "true" && "78.2%"};
 	border-radius: 4px;
-	z-index: 2;
+	z-index: 1;
 
 	overflow: hidden;
 `;

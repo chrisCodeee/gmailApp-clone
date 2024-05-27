@@ -22,6 +22,7 @@ const useCompose = () => {
 		useComposeMessage.setColorStateOff();
 		useComposeMessage.setMoreOptionOff();
 		useComposeMessage.setMoreLabelOptionOff();
+		useComposeMessage.setMoreOptionTimeAndDateOff();
 	};
 
 	const closeFormattingStylesOption = () => {

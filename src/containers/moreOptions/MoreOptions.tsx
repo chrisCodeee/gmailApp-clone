@@ -10,14 +10,14 @@ const MoreOptions = () => {
 
 	return (
 		<>
-			<MoreOptionStyle.MoreOptionWrapper $maximizeState={useComposeMessage.maximizeState.toString()} onClick={useComposeMessage.setMoreOptionOff}>
-				<MoreOptionStyle.DefaultFullScreen>
-					<MoreOptionStyle.DefaultFullScreenWrapper $active={useComposeMessage.defaultScreenIconTickState.toString()} className="d-flex align-items-center" onClick={useComposeMessage.setDefaultScreenIconTickOn}>
+			<MoreOptionStyle.MoreOptionWrapper $maximizeState={useComposeMessage.maximizeState.toString()}>
+				<MoreOptionStyle.DefaultFullScreen onClick={useComposeMessage.setMoreOptionOff} onMouseEnter={useComposeMessage.setMoreOptionTimeAndDateOff}>
+					<MoreOptionStyle.DefaultFullScreenWrapper $active={useComposeMessage.defaultScreenIconTickState.toString()} onClick={useComposeMessage.setDefaultScreenIconTickOn}>
 						<span className="icon">{useComposeMessage.defaultScreenIconTickState && <IoCheckmarkSharp size={19} />}</span>
 						<span className="text">Default to full screen</span>
 					</MoreOptionStyle.DefaultFullScreenWrapper>
 				</MoreOptionStyle.DefaultFullScreen>
-				<MoreOptionStyle.FormatOption>
+				<MoreOptionStyle.FormatOption onMouseEnter={useComposeMessage.setMoreOptionTimeAndDateOff}>
 					<div className="labelOption" onMouseEnter={useComposeMessage.setMoreLabelOptionOn} onMouseLeave={useComposeMessage.setMoreLabelOptionOff}>
 						<div>Label</div>
 						<div>
@@ -25,13 +25,18 @@ const MoreOptions = () => {
 						</div>
 					</div>
 
-					<MoreOptionStyle.PlainTextMode $active={useComposeMessage.iconTickState.toString()} className="d-flex align-items-center" onClick={useComposeMessage.setIconTickOn}>
+					<MoreOptionStyle.PlainTextMode
+						$active={useComposeMessage.iconTickState.toString()}
+						onClick={() => {
+							useComposeMessage.setIconTickOn();
+							useComposeMessage.setMoreOptionOff();
+						}}>
 						<span className="icon">{useComposeMessage.iconTickState && <IoCheckmarkSharp size={19} />}</span>
 						<span className="text">Plain text mode</span>
 					</MoreOptionStyle.PlainTextMode>
 				</MoreOptionStyle.FormatOption>
 
-				<MoreOptionStyle.FormatOption>
+				<MoreOptionStyle.FormatOption onClick={useComposeMessage.setMoreOptionOff} onMouseEnter={useComposeMessage.setMoreOptionTimeAndDateOff}>
 					<div className="labelOption" onClick={useComposeMessage.setNotActiveOn}>
 						<div>Print</div>
 						<div>
@@ -49,7 +54,7 @@ const MoreOptions = () => {
 					</div>
 				</MoreOptionStyle.FormatOption>
 
-				<MoreOptionStyle.SetUpTimeAndDate>
+				<MoreOptionStyle.SetUpTimeAndDate onClick={useComposeMessage.setMoreOptionOff} onMouseEnter={useComposeMessage.setMoreOptionTimeAndDateOn} onMouseLeave={useComposeMessage.setMoreOptionTimeAndDateOff}>
 					<div className="setUpTime">
 						<div>
 							<IoMdCalendar size={22} />

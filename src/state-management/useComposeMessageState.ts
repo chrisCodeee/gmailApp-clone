@@ -187,6 +187,22 @@ interface ComposeMessageProps {
 	recheckState: boolean;
 	setRecheckOn: () => void;
 	setRecheckOff: () => void;
+
+	moreOptionTimeAndDateState: boolean;
+	setMoreOptionTimeAndDateOn: () => void;
+	setMoreOptionTimeAndDateOff: () => void;
+
+	scheduleAppointmentState: boolean;
+	setScheduleAppointmentOn: () => void;
+	setScheduleAppointmentOff: () => void;
+
+	scheduleNextStepState: boolean;
+	setScheduleNextStepOn: () => void;
+	setScheduleNextStepOff: () => void;
+
+	selectTimeState: boolean;
+	setSelectTimeOn: () => void;
+	setSelectTimeOff: () => void;
 }
 
 const useComposeMessageState = create<ComposeMessageProps>((set) => ({
@@ -376,6 +392,22 @@ const useComposeMessageState = create<ComposeMessageProps>((set) => ({
 	recheckState: false,
 	setRecheckOn: () => set(() => ({ recheckState: true })),
 	setRecheckOff: () => set(() => ({ recheckState: false })),
+
+	moreOptionTimeAndDateState: false,
+	setMoreOptionTimeAndDateOn: () => set((store) => ({ moreOptionTimeAndDateState: !store.moreOptionTimeAndDateState })),
+	setMoreOptionTimeAndDateOff: () => set(() => ({ moreOptionTimeAndDateState: false })),
+
+	scheduleAppointmentState: false,
+	setScheduleAppointmentOn: () => set(() => ({ scheduleAppointmentState: true })),
+	setScheduleAppointmentOff: () => set(() => ({ scheduleAppointmentState: false })),
+
+	selectTimeState: false,
+	setSelectTimeOn: () => set(() => ({ selectTimeState: true })),
+	setSelectTimeOff: () => set(() => ({ selectTimeState: false })),
+
+	scheduleNextStepState: false,
+	setScheduleNextStepOn: () => set((store) => ({ scheduleNextStepState: !store.scheduleNextStepState })),
+	setScheduleNextStepOff: () => set(() => ({ scheduleNextStepState: false })),
 }));
 
 export default useComposeMessageState;

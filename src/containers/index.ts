@@ -30,5 +30,5 @@ export { default as ScheduleSend } from "./scheduleSend/ScheduleSend";
 export { default as ScheduleSendPopUp } from "./scheduleSend/ScheduleSendPopUp";
 export { default as MoreOptions } from "./moreOptions/MoreOptions";
 export { default as MoreLabelOptions } from "./moreOptions/subMoreOptions/MoreLabelOption";
-export { default as SetTimeAndDate } from "./moreOptions/subMoreOptions/SetTimeAndDate";
 export { default as CheckSpelling } from "./checkSpelling/CheckSpelling";
+export { default as MoreOptionSetUpTimeAndDate } from "./moreOptionSetUpTimeAndDate/MoreOptionTimeAndDate";

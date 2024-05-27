@@ -27,6 +27,9 @@ const DefaultFullScreen = styled.div`
 `;
 
 const DefaultFullScreenWrapper = styled.div<{ $active: string }>`
+	display: flex;
+	align-items: center;
+
 	${hover};
 	padding: ${(props) => (props.$active === "true" ? "0.7rem 2rem 0.7rem 1.5rem" : "0.7rem 2rem 0.7rem 4.5rem")};
 
@@ -55,6 +58,9 @@ const FormatOption = styled.div`
 `;
 
 const PlainTextMode = styled.div<{ $active: string }>`
+	display: flex;
+	align-items: center;
+
 	${hover};
 	padding: ${(props) => (props.$active === "true" ? "0.7rem 2rem 0.7rem 1.5rem" : "0.7rem 2rem 0.7rem 4.5rem")};
 

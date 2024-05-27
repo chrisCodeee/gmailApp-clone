@@ -4,10 +4,10 @@ import { ComposeFormatIcon, ComposeMessageHeading } from "./component";
 import { Link } from "react-router-dom";
 import * as Container from "..";
 import { useCompose } from "../../hooks";
+import { EditAppointment } from "../moreOptionSetUpTimeAndDate/components";
 
 const Compose = () => {
 	const { textAreaStyle, closeAllState, closeFormattingOption, useComposeMessage } = useCompose();
-	// const [isContentEditable, setIsContentEditable] = useState(true);
 
 	return (
 		<>
@@ -81,7 +81,12 @@ const Compose = () => {
 						{/* Compose Message Footer */}
 						<ComposeStyle.ComposeMessageFooter onClick={useComposeMessage.setRecipientStateOff}>
 							<ComposeStyle.BtnSend onClick={closeFormattingOption}>
-								<ComposeStyle.BtnName title="Send (Ctrl-Enter)" confidentialMode={useComposeMessage.confidentialModeTimeShow.toString()} onClick={useComposeMessage.setScheduleSendOff}>
+								<ComposeStyle.BtnName
+									title="Send (Ctrl-Enter)"
+									confidentialMode={useComposeMessage.confidentialModeTimeShow.toString()}
+									onClick={() => {
+										useComposeMessage.setScheduleSendOff();
+									}}>
 									Send
 								</ComposeStyle.BtnName>
 
@@ -121,6 +126,8 @@ const Compose = () => {
 					{useComposeMessage.moreOptionState && <Container.MoreOptions />}
 
 					{useComposeMessage.recheckState && <Container.CheckSpelling />}
+
+					{useComposeMessage.selectTimeState && <EditAppointment />}
 				</ComposeStyle.ComposeMessageWrapper>
 			</ComposeStyle.ComposeContainer>
 		</>

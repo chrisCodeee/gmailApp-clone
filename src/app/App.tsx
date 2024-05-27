@@ -6,6 +6,8 @@ import { ComposeMessageMinimized } from "../containers/compose/component";
 import { useCompose } from "../hooks";
 import { ScheduleCheckEmailPopUp } from "../containers/scheduleSend/component";
 import MoreLabelOption from "../containers/moreOptions/subMoreOptions/MoreLabelOption";
+import MoreOptionTimeAndDate from "../containers/moreOptionSetUpTimeAndDate/MoreOptionTimeAndDate";
+import { ScheduleAppointment } from "../containers/moreOptionSetUpTimeAndDate/components";
 
 function App() {
 	const { showMoreState, supportState, googleAppState, accountProfileState } = useNavBarState();
@@ -42,6 +44,10 @@ function App() {
 			{useComposeMessage.scheduleCheckEmailPopUpState && <ScheduleCheckEmailPopUp />}
 
 			{useComposeMessage.moreLabelOptionState && <MoreLabelOption />}
+
+			{useComposeMessage.moreOptionTimeAndDateState && <MoreOptionTimeAndDate />}
+
+			{useComposeMessage.scheduleAppointmentState && <ScheduleAppointment />}
 		</AppWrapper>
 	);
 }
