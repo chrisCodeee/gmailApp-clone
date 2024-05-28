@@ -48,6 +48,8 @@ function App() {
 			{useComposeMessage.moreOptionTimeAndDateState && <MoreOptionTimeAndDate />}
 
 			{useComposeMessage.scheduleAppointmentState && <ScheduleAppointment />}
+
+			<Container.SelectContact />
 		</AppWrapper>
 	);
 }

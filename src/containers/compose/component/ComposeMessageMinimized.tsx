@@ -5,13 +5,15 @@ import { ComposeMessageHeadingWrapper, ResizeIcon, ResizeIconWrapper } from "../
 import { useAsideState, useComposeMessageState } from "../../../state-management";
 import { resizeIconSize } from "./ComposeMessageHeading";
 import { LuMinimize2 } from "react-icons/lu";
+import { useCompose } from "../../../hooks";
 
 const ComposeMessageMinimized = () => {
 	const { setComposeMessageStateOn } = useAsideState();
+	const { useComposeMessage } = useCompose();
 
 	const { setComposeMessageMinimizeStateOn, setComposeMessageMinimizeStateOff, maximizeState } = useComposeMessageState();
 	return (
-		<ComposeMessageHeadingWrapper>
+		<ComposeMessageHeadingWrapper $confidentialModeState={useComposeMessage.confidentialModeTimeShow.toString()}>
 			<div
 				onClick={() => {
 					setComposeMessageStateOn();

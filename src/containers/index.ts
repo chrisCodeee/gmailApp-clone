@@ -32,3 +32,4 @@ export { default as MoreOptions } from "./moreOptions/MoreOptions";
 export { default as MoreLabelOptions } from "./moreOptions/subMoreOptions/MoreLabelOption";
 export { default as CheckSpelling } from "./checkSpelling/CheckSpelling";
 export { default as MoreOptionSetUpTimeAndDate } from "./moreOptionSetUpTimeAndDate/MoreOptionTimeAndDate";
+export { default as SelectContact } from "./selectContact/SelectContact";

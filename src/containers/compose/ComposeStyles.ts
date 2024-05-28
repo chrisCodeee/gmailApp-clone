@@ -184,17 +184,19 @@ const FormatIconContainer = styled.button<{ margin: string; padding: string }>`
 	}
 `;
 
-const ComposeMessageHeadingWrapper = styled.div`
+const ComposeMessageHeadingWrapper = styled.div<{ $confidentialModeState: string }>`
 	position: fixed;
 	cursor: pointer;
 	bottom: 0;
 	right: 65px;
-	border-radius: 3px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
 	z-index: 200;
 	width: 260px;
 	font-weight: 500;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-	background-color: rgb(242, 246, 252);
+	background-color: ${(props) => (props.$confidentialModeState === "true" ? "rgb(1, 87, 155) " : "rgb(242, 246, 252)")};
+	color: ${(props) => (props.$confidentialModeState === "true" ? "#fff " : "inherit")};
 	display: flex;
 	justify-content: space-between;
 	padding: 1rem 1rem 1rem 1.5rem;

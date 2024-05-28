@@ -55,7 +55,7 @@ const Compose = () => {
 								<input type="text" placeholder="Subject" className="w-100" value={useComposeMessage.emailSubject} onChange={(e) => useComposeMessage.setEmailSubject(e.target.value)} />
 							</ComposeStyle.ComposeFormInputContainer>
 
-							<div className="mt-2" onClick={useComposeMessage.setRecipientStateOff} style={{ height: useComposeMessage.maximizeState ? "443px" : "322px", position: "relative" }}>
+							<div className="mt-2" onClick={useComposeMessage.setRecipientStateOff} style={{ height: useComposeMessage.maximizeState ? "443px" : "322px", position: "relative", overflowY: "hidden" }}>
 								{/* <ComposeStyle.ComposeMessageTextArea textStyle={textAreaStyle} /> */}
 								<ComposeStyle.ComposeMessageTextArea textstyle={textAreaStyle} contentEditable onClick={useComposeMessage.setComposeHeading} onPointerLeave={useComposeMessage.setComposeHeadingOff}>
 									{useComposeMessage.composeUrlText.map((text) => (
