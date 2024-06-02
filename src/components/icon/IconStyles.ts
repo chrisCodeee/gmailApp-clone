@@ -34,7 +34,7 @@ const IconContainer = styled.div`
 	}
 
 	&:hover::after {
-		background-color: rgba(180, 182, 187, 0.3);
+		background-color: rgba(180, 182, 187, 0.1);
 		transform: scale(1);
 		opacity: 1;
 		transform-origin: center;

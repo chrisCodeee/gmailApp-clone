@@ -7,7 +7,7 @@ import useListParams from "./useListParams";
 
 const menuList = () => {
 	const { moreState, categoryState, setCategoryStateOn, setMoreStateOn } = useAsideState();
-	const { list_1, list_2, list_3, list_4, more, category, iconSize } = useListParams();
+	const { list_1, list_2, list_4, more, category, iconSize } = useListParams();
 	return (
 		<>
 			<ListItemsWrapper>
@@ -38,10 +38,6 @@ const menuList = () => {
 								))}
 							</>
 						)}
-
-						{list_3.map((items) => (
-							<MenuListItems icon={items.icon} link={items.link} key={items.name} />
-						))}
 					</>
 				)}
 			</ListItemsWrapper>

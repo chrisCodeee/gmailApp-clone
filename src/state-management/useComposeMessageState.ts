@@ -203,6 +203,20 @@ interface ComposeMessageProps {
 	selectTimeState: boolean;
 	setSelectTimeOn: () => void;
 	setSelectTimeOff: () => void;
+
+	selectContactDropdownState: boolean;
+	setSelectContactDropdownOn: () => void;
+	setSelectContactDropdownOff: () => void;
+
+	contactTypeState: string;
+	contactState: boolean;
+	contactShow: boolean;
+	contactCount: number;
+	setContactShowOn: (state: boolean, contactCount: number, contactState: boolean, contactTypeState: string) => void;
+
+	contactHoverState: number;
+	setContactHoverOn: (item: number) => void;
+	// setContactHoverOff: () => void;
 }
 
 const useComposeMessageState = create<ComposeMessageProps>((set) => ({
@@ -408,6 +422,20 @@ const useComposeMessageState = create<ComposeMessageProps>((set) => ({
 	scheduleNextStepState: false,
 	setScheduleNextStepOn: () => set((store) => ({ scheduleNextStepState: !store.scheduleNextStepState })),
 	setScheduleNextStepOff: () => set(() => ({ scheduleNextStepState: false })),
+
+	selectContactDropdownState: false,
+	setSelectContactDropdownOn: () => set((store) => ({ selectContactDropdownState: !store.selectContactDropdownState })),
+	setSelectContactDropdownOff: () => set(() => ({ selectContactDropdownState: false })),
+
+	contactTypeState: "",
+	contactState: false,
+	contactShow: false,
+	contactCount: 0,
+	setContactShowOn: (state, count, contactState, contactTypeState) => set(() => ({ contactShow: state, contactCount: count, contactState: contactState, contactTypeState: contactTypeState })),
+
+	contactHoverState: 0,
+	setContactHoverOn: (value) => set(() => ({ contactHoverState: value })),
+	// setContactHoverOff: () => set(() => ({ contactHoverState: false })),
 }));
 
 export default useComposeMessageState;

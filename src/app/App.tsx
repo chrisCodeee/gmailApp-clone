@@ -49,7 +49,7 @@ function App() {
 
 			{useComposeMessage.scheduleAppointmentState && <ScheduleAppointment />}
 
-			<Container.SelectContact />
+			{/* <Container.SelectContact /> */}
 		</AppWrapper>
 	);
 }

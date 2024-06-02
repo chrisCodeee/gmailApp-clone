@@ -56,3 +56,4 @@ export { default as GoogleFiWirelessIcon } from "./googleFiWirelessIcon.png";
 export { default as GooglePasswordIcon } from "./googlePasswordIcon.png";
 export { default as ConfidentialModeImage } from "./lock_clock_white_24dp.png";
 export { default as ContactIcon } from "./contacts_32dp.png";
+export { default as NoData } from "./no_data.png";
