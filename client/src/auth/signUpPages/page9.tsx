@@ -5,13 +5,30 @@ import SignUp from "../SignUp";
 import { FormEvent } from "react";
 
 const page9 = () => {
-	const { user } = useAuthState();
+	const { user, clearUsers } = useAuthState();
 	const navigate = useNavigate();
 
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
+		clearUsers();
 
 		navigate("/");
+		localStorage.setItem("user", JSON.stringify(user));
+		window.location.reload();
+
+		// axios
+		// 	.post(`http://localhost:8080/users/register/`, user)
+		// 	.then((res) => {
+		// 		if (res.status === 200) {
+		// 			console.log(res.data);
+		// 			navigate("/");
+		// 			localStorage.setItem("user", JSON.stringify(res.data));
+		// 			window.location.reload();
+		// 		}
+		// 	})
+		// 	.catch((err) => {
+		// 		console.log(err);
+		// 	});
 	};
 
 	return (

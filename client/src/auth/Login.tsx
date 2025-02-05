@@ -15,13 +15,34 @@ const Login = () => {
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
 
-		const { error } = validateSigninEmail(signinDetails.username);
+		const { error } = validateSigninEmail(signinDetails.username.trim());
 
 		if (error) {
 			return setError("username", error.details[0].message);
 		}
 
-		navigate("/login/confirmpassword");
+		// console.log(signinDetails);
+
+		// Without Backend
+		if (signinDetails.username) {
+			localStorage.setItem("username", JSON.stringify(signinDetails.username));
+			navigate("/login/confirmpassword");
+		}
+
+		// axios
+		// 	// .post("https://gmailapp-backend-production.up.railway.app/users/checkloginemail", signinDetails)
+		// 	.post("http://localhost:8080/users/checkloginemail", signinDetails)
+		// 	.then((res) => {
+		// 		if (res.status === 200) {
+		// 			// console.log(res.data);
+		// 			// localStorage.setItem("user", JSON.stringify(res.data));
+		// 			navigate("/login/confirmpassword");
+		// 		}
+		// 	})
+		// 	.catch((err) => {
+		// 		console.log(err);
+		// 		setError("username", "Couldn't find your Google Account");
+		// 	});
 	};
 
 	return (

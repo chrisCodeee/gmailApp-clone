@@ -20,6 +20,24 @@ interface NavBarProps {
 	accountProfileState: boolean;
 	setAccountProfileStateOn: () => void;
 	setAccountProfileStateOff: () => void;
+
+	mobileComposeState: boolean;
+	setMobileComposeState: (state: boolean) => void;
+
+	mobileSuccessMessageState: boolean;
+	setMobileSuccessMesssage: (state: boolean) => void;
+
+	helpAndFeedback: boolean;
+	setHelpAndFeedback: (state: boolean) => void;
+
+	settingSuccessMessage: boolean;
+	setSettingSuccessMessage: (state: boolean) => void;
+
+	sendFeedback: boolean;
+	setSendFeedback: (state: boolean) => void;
+
+	accountAndSystemInfoState: boolean;
+	setAccountAndSystemInfoState: (state: boolean) => void;
 }
 
 const useNavBarState = create<NavBarProps>((set) => ({
@@ -42,6 +60,24 @@ const useNavBarState = create<NavBarProps>((set) => ({
 	accountProfileState: false,
 	setAccountProfileStateOn: () => set((store) => ({ accountProfileState: !store.accountProfileState })),
 	setAccountProfileStateOff: () => set(() => ({ accountProfileState: false })),
+
+	mobileComposeState: false,
+	setMobileComposeState: (state) => set(() => ({ mobileComposeState: state })),
+
+	mobileSuccessMessageState: false,
+	setMobileSuccessMesssage: (state) => set(() => ({ mobileSuccessMessageState: state })),
+
+	helpAndFeedback: false,
+	setHelpAndFeedback: (state) => set(() => ({ helpAndFeedback: state })),
+
+	settingSuccessMessage: false,
+	setSettingSuccessMessage: (state) => set(() => ({ settingSuccessMessage: state })),
+
+	sendFeedback: false,
+	setSendFeedback: (state) => set(() => ({ sendFeedback: state })),
+
+	accountAndSystemInfoState: false,
+	setAccountAndSystemInfoState: (state) => set(() => ({ accountAndSystemInfoState: state })),
 }));
 
 export default useNavBarState;

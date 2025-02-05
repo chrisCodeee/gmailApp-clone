@@ -2,7 +2,6 @@ import { FormEvent, ReactNode } from "react";
 import { useAuthState } from "../../state-management";
 import { USerDetails } from "../../state-management/useAuthState";
 import { MdArrowDropDown } from "react-icons/md";
-import { AccountPhoto } from "../../assets";
 import { ProfileSwitchWrapper } from "../AuthStyles";
 import { FaCircleUser } from "react-icons/fa6";
 
@@ -15,12 +14,10 @@ interface FormProps {
 	handleSubmit: (e: FormEvent) => void;
 }
 const Form = (props: FormProps) => {
-	const { clearStates } = useAuthState();
+	const { clearStates, signinDetails } = useAuthState();
 
 	const handleSubmit = (e: FormEvent) => {
 		props.handleSubmit(e);
-
-		console.log(props.users);
 	};
 	return (
 		<>
@@ -36,11 +33,11 @@ const Form = (props: FormProps) => {
 
 					{props.loginState && (
 						<ProfileSwitchWrapper className="d-flex align-items-center mt-4">
-							{/* <img className="me-3" src={AccountPhoto} alt="profile picture" style={{ height: "2.5rem", borderRadius: "100%" }} /> */}
 							<FaCircleUser size={20} className="me-3" />
+							{/* <User /> */}
 							<div className="d-flex">
-								<span>..............@gmail.com</span>
-								<div className="ms-1">
+								<span style={{ fontSize: "1.5rem" }}>{signinDetails.username}</span>
+								<div className="d-flex align-items-center ms-1">
 									<MdArrowDropDown size={20} />
 								</div>
 							</div>

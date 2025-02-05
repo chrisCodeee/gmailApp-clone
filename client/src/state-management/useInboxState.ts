@@ -1,5 +1,12 @@
 import { create } from "zustand";
-
+export type InboxType = {
+	email: string;
+	_id: number;
+	subject: string;
+	body: string;
+	date: string;
+	sender: string;
+};
 interface InboxProps {
 	inboxState: boolean;
 	setInboxStateOn: () => void;
@@ -22,6 +29,23 @@ interface InboxProps {
 	selectInputToolState: boolean;
 	setSelectInputToolStateOn: () => void;
 	setSelectInputToolStateOff: () => void;
+
+	messages: InboxType[];
+	setMessage: (message: any) => void;
+
+	messageSentState: boolean;
+	setMessageSentState: (state: boolean) => void;
+
+	errorMessage: string;
+	setErrorMessage: (text: string) => void;
+
+	isStar: number;
+	isStarState: boolean;
+	setIsStar: (id: number) => void;
+
+	mobileCategory: string;
+	count?: string | number;
+	setMobileCategory: (category: string, count?: string | number) => void;
 }
 
 const useInboxState = create<InboxProps>((set) => ({
@@ -46,6 +70,23 @@ const useInboxState = create<InboxProps>((set) => ({
 	selectInputToolState: false,
 	setSelectInputToolStateOn: () => set((store) => ({ selectInputToolState: !store.selectInputToolState })),
 	setSelectInputToolStateOff: () => set(() => ({ selectInputToolState: false })),
+
+	messages: [],
+	setMessage: (message) => set(() => ({ messages: message })),
+
+	messageSentState: false,
+	setMessageSentState: (state) => set(() => ({ messageSentState: state })),
+
+	errorMessage: "",
+	setErrorMessage: (text) => set(() => ({ errorMessage: text })),
+
+	isStar: NaN,
+	isStarState: false,
+	setIsStar: (id) => set((store) => ({ isStar: id, isStarState: !store.isStarState })),
+
+	mobileCategory: "",
+	count: "",
+	setMobileCategory: (category, count) => set(() => ({ mobileCategory: category, count: count })),
 }));
 
 export default useInboxState;

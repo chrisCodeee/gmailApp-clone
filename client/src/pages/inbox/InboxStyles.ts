@@ -1,6 +1,56 @@
 import styled from "styled-components";
 
-const InboxContainer = styled.div``;
+const InboxContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+
+	& input {
+		border-radius: 3px;
+		border: 2px solid #fff;
+
+		&:focus {
+			border: 2px solid #000;
+		}
+	}
+
+	& .btn-cancel {
+		background-color: rgba(229, 236, 247, 0.349);
+		outline: 1px solid rgba(0, 0, 0, 0.1);
+		border-radius: 2px;
+		font-weight: 500;
+		font-size: 1.3rem;
+		padding: 0.3rem 1.2rem 0.5rem 1.2rem;
+		display: none;
+
+		&:hover {
+			background-color: rgba(229, 236, 247, 0.9);
+		}
+	}
+
+	& input:focus + .btn-cancel {
+		display: block;
+	}
+
+	& .nomessage {
+		& .inboxsetting {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	& .footer {
+		& .link {
+			cursor: pointer;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+`;
 
 const CategoryContainer = styled.div`
 	border-bottom: 1px solid rgba(180, 182, 187, 0.3);
@@ -60,6 +110,25 @@ const InboxMessageContainer = styled.button`
 	cursor: pointer;
 	transition: all 0.1s;
 	width: 100%;
+	position: relative;
+
+	@media screen and (max-width: 1140px) {
+		&::before {
+			content: "";
+			display: block;
+			width: 0;
+			background-color: rgb(11, 87, 208);
+			height: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		&:focus {
+			&::before {
+				width: 4px;
+			}
+		}
+	}
 
 	& input,
 	& .iconStar {
@@ -85,14 +154,17 @@ const InboxMessageContainer = styled.button`
 		border: 0.3px solid rgba(180, 182, 187, 0.3);
 		// box-shadow: 0 1.5px 0 transparent;
 		border-top-color: transparent;
+
+		&::before {
+			width: 4px;
+		}
 	}
 `;
 
 const InboxMessageWrapper = styled.div`
 	align-items: center;
-	padding: 0 0rem 0 0.2rem;
 	margin: 0;
-	display: flex;
+	// display: flex;
 	flex-wrap: no-wrap;
 `;
 
@@ -100,12 +172,15 @@ const InboxSubjectWrapper = styled.div`
 	display: flex;
 	// padding: 0 0rem 0 0;
 	align-items: center;
-	width: 260px;
+	// width: 280px;
 	cursor: pointer;
+
+	@media screen and (max-width: 1140px) {
+		width: fit-content;
+	}
 `;
 
 const InboxMessageBodyWrapper = styled.div`
-	display: flex;
 	align-items: center;
 	align-self: stretch;
 	flex-grow: 1;
@@ -113,7 +188,6 @@ const InboxMessageBodyWrapper = styled.div`
 
 const InboxMessageBodyWrapperSubject = styled.div`
 	flex-grow: 1;
-	display: flex;
 	align-items: center;
 `;
 

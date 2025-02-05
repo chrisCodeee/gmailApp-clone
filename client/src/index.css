@@ -49,8 +49,10 @@ body {
 	font-size: 1.4rem;
 	background-color: var(--color-primary);
 	height: 100vh;
+	width: 100vw;
 	color: var(--color-text);
 	user-select: inherit;
+	/* overflow: hidden !important; */
 }
 
 h4 {
@@ -93,7 +95,13 @@ li {
 	padding: 0;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1140px) {
+	html {
+		font-size: 62%;
+	}
+}
+
+/* @media screen and (max-width: 992px) {
 	html {
 		font-size: 55%;
 	}
@@ -121,7 +129,7 @@ li {
 	html {
 		font-size: 25%;
 	}
-}
+} */
 
 /* Inbox Hover Icon State */
 .iconHover {
@@ -171,4 +179,8 @@ li {
 	top: -15px;
 	transform: scale(0.9);
 	background-color: #fff;
+}
+
+.animate__animated {
+	--animate-duration: 600ms;
 }

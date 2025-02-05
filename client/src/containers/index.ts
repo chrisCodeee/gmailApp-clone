@@ -1,4 +1,7 @@
 export { default as NavBar } from "./navBar/NavBar";
+export { default as MobileNavBar } from "./mobileNavBar/MobileNavBar";
+export { default as MobileViewMenu } from "./mobileViewMenu/MobileViewMenu";
+export { default as MobileViewSettings } from "./mobileViewSettings/MobileViewSettings";
 export { default as Main } from "./main/Main";
 export { default as Aside } from "./aside/Aside";
 export { default as Messages } from "./messages/Messages";
@@ -33,3 +36,5 @@ export { default as MoreLabelOptions } from "./moreOptions/subMoreOptions/MoreLa
 export { default as CheckSpelling } from "./checkSpelling/CheckSpelling";
 export { default as MoreOptionSetUpTimeAndDate } from "./moreOptionSetUpTimeAndDate/MoreOptionTimeAndDate";
 export { default as SelectContact } from "./selectContact/SelectContact";
+export { default as MessageSentAlert } from "./messageSentAlert/MessageSentAlert";
+export { default as MobileCompose } from "./mobileViewCompose/MobileCompose";

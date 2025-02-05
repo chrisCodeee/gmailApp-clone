@@ -3,7 +3,6 @@ import { MdArrowDropDown, MdOutlineRefresh, MdKeyboardArrowRight, MdKeyboardArro
 import { BiSolidKeyboard } from "react-icons/bi";
 import { Icon } from "../../components";
 import { FlexWrapper, FlexWrapperArrow, FlexWrapperCheckbox, MessageCount, UpperMessageWrapper } from "./MessageStyles";
-import { inboxMessageDetails, inboxMessageDetailsPage2 } from "../../pages/inbox/useInboxParams";
 import { useInboxState } from "../../state-management";
 import { useState } from "react";
 
@@ -16,10 +15,10 @@ const UpperMessage = () => {
 
 	const [inputCheckboxState, setInputCheckboxState] = useState(false);
 
-	const { setSelectMesssageTypeStateOn, setSelectMessageTypeStateOff, setMarkAllMessageReadStateOn, setMarkAllMessageReadStateOff, setSelectInputToolStateOn, setSelectInputToolStateOff } = useInboxState();
+	const { setSelectMesssageTypeStateOn, setSelectMessageTypeStateOff, setMarkAllMessageReadStateOn, setMarkAllMessageReadStateOff, setSelectInputToolStateOn, setSelectInputToolStateOff, messages } = useInboxState();
 	return (
 		<>
-			<UpperMessageWrapper>
+			<UpperMessageWrapper className="d-none d-xl-flex">
 				<FlexWrapper>
 					<FlexWrapper>
 						<FlexWrapperCheckbox title="Select" onClick={() => setInputCheckboxState(!inputCheckboxState)}>
@@ -59,7 +58,8 @@ const UpperMessage = () => {
 
 				<FlexWrapper>
 					<MessageCount>
-						{inboxMessageDetails.length - (inboxMessageDetails.length - 1)}-{inboxMessageDetails.length} of {inboxMessageDetails.length + inboxMessageDetailsPage2.length}
+						{/* {inboxMessageDetails.length - (inboxMessageDetails.length - 1)}-{inboxMessageDetails.length} of {inboxMessageDetails.length + inboxMessageDetailsPage2.length} */}
+						1&ndash;{messages.length} of {messages.length}
 					</MessageCount>
 					<div title="Newer">
 						<Icon>
